@@ -1,0 +1,36 @@
+articles:
+    read_more: "Read more"
+    words: "words"
+    readingtime: "minute read"
+    share: "Share"
+    comments: "Comments"
+
+    linked_posts:
+        older: "Older"
+        newer: "Newer"
+
+search:
+    placeholder: "Search"
+
+pagination:
+    previous: "Prev"
+    next: "Next"
+
+profile:
+    follow_button: "Follow"
+    tags: "Tags"
+    posts: "Posts"
+
+page_not_found:
+    title: "404 - page not found"
+    subtitle: "The content you're looking for doesn't seem to exist."
+
+widgets:
+    categories:
+        title: "Categories"
+    recent_articles:
+        title: "Recent"   
+    tag_cloud:
+        title: "Tag cloud" 
+    tags:
+        title: "Tags"

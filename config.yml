@@ -1,0 +1,50 @@
+baseurl: "http://mvpotter.com/"
+languageCode: "en-us"
+canonifyurls: true
+title: "Michael Potter"
+theme: "hugo-icarus-theme"
+disqusShortname: "mvpotter"
+googleAnalytics: "UA-10647442-16)"
+paginate: 10
+
+params:
+  avatar: "images/avatar.jpg"
+  subtitle: ""
+
+  author: "Michael Potter"
+  bio: ""
+  location: "Novosibirsk, Russia"
+  site_description: ""
+  copyright: "Michael Potter."
+  avatar: "images/avatar.jpg"
+  logo: "images/avatar.jpg"
+  profile:
+    follow_button: "https://github.com/mvpotter"
+
+  # Format dates with Go's time formatting
+  date_format: "2006-01-02"
+
+  widgets:
+    recent_articles: true
+    categories: true
+    tags: true
+    tag_cloud: true
+
+  menu:
+      - before: true
+        label: "Home"
+        link: "/"
+      - before: false
+        label: "CV"
+        link: "cv.pdf"
+
+social:
+    github         : "mvpotter"
+    bitbucket      : "mvpotter"
+    instagram      : ""
+    medium         : ""
+    wordpress      : ""
+    linkedin       : "supermegapotter"
+    stackoverflow  : "1309406"
+    reddit         : ""
+    twitter        : "dude1366"

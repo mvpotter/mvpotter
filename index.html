@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" href="http://mvpotter.com/apple-touch-icon.png" />
     <link rel="stylesheet" href="http://mvpotter.com/css/style.css">
     <link rel="stylesheet" href="http://mvpotter.com/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://mvpotter.com/css/vs.css">
+    <link rel="stylesheet" href="http://mvpotter.com/css/monokai.css">
     <link rel="stylesheet" href="http://mvpotter.com/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
@@ -28,7 +28,7 @@
 <meta property="og:url" content="http://mvpotter.com/" />
 
 
-<meta property="og:updated_time" content="2016-09-03T10:42:43&#43;07:00"/>
+<meta property="og:updated_time" content="2016-10-17T21:08:31&#43;07:00"/>
 
 
 
@@ -150,12 +150,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        1
+        2
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          3
+          6
         
         <span>
             Tags
@@ -241,6 +241,150 @@
     <article class="article article-type-post" itemscope="" itemprop="blogPost">
         <div class="article-inner">
             
+            <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" itemprop="url">
+                <img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png" class="article-banner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/">
+    <h1 class="article-title" itemprop="name">
+        Springfox plugin for adding auth params
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2016-10-17 21:08:31 &#43;0700 ICT" itemprop="datePublished">2016-10-17</time>
+            &middot;
+            440
+            words
+            &middot;
+            3
+            minute read
+        </div>
+
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                <a class="article-category-link" href="http://mvpotter.com/tags/springfox">Springfox</a>
+                &middot;
+                
+                <a class="article-category-link" href="http://mvpotter.com/tags/swagger">Swagger</a>
+                &middot;
+                
+                <a class="article-category-link" href="http://mvpotter.com/tags/spring">Spring</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with <a href="http://springfox.github.io/springfox/docs/current/">Springfox reference</a> it could be done using <em>globalOperationParameters</em>, however in this case parameter will be added to every endpoint. Dilip Krishnan <a href="http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation">suggests</a> to create multiple dockets to separate public api from private one. But in my case the only method of public api is <em>/login</em> and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" data-id="2d6c522f438e81e7e96fde925ff10a33" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params//#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
             <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" itemprop="url">
                 <img src="http://mvpotter.com/post/2016/09/spring-boot-debian-package.png" class="article-banner">
             
@@ -255,7 +399,7 @@
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-09-03 10:42:43 &#43;0700 KRAT" itemprop="datePublished">2016-09-03</time>
+            <time datetime="2016-09-03 10:42:43 &#43;0700 ICT" itemprop="datePublished">2016-09-03</time>
             &middot;
             401
             words
@@ -301,6 +445,7 @@
             </div>
             <footer class="article-footer">
     <a data-url="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" data-id="da8c86318dd7b60d82cafa3a8497fbb7" class="article-share-link">
+        <i class="fa fa-share"></i>
         Share
     </a>
     
@@ -397,6 +542,25 @@
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="thumbnail">
+                    
+                        <span style="background-image:url(http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png)" alt="Michael Potter" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
+                    <p class="item-date">
+                        <time datetime="2016-10-17 21:08:31 &#43;0700 ICT" itemprop="datePublished">2016-10-17</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="thumbnail">
                     
                         <span style="background-image:url(http://mvpotter.com/post/2016/09/spring-boot-debian-package.png)" alt="Michael Potter" class="thumbnail-image"></span>
@@ -407,7 +571,7 @@
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
                     <p class="item-date">
-                        <time datetime="2016-09-03 10:42:43 &#43;0700 KRAT" itemprop="datePublished">2016-09-03</time>
+                        <time datetime="2016-09-03 10:42:43 &#43;0700 ICT" itemprop="datePublished">2016-09-03</time>
                     </p>
                 </div>
             </li>
@@ -447,8 +611,29 @@
             </li>
             
             <li class="category-list-item">
+                <a class="category-list-link" href="http://mvpotter.com/tags/spring">
+                    spring
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
                 <a class="category-list-link" href="http://mvpotter.com/tags/spring-boot">
                     spring-boot
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://mvpotter.com/tags/springfox">
+                    springfox
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://mvpotter.com/tags/swagger">
+                    swagger
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -472,7 +657,13 @@
         
         <a href="http://mvpotter.com/tags/maven" style="font-size: 12px;">maven</a>
         
+        <a href="http://mvpotter.com/tags/spring" style="font-size: 12px;">spring</a>
+        
         <a href="http://mvpotter.com/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
+        
+        <a href="http://mvpotter.com/tags/springfox" style="font-size: 12px;">springfox</a>
+        
+        <a href="http://mvpotter.com/tags/swagger" style="font-size: 12px;">swagger</a>
         
     </div>
 </div>
@@ -520,33 +711,6 @@ MathJax.Hub.Config({
 </script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter39399375 = new Ya.Metrika({
-                    id:39399375,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/39399375" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
 </body>
 </html>

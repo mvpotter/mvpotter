@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Spring boot debian package &middot; Michael Potter</title>
+    <title>Springfox plugin for adding auth params &middot; Michael Potter</title>
     <meta name="generator" content="Hugo 0.16" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="">
     
     
-    <link rel="canonical" href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/"/>
+    <link rel="canonical" href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/"/>
     <link rel="icon" href="http://mvpotter.com/favicon.ico">
     <link rel="apple-touch-icon" href="http://mvpotter.com/apple-touch-icon.png" />
     <link rel="stylesheet" href="http://mvpotter.com/css/style.css">
@@ -19,14 +19,14 @@
     <link rel="stylesheet" href="http://mvpotter.com/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Spring boot debian package" />
-<meta property="og:description" content="Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative article described how to achieve the goal, however it uses Gradle ospackage plugin, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on GiHub.
+    <meta property="og:title" content="Springfox plugin for adding auth params" />
+<meta property="og:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" />
+<meta property="og:url" content="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" />
 
 
-<meta property="og:updated_time" content="2016-09-03T10:42:43&#43;07:00"/>
+<meta property="og:updated_time" content="2016-10-17T21:08:31&#43;07:00"/>
 
 
 
@@ -39,13 +39,13 @@
 
     
     
-<meta itemprop="name" content="Spring boot debian package">
-<meta itemprop="description" content="Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative article described how to achieve the goal, however it uses Gradle ospackage plugin, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on GiHub.
+<meta itemprop="name" content="Springfox plugin for adding auth params">
+<meta itemprop="description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
 ">
 
 
-<meta itemprop="dateModified" content="2016-09-03T10:42:43&#43;07:00" />
-<meta itemprop="wordCount" content="401">
+<meta itemprop="dateModified" content="2016-10-17T21:08:31&#43;07:00" />
+<meta itemprop="wordCount" content="440">
 
 
 
@@ -57,8 +57,8 @@
 
 
 
-<meta name="twitter:title" content="Spring boot debian package"/>
-<meta name="twitter:description" content="Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative article described how to achieve the goal, however it uses Gradle ospackage plugin, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on GiHub.
+<meta name="twitter:title" content="Springfox plugin for adding auth params"/>
+<meta name="twitter:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
 "/>
 <meta name="twitter:site" content="@dude1366"/>
 
@@ -262,28 +262,31 @@
     <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
         <div class="article-inner">
             
-                <img src="http://mvpotter.com/post/2016/09/spring-boot-debian-package.png" class="article-banner">
+                <img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png" class="article-banner">
             
 
             <header class="article-header">
-    <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/">
+    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/">
     <h1 class="article-title" itemprop="name">
-        Spring boot debian package
+        Springfox plugin for adding auth params
     </h1>
     </a>
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-09-03 10:42:43 &#43;0700 ICT" itemprop="datePublished">2016-09-03</time>
+            <time datetime="2016-10-17 21:08:31 &#43;0700 ICT" itemprop="datePublished">2016-10-17</time>
             &middot;
-            401
+            440
             words
             &middot;
-            2
+            3
             minute read
         </div>
 
         
+        
+            
+            
         
 
         
@@ -292,13 +295,13 @@
             <div class="article-category">
                 <i class="fa fa-tags"></i>
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/spring-boot">spring-boot</a>
+                <a class="article-category-link" href="http://mvpotter.com/tags/springfox">Springfox</a>
                 &middot;
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/maven">maven</a>
+                <a class="article-category-link" href="http://mvpotter.com/tags/swagger">Swagger</a>
                 &middot;
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/debian">debian</a>
+                <a class="article-category-link" href="http://mvpotter.com/tags/spring">Spring</a>
                 
                 
             </div>
@@ -308,135 +311,134 @@
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative <a href="https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html">article</a> described how to achieve the goal, however it uses <a href="https://github.com/nebula-plugins/gradle-ospackage-plugin">Gradle ospackage plugin</a>, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on <a href="https://github.com/mvpotter/spring-boot-debian-package">GiHub</a>.</p>
+                <p>Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with <a href="http://springfox.github.io/springfox/docs/current/">Springfox reference</a> it could be done using <em>globalOperationParameters</em>, however in this case parameter will be added to every endpoint. Dilip Krishnan <a href="http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation">suggests</a> to create multiple dockets to separate public api from private one. But in my case the only method of public api is <em>/login</em> and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.</p>
 
-<p>Among various options I have chosen <a href="https://github.com/tcurdt/jdeb">jdeb</a> Maven plugin. It allows to create debian packages on any platform, pretty mature and well documented.</p>
+<p>All extensibility points are described in <a href="http://springfox.github.io/springfox/docs/current/#plugins">Springfox reference</a>. As the documentation states plugin should:</p>
 
-<p><a href="https://spring.io/guides/gs/spring-boot/">Spring boot introductory tutorial</a> was taken as a source project. The only thing that modified is spring boot maven plugin configuration. It is necessary to make jar <a href="ttp://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html">fully executable</a> to be able to launch it as a service on Unix systems.</p>
+<ol>
+<li>Implement one of the extention points.</li>
+<li>Have apprpriate initialization order.</li>
+<li>Be declared as a Spring bean for plugin registry to pick it up.</li>
+</ol>
 
-<pre><code class="language-xml">&lt;plugin&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
-    &lt;configuration&gt;
-        &lt;executable&gt;true&lt;/executable&gt;
-    &lt;/configuration&gt;
-    &lt;executions&gt;
-        &lt;execution&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;repackage&lt;/goal&gt;
-            &lt;/goals&gt;
-        &lt;/execution&gt;
-    &lt;/executions&gt;
-&lt;/plugin&gt;
+<pre><code class="language-java">import org.springframework.stereotype.Component;
+import org.springframework.core.annotation.Order;
+import springfox.documentation.spi.service.OperationBuilderPlugin;
+import springfox.documentation.swagger.common.SwaggerPluginSupport;
+
+@Component
+@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
+public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
+    ...
+}
 </code></pre>
 
-<p>Separate module is responsible for creating debian package with executable jar. Firstly, the main artifact is copied using maven dependency plugin</p>
+<p>In my case the most appropriate extension point is <em>OperationBuilderPlugin</em> as I need to process each endpoint and add authentication header to private api ones.</p>
 
-<pre><code class="language-xml">&lt;plugin&gt;
-    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-    &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
-    &lt;version&gt;2.10&lt;/version&gt;
-    &lt;executions&gt;
-        &lt;execution&gt;
-            &lt;id&gt;copy&lt;/id&gt;
-            &lt;phase&gt;package&lt;/phase&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;copy&lt;/goal&gt;
-            &lt;/goals&gt;
-            &lt;configuration&gt;
-                &lt;artifactItems&gt;
-                    &lt;artifactItem&gt;
-                        &lt;groupId&gt;com.springframework&lt;/groupId&gt;
-                        &lt;artifactId&gt;gs-spring-boot&lt;/artifactId&gt;
-                        &lt;version&gt;1.0.0&lt;/version&gt;
-                        &lt;overWrite&gt;true&lt;/overWrite&gt;
-                        &lt;outputDirectory&gt;${project.build.directory}&lt;/outputDirectory&gt;
-                        &lt;destFileName&gt;${build.finalName}.jar&lt;/destFileName&gt;
-                    &lt;/artifactItem&gt;
-                &lt;/artifactItems&gt;
-            &lt;/configuration&gt;
-        &lt;/execution&gt;
-    &lt;/executions&gt;
-&lt;/plugin&gt;
+<p>Extension points require two methods to be implemented:</p>
+
+<ol>
+<li><p>Spring plugin&rsquo;s method <code>boolean supports()</code> to understand if plugin should be applied. The implementation for Springfox is pretty simple</p>
+
+<pre><code class="language-java">@Override
+public boolean supports(final DocumentationType documentationType) {
+    return DocumentationType.SWAGGER_2.equals(documentationType);
+}
+</code></pre></li>
+
+<li><p>Method <code>void apply(context)</code>, which is being invoked for each api endpoint and provides appropriate context (e.g. <em>OperationContext</em> for <em>OperationBuilderPlugin</em>) as an argument.</p>
+
+<pre><code class="language-java">@Override
+public void apply(final OperationContext context) {
+    // Get endpoint request mapping
+    final String mapping = context.requestMappingPattern();      
+    // Check if private api endpoint    
+    if (!PUBLIC_API_MAPPINGS.contains(mapping)) {                    
+        final List&lt;Parameter&gt; parameters = new LinkedList&lt;&gt;();
+        // Create auth header parameter
+        parameters.add(parameterBuilder
+                               .parameterType(HEADER_PARAMETER_TYPE)
+                               .name(HttpTokenHelper.HEADER_TOKEN)
+                               .modelRef(new ModelRef(STRING_TYPE))
+                               .description(HEADER_DESCRIPTION)
+                               .allowMultiple(false)
+                               .required(true)
+                             .build());
+        // Add parameter to endpoint documentation 
+        context.operationBuilder().parameters(parameters);           
+      }
+} 
+</code></pre></li>
+</ol>
+
+<p>As a result, every endpoint, except <em>/login</em> has authentication token header in generated documentation.</p>
+
+<p><img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-1.png" alt="Image" />
+<img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-2.png" alt="Image" /></p>
+
+<p>The whole code of the plugin is the following.</p>
+
+<pre><code class="language-java">import com.invitro.registry.security.HttpTokenHelper;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import springfox.documentation.builders.ParameterBuilder;
+import springfox.documentation.schema.ModelRef;
+import springfox.documentation.service.Parameter;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.OperationBuilderPlugin;
+import springfox.documentation.spi.service.contexts.OperationContext;
+import springfox.documentation.swagger.common.SwaggerPluginSupport;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+@Component
+@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
+public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
+
+    public static final String API_LOGIN_ENDPOINT = &quot;/api/login&quot;;
+    public static final String HEADER_PARAMETER_TYPE = &quot;header&quot;;
+    public static final String HEADER_DESCRIPTION = &quot;Authentication token (see &quot; + API_LOGIN_ENDPOINT + &quot;)&quot;;
+    public static final String STRING_TYPE = &quot;string&quot;;
+
+    private static final List&lt;String&gt; PUBLIC_API_MAPPINGS = Collections.singletonList(API_LOGIN_ENDPOINT);
+
+    private ParameterBuilder parameterBuilder = new ParameterBuilder();
+
+    @Override
+    public boolean supports(final DocumentationType documentationType) {
+        return DocumentationType.SWAGGER_2.equals(documentationType);
+    }
+
+    @Override
+    public void apply(final OperationContext context) {
+        final String mapping = context.requestMappingPattern();
+        if (!PUBLIC_API_MAPPINGS.contains(mapping)) {
+            final List&lt;Parameter&gt; parameters = new LinkedList&lt;&gt;();
+            parameters.add(parameterBuilder
+                                   .parameterType(HEADER_PARAMETER_TYPE)
+                                   .name(HttpTokenHelper.HEADER_TOKEN)
+                                   .modelRef(new ModelRef(STRING_TYPE))
+                                   .description(HEADER_DESCRIPTION)
+                                   .allowMultiple(false)
+                                   .required(true)
+                                   .build());
+            context.operationBuilder().parameters(parameters);
+        }
+    }
+
+}
 </code></pre>
-
-<p>And then debian package is created</p>
-
-<pre><code class="language-xml">&lt;plugin&gt;
-    &lt;artifactId&gt;jdeb&lt;/artifactId&gt;
-    &lt;groupId&gt;org.vafer&lt;/groupId&gt;
-    &lt;version&gt;1.5&lt;/version&gt;
-    &lt;configuration&gt;
-        &lt;controlDir&gt;${project.build.directory}/classes/control&lt;/controlDir&gt;
-        &lt;deb&gt;${project.build.directory}/${build.finalName}.deb&lt;/deb&gt;
-    &lt;/configuration&gt;
-    &lt;executions&gt;
-        &lt;execution&gt;
-            &lt;phase&gt;package&lt;/phase&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;jdeb&lt;/goal&gt;
-            &lt;/goals&gt;
-            &lt;configuration&gt;
-                &lt;dataSet&gt;
-                    &lt;data&gt;
-                        &lt;src&gt;${project.build.directory}/${build.finalName}.jar&lt;/src&gt;
-                        &lt;type&gt;file&lt;/type&gt;
-                        &lt;mapper&gt;
-                            &lt;type&gt;perm&lt;/type&gt;
-                            &lt;prefix&gt;/var/${build.finalName}&lt;/prefix&gt;
-                            &lt;filemode&gt;755&lt;/filemode&gt;
-                        &lt;/mapper&gt;
-                    &lt;/data&gt;
-                    &lt;data&gt;
-                        &lt;type&gt;link&lt;/type&gt;
-                        &lt;symlink&gt;true&lt;/symlink&gt;
-                        &lt;linkName&gt;/etc/init.d/${build.finalName}&lt;/linkName&gt;
-                        &lt;linkTarget&gt;/var/${build.finalName}/${build.finalName}.jar&lt;/linkTarget&gt;
-                    &lt;/data&gt;
-                &lt;/dataSet&gt;
-            &lt;/configuration&gt;
-        &lt;/execution&gt;
-    &lt;/executions&gt;
-&lt;/plugin&gt;
-</code></pre>
-
-<p>Data tags specify two entities for packaging:</p>
-
-<ul>
-<li>executable jar that will be copied to <em>/var/${build.finalName}</em> with execute access rights</li>
-<li>symlink to executable jar that will be located at <em>/etc/init.d/${build.finalName}</em> for installing init.d service</li>
-</ul>
-
-<p>Another important thing is <em>control</em> directory, that is specified in plugin configuration:</p>
-
-<pre><code class="language-xml">&lt;controlDir&gt;${project.build.directory}/classes/control&lt;/controlDir&gt;
-</code></pre>
-
-<p>Looking at the directory contents you can find <strong>control</strong> file. It is like a pom.xml for Maven, but for debian packages. It specifies package name, description, dependencies upon other packages, etc. Detailed fields description can be found at <a href="https://www.debian.org/doc/debian-policy/ch-controlfields.html">debian documentation</a>.</p>
-
-<pre><code>Package: ${build.finalName}
-Version: ${project.version}
-Section: misc
-Priority: optional
-Architecture: all
-Depends: oracle-java8-installer | openjdk-8-jre
-Maintainer: Michael Potter &lt;supermegapotter@gmail.com&gt;
-Description: Spring boot Hello World application
-Distribution: development
-</code></pre>
-
-<p>Other control files description could be found at <a href="https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts">debian documentation</a>.</p>
-
-<p>The only thing that is left is create a package by executing <code>mvn clean package</code>.</p>
 
             </div>
             <footer class="article-footer">
-    <a data-url="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" data-id="da8c86318dd7b60d82cafa3a8497fbb7" class="article-share-link">
+    <a data-url="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" data-id="2d6c522f438e81e7e96fde925ff10a33" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package//#disqus_thread" class="article-comment-link">
+    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params//#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -512,14 +514,14 @@ Distribution: development
         
 <nav id="article-nav">
     
-
-    
-    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
-          Newer
+          Older
       </strong>
-      <div class="article-nav-title">Springfox plugin for adding auth params</div>
+      <div class="article-nav-title">Spring boot debian package</div>
     </a>
+    
+
     
 </nav>
 
@@ -532,9 +534,9 @@ Distribution: development
             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'mvpotter';
-    var disqus_identifier = 'http:\/\/mvpotter.com\/post\/2016\/09\/spring-boot-debian-package\/';
-    var disqus_title = 'Spring boot debian package';
-    var disqus_url = 'http:\/\/mvpotter.com\/post\/2016\/09\/spring-boot-debian-package\/';
+    var disqus_identifier = 'http:\/\/mvpotter.com\/post\/2016\/10\/springfox-plugin-for-adding-auth-params\/';
+    var disqus_title = 'Springfox plugin for adding auth params';
+    var disqus_url = 'http:\/\/mvpotter.com\/post\/2016\/10\/springfox-plugin-for-adding-auth-params\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -564,7 +566,7 @@ Distribution: development
                 <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="thumbnail">
                     
-                        <span style="background-image:url(http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png)" alt="Spring boot debian package" class="thumbnail-image"></span>
+                        <span style="background-image:url(http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png)" alt="Springfox plugin for adding auth params" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -583,7 +585,7 @@ Distribution: development
                 <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="thumbnail">
                     
-                        <span style="background-image:url(http://mvpotter.com/post/2016/09/spring-boot-debian-package.png)" alt="Spring boot debian package" class="thumbnail-image"></span>
+                        <span style="background-image:url(http://mvpotter.com/post/2016/09/spring-boot-debian-package.png)" alt="Springfox plugin for adding auth params" class="thumbnail-image"></span>
                     
                     </a>
                 </div>

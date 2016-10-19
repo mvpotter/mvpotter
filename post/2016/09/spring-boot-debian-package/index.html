@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
     <title>Spring boot debian package &middot; Michael Potter</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.17" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Michael Potter">
@@ -274,7 +274,7 @@
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-09-03 10:42:43 &#43;0700 ICT" itemprop="datePublished">2016-09-03</time>
+            <time datetime="2016-09-03 10:42:43 &#43;0700 KRAT" itemprop="datePublished">2016-09-03</time>
             &middot;
             401
             words
@@ -308,7 +308,8 @@
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative <a href="https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html">article</a> described how to achieve the goal, however it uses <a href="https://github.com/nebula-plugins/gradle-ospackage-plugin">Gradle ospackage plugin</a>, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on <a href="https://github.com/mvpotter/spring-boot-debian-package">GiHub</a>.</p>
+                <p>Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative <a href="https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html">article</a> described how to achieve the goal, however it uses <a href="https://github.com/nebula-plugins/gradle-ospackage-plugin">Gradle ospackage plugin</a>, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on <a href="https://github.com/mvpotter/spring-boot-debian-package">GiHub</a>.
+</p>
 
 <p>Among various options I have chosen <a href="https://github.com/tcurdt/jdeb">jdeb</a> Maven plugin. It allows to create debian packages on any platform, pretty mature and well documented.</p>
 
@@ -428,7 +429,6 @@ Distribution: development
 <p>Other control files description could be found at <a href="https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts">debian documentation</a>.</p>
 
 <p>The only thing that is left is create a package by executing <code>mvn clean package</code>.</p>
-
             </div>
             <footer class="article-footer">
     <a data-url="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" data-id="da8c86318dd7b60d82cafa3a8497fbb7" class="article-share-link">
@@ -574,7 +574,7 @@ Distribution: development
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
                     <p class="item-date">
-                        <time datetime="2016-10-17 21:08:31 &#43;0700 ICT" itemprop="datePublished">2016-10-17</time>
+                        <time datetime="2016-10-17 21:08:31 &#43;0700 KRAT" itemprop="datePublished">2016-10-17</time>
                     </p>
                 </div>
             </li>
@@ -591,7 +591,7 @@ Distribution: development
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
                     <p class="item-date">
-                        <time datetime="2016-09-03 10:42:43 &#43;0700 ICT" itemprop="datePublished">2016-09-03</time>
+                        <time datetime="2016-09-03 10:42:43 &#43;0700 KRAT" itemprop="datePublished">2016-09-03</time>
                     </p>
                 </div>
             </li>
@@ -731,6 +731,35 @@ MathJax.Hub.Config({
   });
 </script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter39399375 = new Ya.Metrika({
+                    id:39399375,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/39399375" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
 
 
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Springfox plugin for adding auth params &middot; Michael Potter</title>
+    <title>PODAM (POjo DAta Mocker) &middot; Michael Potter</title>
     <meta name="generator" content="Hugo 0.17" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,7 +10,7 @@
       <meta name="description" content="">
     
     
-    <link rel="canonical" href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/"/>
+    <link rel="canonical" href="http://mvpotter.com/post/2017/01/podam/"/>
     <link rel="icon" href="http://mvpotter.com/favicon.ico">
     <link rel="apple-touch-icon" href="http://mvpotter.com/apple-touch-icon.png" />
     <link rel="stylesheet" href="http://mvpotter.com/css/style.css">
@@ -19,15 +19,15 @@
     <link rel="stylesheet" href="http://mvpotter.com/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Springfox plugin for adding auth params" />
-<meta property="og:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+    <meta property="og:title" content="PODAM (POjo DAta Mocker)" />
+<meta property="og:description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM.
 
-All extensibility points are described in Springfox reference. As the documentation states plugin should:" />
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" />
+<meta property="og:url" content="http://mvpotter.com/post/2017/01/podam/" />
 
 
-<meta property="og:updated_time" content="2016-10-17T21:08:31&#43;07:00"/>
+<meta property="og:updated_time" content="2017-01-01T19:30:40&#43;07:00"/>
 
 
 
@@ -40,14 +40,14 @@ All extensibility points are described in Springfox reference. As the documentat
 
     
     
-<meta itemprop="name" content="Springfox plugin for adding auth params">
-<meta itemprop="description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+<meta itemprop="name" content="PODAM (POjo DAta Mocker)">
+<meta itemprop="description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM.
 
-All extensibility points are described in Springfox reference. As the documentation states plugin should:">
+">
 
 
-<meta itemprop="dateModified" content="2016-10-17T21:08:31&#43;07:00" />
-<meta itemprop="wordCount" content="440">
+<meta itemprop="dateModified" content="2017-01-01T19:30:40&#43;07:00" />
+<meta itemprop="wordCount" content="335">
 
 
 
@@ -59,10 +59,10 @@ All extensibility points are described in Springfox reference. As the documentat
 
 
 
-<meta name="twitter:title" content="Springfox plugin for adding auth params"/>
-<meta name="twitter:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+<meta name="twitter:title" content="PODAM (POjo DAta Mocker)"/>
+<meta name="twitter:description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM.
 
-All extensibility points are described in Springfox reference. As the documentation states plugin should:"/>
+"/>
 <meta name="twitter:site" content="@dude1366"/>
 
 
@@ -265,24 +265,22 @@ All extensibility points are described in Springfox reference. As the documentat
     <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
         <div class="article-inner">
             
-                <img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png" class="article-banner">
-            
 
             <header class="article-header">
-    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/">
+    <a href="http://mvpotter.com/post/2017/01/podam/">
     <h1 class="article-title" itemprop="name">
-        Springfox plugin for adding auth params
+        PODAM (POjo DAta Mocker)
     </h1>
     </a>
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-10-17 21:08:31 &#43;0700 KRAT" itemprop="datePublished">2016-10-17</time>
+            <time datetime="2017-01-01 19:30:40 &#43;0700 KRAT" itemprop="datePublished">2017-01-01</time>
             &middot;
-            440
+            335
             words
             &middot;
-            3
+            2
             minute read
         </div>
 
@@ -298,13 +296,7 @@ All extensibility points are described in Springfox reference. As the documentat
             <div class="article-category">
                 <i class="fa fa-tags"></i>
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/springfox">Springfox</a>
-                &middot;
-                
-                <a class="article-category-link" href="http://mvpotter.com/tags/swagger">Swagger</a>
-                &middot;
-                
-                <a class="article-category-link" href="http://mvpotter.com/tags/spring">Spring</a>
+                <a class="article-category-link" href="http://mvpotter.com/tags/test">test</a>
                 
                 
             </div>
@@ -314,133 +306,54 @@ All extensibility points are described in Springfox reference. As the documentat
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with <a href="http://springfox.github.io/springfox/docs/current/">Springfox reference</a> it could be done using <em>globalOperationParameters</em>, however in this case parameter will be added to every endpoint. Dilip Krishnan <a href="http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation">suggests</a> to create multiple dockets to separate public api from private one. But in my case the only method of public api is <em>/login</em> and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+                <p>Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called <a href="https://devopsfolks.github.io/podam/">PODAM</a>.</p>
 
-All extensibility points are described in <a href="http://springfox.github.io/springfox/docs/current/#plugins">Springfox reference</a>. As the documentation states plugin should:</p>
+<p></p>
 
-<ol>
-<li>Implement one of the extention points.</li>
-<li>Have apprpriate initialization order.</li>
-<li>Be declared as a Spring bean for plugin registry to pick it up.</li>
-</ol>
+<p>PODAM is abbreviation for POjo DAta Mocker and its API for creating beans is pretty simple. All you need to do is create <code>PodamFactory</code> instance and use its <code>manufacturePojo</code> method that instantiates object and fills its fields with random values:</p>
 
-<pre><code class="language-java">import org.springframework.stereotype.Component;
-import org.springframework.core.annotation.Order;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
-
-@Component
-@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
-public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
-    ...
-}
+<pre><code class="language-java">PodamFactory factory = new PodamFactoryImpl();
+Order order = factory.manufacturePojo(Order.class);
 </code></pre>
 
-<p>In my case the most appropriate extension point is <em>OperationBuilderPlugin</em> as I need to process each endpoint and add authentication header to private api ones.</p>
+<p>Sometimes you need to specify rules for field values. For example, ids of entities have <code>String</code> type and <code>UUID</code>format. For generated entities to pass validation logic smoothly it is necessary to generate valid ids. <a href="https://devopsfolks.github.io/podam/">PODAM</a> suggests two ways to deal with such issues:</p>
 
-<p>Extension points require two methods to be implemented:</p>
+<p>The first one is to implement <code>AttributeStrategy</code> class and add <code>@PodamStrategyValue</code> annotation on required field. However, in my case this approach was undesirable, because I needed to test business entities and it is not a good idea to clutter them with annotation from test dependencies.</p>
 
-<ol>
-<li><p>Spring plugin&rsquo;s method <code>boolean supports()</code> to understand if plugin should be applied. The implementation for Springfox is pretty simple</p>
+<p>The second approach is to implement custom <code>TypeManufacturer</code></p>
 
-<pre><code class="language-java">@Override
-public boolean supports(final DocumentationType documentationType) {
-    return DocumentationType.SWAGGER_2.equals(documentationType);
-}
-</code></pre></li>
+<pre><code class="language-java">public class CustomStringManufacturer extends StringTypeManufacturerImpl {
 
-<li><p>Method <code>void apply(context)</code>, which is being invoked for each api endpoint and provides appropriate context (e.g. <em>OperationContext</em> for <em>OperationBuilderPlugin</em>) as an argument.</p>
-
-<pre><code class="language-java">@Override
-public void apply(final OperationContext context) {
-    // Get endpoint request mapping
-    final String mapping = context.requestMappingPattern();      
-    // Check if private api endpoint    
-    if (!PUBLIC_API_MAPPINGS.contains(mapping)) {                    
-        final List&lt;Parameter&gt; parameters = new LinkedList&lt;&gt;();
-        // Create auth header parameter
-        parameters.add(parameterBuilder
-                               .parameterType(HEADER_PARAMETER_TYPE)
-                               .name(HttpTokenHelper.HEADER_TOKEN)
-                               .modelRef(new ModelRef(STRING_TYPE))
-                               .description(HEADER_DESCRIPTION)
-                               .allowMultiple(false)
-                               .required(true)
-                             .build());
-        // Add parameter to endpoint documentation 
-        context.operationBuilder().parameters(parameters);           
-      }
-} 
-</code></pre></li>
-</ol>
-
-<p>As a result, every endpoint, except <em>/login</em> has authentication token header in generated documentation.</p>
-
-<p><img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-1.png" alt="Image" />
-<img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-2.png" alt="Image" /></p>
-
-<p>The whole code of the plugin is the following.</p>
-
-<pre><code class="language-java">import com.invitro.registry.security.HttpTokenHelper;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ParameterBuilder;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.Parameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
-
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
-@Component
-@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
-public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
-
-    public static final String API_LOGIN_ENDPOINT = &quot;/api/login&quot;;
-    public static final String HEADER_PARAMETER_TYPE = &quot;header&quot;;
-    public static final String HEADER_DESCRIPTION = &quot;Authentication token (see &quot; + API_LOGIN_ENDPOINT + &quot;)&quot;;
-    public static final String STRING_TYPE = &quot;string&quot;;
-
-    private static final List&lt;String&gt; PUBLIC_API_MAPPINGS = Collections.singletonList(API_LOGIN_ENDPOINT);
-
-    private ParameterBuilder parameterBuilder = new ParameterBuilder();
+    private static final String FIELD_ID = &quot;id&quot;;
 
     @Override
-    public boolean supports(final DocumentationType documentationType) {
-        return DocumentationType.SWAGGER_2.equals(documentationType);
-    }
-
-    @Override
-    public void apply(final OperationContext context) {
-        final String mapping = context.requestMappingPattern();
-        if (!PUBLIC_API_MAPPINGS.contains(mapping)) {
-            final List&lt;Parameter&gt; parameters = new LinkedList&lt;&gt;();
-            parameters.add(parameterBuilder
-                                   .parameterType(HEADER_PARAMETER_TYPE)
-                                   .name(HttpTokenHelper.HEADER_TOKEN)
-                                   .modelRef(new ModelRef(STRING_TYPE))
-                                   .description(HEADER_DESCRIPTION)
-                                   .allowMultiple(false)
-                                   .required(true)
-                                   .build());
-            context.operationBuilder().parameters(parameters);
+    public String getType(final DataProviderStrategy strategy, final AttributeMetadata attributeMetadata,
+                    	  final Map&lt;String, Type&gt; genericTypesArgumentsMap) {
+        if (FIELD_ID.equals(attributeMetadata.getAttributeName())) {
+            return UUID.randomUUID().toString();
         }
-    }
+        return super.getType(strategy, attributeMetadata, genericTypesArgumentsMap);
+    };
 
 }
 </code></pre>
+
+<p>and register it for using by <code>PodamFactory</code></p>
+
+<pre><code class="language-java">podamFactory.getStrategy().addOrReplaceTypeManufacturer(String.class, new CustomStringManufacturer());
+</code></pre>
+
+<p>I described only a subset of <a href="https://devopsfolks.github.io/podam/">PODAM</a> features. You can always visit their <a href="https://devopsfolks.github.io/podam/">documentation</a> for further info.</p>
+
+<p>Another alternative that I found later is <a href="https://github.com/benas/random-beans/wiki">random-beans</a> project. However, I did not have time to test it thoroughly. If you know other tools for generating and populating beans feel free to share your experience in comments.</p>
             </div>
             <footer class="article-footer">
-    <a data-url="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" data-id="2d6c522f438e81e7e96fde925ff10a33" class="article-share-link">
+    <a data-url="http://mvpotter.com/post/2017/01/podam/" data-id="284f741fa484103dbd44e13c7559c9df" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params//#disqus_thread" class="article-comment-link">
+    <a href="http://mvpotter.com/post/2017/01/podam//#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -516,21 +429,14 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
         
 <nav id="article-nav">
     
-    <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
-      <div class="article-nav-title">Spring boot debian package</div>
+      <div class="article-nav-title">Springfox plugin for adding auth params</div>
     </a>
     
 
-    
-    <a href="http://mvpotter.com/post/2017/01/podam/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Newer
-      </strong>
-      <div class="article-nav-title">PODAM (POjo DAta Mocker)</div>
-    </a>
     
 </nav>
 
@@ -543,9 +449,9 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'mvpotter';
-    var disqus_identifier = 'http:\/\/mvpotter.com\/post\/2016\/10\/springfox-plugin-for-adding-auth-params\/';
-    var disqus_title = 'Springfox plugin for adding auth params';
-    var disqus_url = 'http:\/\/mvpotter.com\/post\/2016\/10\/springfox-plugin-for-adding-auth-params\/';
+    var disqus_identifier = 'http:\/\/mvpotter.com\/post\/2017\/01\/podam\/';
+    var disqus_title = 'PODAM (POjo DAta Mocker)';
+    var disqus_url = 'http:\/\/mvpotter.com\/post\/2017\/01\/podam\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -594,7 +500,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                 <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="thumbnail">
                     
-                        <span style="background-image:url(http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png)" alt="Springfox plugin for adding auth params" class="thumbnail-image"></span>
+                        <span style="background-image:url(http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png)" alt="PODAM (POjo DAta Mocker)" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -613,7 +519,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                 <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="thumbnail">
                     
-                        <span style="background-image:url(http://mvpotter.com/post/2016/09/spring-boot-debian-package.png)" alt="Springfox plugin for adding auth params" class="thumbnail-image"></span>
+                        <span style="background-image:url(http://mvpotter.com/post/2016/09/spring-boot-debian-package.png)" alt="PODAM (POjo DAta Mocker)" class="thumbnail-image"></span>
                     
                     </a>
                 </div>

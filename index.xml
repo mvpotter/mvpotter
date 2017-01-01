@@ -7,8 +7,56 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Michael Potter.</copyright>
-    <lastBuildDate>Mon, 17 Oct 2016 21:08:31 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 19:30:40 +0700</lastBuildDate>
     <atom:link href="http://mvpotter.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PODAM (POjo DAta Mocker)</title>
+      <link>http://mvpotter.com/post/2017/01/podam/</link>
+      <pubDate>Sun, 01 Jan 2017 19:30:40 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/post/2017/01/podam/</guid>
+      <description>&lt;p&gt;Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&amp;rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;PODAM is abbreviation for POjo DAta Mocker and its API for creating beans is pretty simple. All you need to do is create &lt;code&gt;PodamFactory&lt;/code&gt; instance and use its &lt;code&gt;manufacturePojo&lt;/code&gt; method that instantiates object and fills its fields with random values:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;PodamFactory factory = new PodamFactoryImpl();
+Order order = factory.manufacturePojo(Order.class);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sometimes you need to specify rules for field values. For example, ids of entities have &lt;code&gt;String&lt;/code&gt; type and &lt;code&gt;UUID&lt;/code&gt;format. For generated entities to pass validation logic smoothly it is necessary to generate valid ids. &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt; suggests two ways to deal with such issues:&lt;/p&gt;
+
+&lt;p&gt;The first one is to implement &lt;code&gt;AttributeStrategy&lt;/code&gt; class and add &lt;code&gt;@PodamStrategyValue&lt;/code&gt; annotation on required field. However, in my case this approach was undesirable, because I needed to test business entities and it is not a good idea to clutter them with annotation from test dependencies.&lt;/p&gt;
+
+&lt;p&gt;The second approach is to implement custom &lt;code&gt;TypeManufacturer&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class CustomStringManufacturer extends StringTypeManufacturerImpl {
+
+    private static final String FIELD_ID = &amp;quot;id&amp;quot;;
+
+    @Override
+    public String getType(final DataProviderStrategy strategy, final AttributeMetadata attributeMetadata,
+                    	  final Map&amp;lt;String, Type&amp;gt; genericTypesArgumentsMap) {
+        if (FIELD_ID.equals(attributeMetadata.getAttributeName())) {
+            return UUID.randomUUID().toString();
+        }
+        return super.getType(strategy, attributeMetadata, genericTypesArgumentsMap);
+    };
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and register it for using by &lt;code&gt;PodamFactory&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;podamFactory.getStrategy().addOrReplaceTypeManufacturer(String.class, new CustomStringManufacturer());
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I described only a subset of &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt; features. You can always visit their &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;documentation&lt;/a&gt; for further info.&lt;/p&gt;
+
+&lt;p&gt;Another alternative that I found later is &lt;a href=&#34;https://github.com/benas/random-beans/wiki&#34;&gt;random-beans&lt;/a&gt; project. However, I did not have time to test it thoroughly. If you know other tools for generating and populating beans feel free to share your experience in comments.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Springfox plugin for adding auth params</title>

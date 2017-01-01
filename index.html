@@ -28,7 +28,7 @@
 <meta property="og:url" content="http://mvpotter.com/" />
 
 
-<meta property="og:updated_time" content="2016-10-17T21:08:31&#43;07:00"/>
+<meta property="og:updated_time" content="2017-01-01T19:30:40&#43;07:00"/>
 
 
 
@@ -150,12 +150,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        2
+        3
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          6
+          7
         
         <span>
             Tags
@@ -237,6 +237,143 @@
 
     <section id="main">
     
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="http://mvpotter.com/post/2017/01/podam/">
+    <h1 class="article-title" itemprop="name">
+        PODAM (POjo DAta Mocker)
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-01-01 19:30:40 &#43;0700 KRAT" itemprop="datePublished">2017-01-01</time>
+            &middot;
+            335
+            words
+            &middot;
+            2
+            minute read
+        </div>
+
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                <a class="article-category-link" href="http://mvpotter.com/tags/test">test</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called <a href="https://devopsfolks.github.io/podam/">PODAM</a>.</p>
+
+<p>
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="http://mvpotter.com/post/2017/01/podam/">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="http://mvpotter.com/post/2017/01/podam/" data-id="284f741fa484103dbd44e13c7559c9df" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="http://mvpotter.com/post/2017/01/podam//#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
     
     <article class="article article-type-post" itemscope="" itemprop="blogPost">
         <div class="article-inner">
@@ -545,6 +682,25 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://mvpotter.com/post/2017/01/podam/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="http://mvpotter.com/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-01-01 19:30:40 &#43;0700 KRAT" itemprop="datePublished">2017-01-01</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="thumbnail">
                     
                         <span style="background-image:url(http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params.png)" alt="Michael Potter" class="thumbnail-image"></span>
@@ -641,6 +797,13 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
                 <span class="category-list-count">1</span>
             </li>
             
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://mvpotter.com/tags/test">
+                    test
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
         </ul>
     </div>
 </div>
@@ -668,6 +831,8 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
         
         <a href="http://mvpotter.com/tags/swagger" style="font-size: 12px;">swagger</a>
         
+        <a href="http://mvpotter.com/tags/test" style="font-size: 12px;">test</a>
+        
     </div>
 </div>
 
@@ -683,7 +848,7 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
 <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016
+      &copy; 2017
       Michael Potter.
     </div>
   </div>

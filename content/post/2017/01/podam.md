@@ -1,5 +1,4 @@
 +++
-draft = true
 tags = ["test"]
 description = ""
 menu = ""

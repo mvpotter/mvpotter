@@ -29,7 +29,7 @@
 <meta property="og:url" content="http://mvpotter.com/" />
 
 
-<meta property="og:updated_time" content="2017-01-01T19:30:40&#43;07:00"/>
+<meta property="og:updated_time" content="2017-02-24T22:31:11&#43;07:00"/>
 
 
 
@@ -151,12 +151,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        3
+        4
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          7
+          8
         
         <span>
             Tags
@@ -241,6 +241,148 @@
     
     <article class="article article-type-post" itemscope="" itemprop="blogPost">
         <div class="article-inner">
+            
+            <a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" itemprop="url">
+                <img src="http://mvpotter.com/post/2017/02/osgi-felix-tutorial.png" class="article-banner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/">
+    <h1 class="article-title" itemprop="name">
+        Pluggable architecture with Apache Felix
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-02-24 22:31:11 &#43;0700 KRAT" itemprop="datePublished">2017-02-24</time>
+            &middot;
+            447
+            words
+            &middot;
+            3
+            minute read
+        </div>
+
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                <a class="article-category-link" href="http://mvpotter.com/tags/osgi">osgi</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    JVM does not support dynamic component model. To solve this issue <a href="https://www.osgi.org/">OSGi (Open Services Gateway initiative)</a> was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. <a href="http://felix.apache.org/">Apache Felix</a>, <a href="http://www.eclipse.org/equinox/">Eclipse Equinox</a>, <a href="http://www.knopflerfish.org/">Knophlerfish</a>, <a href="http://www.prosyst.com/">ProSyst</a> etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using <a href="http://felix.apache.org/">Apache Felix</a>. The source of the whole application can be found on <a href="https://github.com/mvpotter/osgi-felix-tutorial">GitHub</a>.
+
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" data-id="1d28357da2ac202df5f8039593e6c491" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial//#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+            <a href="http://mvpotter.com/post/2017/01/podam/" itemprop="url">
+                <img src="http://mvpotter.com/post/2017/01/podam.png" class="article-banner">
             
             </a>
 
@@ -683,9 +825,28 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
             
             <li>
                 <div class="item-thumbnail">
+                    <a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" class="thumbnail">
+                    
+                        <span style="background-image:url(http://mvpotter.com/post/2017/02/osgi-felix-tutorial.png)" alt="Michael Potter" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-02-24 22:31:11 &#43;0700 KRAT" itemprop="datePublished">2017-02-24</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
                     <a href="http://mvpotter.com/post/2017/01/podam/" class="thumbnail">
                     
-                        <span class="thumbnail-image thumbnail-none"></span>
+                        <span style="background-image:url(http://mvpotter.com/post/2017/01/podam.png)" alt="Michael Potter" class="thumbnail-image"></span>
                     
                     </a>
                 </div>
@@ -771,6 +932,13 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
             </li>
             
             <li class="category-list-item">
+                <a class="category-list-link" href="http://mvpotter.com/tags/osgi">
+                    osgi
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
                 <a class="category-list-link" href="http://mvpotter.com/tags/spring">
                     spring
                 </a>
@@ -823,6 +991,8 @@ All extensibility points are described in <a href="http://springfox.github.io/sp
         <a href="http://mvpotter.com/tags/debian" style="font-size: 12px;">debian</a>
         
         <a href="http://mvpotter.com/tags/maven" style="font-size: 12px;">maven</a>
+        
+        <a href="http://mvpotter.com/tags/osgi" style="font-size: 12px;">osgi</a>
         
         <a href="http://mvpotter.com/tags/spring" style="font-size: 12px;">spring</a>
         

@@ -2,7 +2,6 @@
 categories = [
 ]
 title = "Pluggable architecture with Apache Felix"
-draft = true
 date = "2017-02-24T22:31:11+07:00"
 tags = ["osgi"]
 description = ""

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on Michael Potter</title>
-    <link>http://mvpotter.com/post/index.xml</link>
-    <description>Recent content in Post-rsses on Michael Potter</description>
+    <title>Posts on Michael Potter</title>
+    <link>http://mvpotter.com/post/</link>
+    <description>Recent content in Posts on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Michael Potter.</copyright>
     <lastBuildDate>Fri, 24 Feb 2017 22:31:11 +0700</lastBuildDate>
     <atom:link href="http://mvpotter.com/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,8 +15,9 @@
       <pubDate>Fri, 24 Feb 2017 22:31:11 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2017/02/osgi-felix-tutorial/</guid>
-      <description>&lt;p&gt;JVM does not support dynamic component model. To solve this issue &lt;a href=&#34;https://www.osgi.org/&#34;&gt;OSGi (Open Services Gateway initiative)&lt;/a&gt; was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;, &lt;a href=&#34;http://www.eclipse.org/equinox/&#34;&gt;Eclipse Equinox&lt;/a&gt;, &lt;a href=&#34;http://www.knopflerfish.org/&#34;&gt;Knophlerfish&lt;/a&gt;, &lt;a href=&#34;http://www.prosyst.com/&#34;&gt;ProSyst&lt;/a&gt; etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;. The source of the whole application can be found on &lt;a href=&#34;https://github.com/mvpotter/osgi-felix-tutorial&#34;&gt;GitHub&lt;/a&gt;.
-&lt;/p&gt;
+      <description>
+
+&lt;p&gt;JVM does not support dynamic component model. To solve this issue &lt;a href=&#34;https://www.osgi.org/&#34;&gt;OSGi (Open Services Gateway initiative)&lt;/a&gt; was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;, &lt;a href=&#34;http://www.eclipse.org/equinox/&#34;&gt;Eclipse Equinox&lt;/a&gt;, &lt;a href=&#34;http://www.knopflerfish.org/&#34;&gt;Knophlerfish&lt;/a&gt;, &lt;a href=&#34;http://www.prosyst.com/&#34;&gt;ProSyst&lt;/a&gt; etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;. The source of the whole application can be found on &lt;a href=&#34;https://github.com/mvpotter/osgi-felix-tutorial&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The project could be divided into two parts: extensible host application (&lt;strong&gt;osgi-host&lt;/strong&gt; module) and pluggable bundles (&lt;strong&gt;hello-api&lt;/strong&gt;, &lt;strong&gt;hello-en-bundle&lt;/strong&gt;, &lt;strong&gt;hello-es-bundle&lt;/strong&gt;).&lt;/p&gt;
 
@@ -83,7 +83,8 @@ Complete list of Apache Felix properties can be found in &lt;a href=&#34;http://
 &lt;p&gt;&lt;strong&gt;hello-api&lt;/strong&gt; bundle defines interfaces that should be implemented by other bundles and further used by the host application. Other bundles contain class with API implementation and activator that registers its service in bundle context.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;main.kt&lt;/em&gt; file shows how to register bundles from provided JAR files by host application and invoke their service methods.
-Apache Felix documentation provides &lt;a href=&#34;http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html&#34;&gt;useful tutorials&lt;/a&gt; on creating and consuming bundle services.&lt;/p&gt;</description>
+Apache Felix documentation provides &lt;a href=&#34;http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html&#34;&gt;useful tutorials&lt;/a&gt; on creating and consuming bundle services.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -93,8 +94,6 @@ Apache Felix documentation provides &lt;a href=&#34;http://felix.apache.org/docu
       
       <guid>http://mvpotter.com/post/2017/01/podam/</guid>
       <description>&lt;p&gt;Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&amp;rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;PODAM is abbreviation for POjo DAta Mocker and its API for creating beans is pretty simple. All you need to do is create &lt;code&gt;PodamFactory&lt;/code&gt; instance and use its &lt;code&gt;manufacturePojo&lt;/code&gt; method that instantiates object and fills its fields with random values:&lt;/p&gt;
 
@@ -131,7 +130,8 @@ Order order = factory.manufacturePojo(Order.class);
 
 &lt;p&gt;I described only a subset of &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt; features. You can always visit their &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;documentation&lt;/a&gt; for further info.&lt;/p&gt;
 
-&lt;p&gt;Another alternative that I found later is &lt;a href=&#34;https://github.com/benas/random-beans/wiki&#34;&gt;random-beans&lt;/a&gt; project. However, I did not have time to test it thoroughly. If you know other tools for generating and populating beans feel free to share your experience in comments.&lt;/p&gt;</description>
+&lt;p&gt;Another alternative that I found later is &lt;a href=&#34;https://github.com/benas/random-beans/wiki&#34;&gt;random-beans&lt;/a&gt; project. However, I did not have time to test it thoroughly. If you know other tools for generating and populating beans feel free to share your experience in comments.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -140,9 +140,9 @@ Order order = factory.manufacturePojo(Order.class);
       <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/</guid>
-      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.&lt;/p&gt;
 
-All extensibility points are described in &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/#plugins&#34;&gt;Springfox reference&lt;/a&gt;. As the documentation states plugin should:&lt;/p&gt;
+&lt;p&gt;All extensibility points are described in &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/#plugins&#34;&gt;Springfox reference&lt;/a&gt;. As the documentation states plugin should:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Implement one of the extention points.&lt;/li&gt;
@@ -258,7 +258,8 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
     }
 
 }
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -267,8 +268,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
       <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</guid>
-      <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.
-&lt;/p&gt;
+      <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Among various options I have chosen &lt;a href=&#34;https://github.com/tcurdt/jdeb&#34;&gt;jdeb&lt;/a&gt; Maven plugin. It allows to create debian packages on any platform, pretty mature and well documented.&lt;/p&gt;
 
@@ -387,7 +387,8 @@ Distribution: development
 
 &lt;p&gt;Other control files description could be found at &lt;a href=&#34;https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts&#34;&gt;debian documentation&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The only thing that is left is create a package by executing &lt;code&gt;mvn clean package&lt;/code&gt;.&lt;/p&gt;</description>
+&lt;p&gt;The only thing that is left is create a package by executing &lt;code&gt;mvn clean package&lt;/code&gt;.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
     <title>Springfox plugin for adding auth params &middot; Michael Potter</title>
-    <meta name="generator" content="Hugo 0.17" />
+    <meta name="generator" content="Hugo 0.16" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="yandex-verification" content="7c27b88782f6b39b" />
@@ -22,8 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Springfox plugin for adding auth params" />
 <meta property="og:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
-
-All extensibility points are described in Springfox reference. As the documentation states plugin should:" />
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" />
 
@@ -43,8 +42,7 @@ All extensibility points are described in Springfox reference. As the documentat
     
 <meta itemprop="name" content="Springfox plugin for adding auth params">
 <meta itemprop="description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
-
-All extensibility points are described in Springfox reference. As the documentation states plugin should:">
+">
 
 
 <meta itemprop="dateModified" content="2016-10-17T21:08:31&#43;07:00" />
@@ -62,8 +60,7 @@ All extensibility points are described in Springfox reference. As the documentat
 
 <meta name="twitter:title" content="Springfox plugin for adding auth params"/>
 <meta name="twitter:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
-
-All extensibility points are described in Springfox reference. As the documentation states plugin should:"/>
+"/>
 <meta name="twitter:site" content="@dude1366"/>
 
 
@@ -278,7 +275,7 @@ All extensibility points are described in Springfox reference. As the documentat
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-10-17 21:08:31 &#43;0700 KRAT" itemprop="datePublished">2016-10-17</time>
+            <time datetime="2016-10-17 21:08:31 &#43;0700 ICT" itemprop="datePublished">2016-10-17</time>
             &middot;
             440
             words
@@ -315,9 +312,9 @@ All extensibility points are described in Springfox reference. As the documentat
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with <a href="http://springfox.github.io/springfox/docs/current/">Springfox reference</a> it could be done using <em>globalOperationParameters</em>, however in this case parameter will be added to every endpoint. Dilip Krishnan <a href="http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation">suggests</a> to create multiple dockets to separate public api from private one. But in my case the only method of public api is <em>/login</em> and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+                <p>Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with <a href="http://springfox.github.io/springfox/docs/current/">Springfox reference</a> it could be done using <em>globalOperationParameters</em>, however in this case parameter will be added to every endpoint. Dilip Krishnan <a href="http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation">suggests</a> to create multiple dockets to separate public api from private one. But in my case the only method of public api is <em>/login</em> and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.</p>
 
-All extensibility points are described in <a href="http://springfox.github.io/springfox/docs/current/#plugins">Springfox reference</a>. As the documentation states plugin should:</p>
+<p>All extensibility points are described in <a href="http://springfox.github.io/springfox/docs/current/#plugins">Springfox reference</a>. As the documentation states plugin should:</p>
 
 <ol>
 <li>Implement one of the extention points.</li>
@@ -434,6 +431,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
 
 }
 </code></pre>
+
             </div>
             <footer class="article-footer">
     <a data-url="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" data-id="2d6c522f438e81e7e96fde925ff10a33" class="article-share-link">
@@ -586,7 +584,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
                     <p class="item-date">
-                        <time datetime="2017-02-24 22:31:11 &#43;0700 KRAT" itemprop="datePublished">2017-02-24</time>
+                        <time datetime="2017-02-24 22:31:11 &#43;0700 ICT" itemprop="datePublished">2017-02-24</time>
                     </p>
                 </div>
             </li>
@@ -605,7 +603,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
                     <p class="item-date">
-                        <time datetime="2017-01-01 19:30:40 &#43;0700 KRAT" itemprop="datePublished">2017-01-01</time>
+                        <time datetime="2017-01-01 19:30:40 &#43;0700 ICT" itemprop="datePublished">2017-01-01</time>
                     </p>
                 </div>
             </li>
@@ -624,7 +622,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
                     <p class="item-date">
-                        <time datetime="2016-10-17 21:08:31 &#43;0700 KRAT" itemprop="datePublished">2016-10-17</time>
+                        <time datetime="2016-10-17 21:08:31 &#43;0700 ICT" itemprop="datePublished">2016-10-17</time>
                     </p>
                 </div>
             </li>
@@ -641,7 +639,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     <p class="item-title"><a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
                     <p class="item-date">
-                        <time datetime="2016-09-03 10:42:43 &#43;0700 KRAT" itemprop="datePublished">2016-09-03</time>
+                        <time datetime="2016-09-03 10:42:43 &#43;0700 ICT" itemprop="datePublished">2016-09-03</time>
                     </p>
                 </div>
             </li>
@@ -782,7 +780,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-10647442-16)', 'auto');
+ga('create', 'UA-10647442-16', 'auto');
 ga('send', 'pageview');
 </script>
 

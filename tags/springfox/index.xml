@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Michael Potter</title>
-    <link>http://mvpotter.com/tags/springfox/index.xml</link>
-    <description>Recent content on Michael Potter</description>
+    <title>Springfox on Michael Potter</title>
+    <link>http://mvpotter.com/tags/springfox/</link>
+    <description>Recent content in Springfox on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Michael Potter.</copyright>
+    <lastBuildDate>Mon, 17 Oct 2016 21:08:31 +0700</lastBuildDate>
     <atom:link href="http://mvpotter.com/tags/springfox/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,9 +15,9 @@
       <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/</guid>
-      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
+      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.&lt;/p&gt;
 
-All extensibility points are described in &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/#plugins&#34;&gt;Springfox reference&lt;/a&gt;. As the documentation states plugin should:&lt;/p&gt;
+&lt;p&gt;All extensibility points are described in &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/#plugins&#34;&gt;Springfox reference&lt;/a&gt;. As the documentation states plugin should:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Implement one of the extention points.&lt;/li&gt;
@@ -133,7 +133,8 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
     }
 
 }
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
   </channel>

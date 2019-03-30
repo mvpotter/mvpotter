@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Sep 2016 10:42:43 +0700</lastBuildDate>
-    <atom:link href="http://mvpotter.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://mvpotter.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Spring boot debian package</title>
@@ -15,127 +17,7 @@
       <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</guid>
-      <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Among various options I have chosen &lt;a href=&#34;https://github.com/tcurdt/jdeb&#34;&gt;jdeb&lt;/a&gt; Maven plugin. It allows to create debian packages on any platform, pretty mature and well documented.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://spring.io/guides/gs/spring-boot/&#34;&gt;Spring boot introductory tutorial&lt;/a&gt; was taken as a source project. The only thing that modified is spring boot maven plugin configuration. It is necessary to make jar &lt;a href=&#34;ttp://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html&#34;&gt;fully executable&lt;/a&gt; to be able to launch it as a service on Unix systems.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;executable&amp;gt;true&amp;lt;/executable&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;repackage&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Separate module is responsible for creating debian package with executable jar. Firstly, the main artifact is copied using maven dependency plugin&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;maven-dependency-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;2.10&amp;lt;/version&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;id&amp;gt;copy&amp;lt;/id&amp;gt;
-            &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;copy&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-            &amp;lt;configuration&amp;gt;
-                &amp;lt;artifactItems&amp;gt;
-                    &amp;lt;artifactItem&amp;gt;
-                        &amp;lt;groupId&amp;gt;com.springframework&amp;lt;/groupId&amp;gt;
-                        &amp;lt;artifactId&amp;gt;gs-spring-boot&amp;lt;/artifactId&amp;gt;
-                        &amp;lt;version&amp;gt;1.0.0&amp;lt;/version&amp;gt;
-                        &amp;lt;overWrite&amp;gt;true&amp;lt;/overWrite&amp;gt;
-                        &amp;lt;outputDirectory&amp;gt;${project.build.directory}&amp;lt;/outputDirectory&amp;gt;
-                        &amp;lt;destFileName&amp;gt;${build.finalName}.jar&amp;lt;/destFileName&amp;gt;
-                    &amp;lt;/artifactItem&amp;gt;
-                &amp;lt;/artifactItems&amp;gt;
-            &amp;lt;/configuration&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then debian package is created&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;artifactId&amp;gt;jdeb&amp;lt;/artifactId&amp;gt;
-    &amp;lt;groupId&amp;gt;org.vafer&amp;lt;/groupId&amp;gt;
-    &amp;lt;version&amp;gt;1.5&amp;lt;/version&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;controlDir&amp;gt;${project.build.directory}/classes/control&amp;lt;/controlDir&amp;gt;
-        &amp;lt;deb&amp;gt;${project.build.directory}/${build.finalName}.deb&amp;lt;/deb&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;jdeb&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-            &amp;lt;configuration&amp;gt;
-                &amp;lt;dataSet&amp;gt;
-                    &amp;lt;data&amp;gt;
-                        &amp;lt;src&amp;gt;${project.build.directory}/${build.finalName}.jar&amp;lt;/src&amp;gt;
-                        &amp;lt;type&amp;gt;file&amp;lt;/type&amp;gt;
-                        &amp;lt;mapper&amp;gt;
-                            &amp;lt;type&amp;gt;perm&amp;lt;/type&amp;gt;
-                            &amp;lt;prefix&amp;gt;/var/${build.finalName}&amp;lt;/prefix&amp;gt;
-                            &amp;lt;filemode&amp;gt;755&amp;lt;/filemode&amp;gt;
-                        &amp;lt;/mapper&amp;gt;
-                    &amp;lt;/data&amp;gt;
-                    &amp;lt;data&amp;gt;
-                        &amp;lt;type&amp;gt;link&amp;lt;/type&amp;gt;
-                        &amp;lt;symlink&amp;gt;true&amp;lt;/symlink&amp;gt;
-                        &amp;lt;linkName&amp;gt;/etc/init.d/${build.finalName}&amp;lt;/linkName&amp;gt;
-                        &amp;lt;linkTarget&amp;gt;/var/${build.finalName}/${build.finalName}.jar&amp;lt;/linkTarget&amp;gt;
-                    &amp;lt;/data&amp;gt;
-                &amp;lt;/dataSet&amp;gt;
-            &amp;lt;/configuration&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Data tags specify two entities for packaging:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;executable jar that will be copied to &lt;em&gt;/var/${build.finalName}&lt;/em&gt; with execute access rights&lt;/li&gt;
-&lt;li&gt;symlink to executable jar that will be located at &lt;em&gt;/etc/init.d/${build.finalName}&lt;/em&gt; for installing init.d service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Another important thing is &lt;em&gt;control&lt;/em&gt; directory, that is specified in plugin configuration:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;controlDir&amp;gt;${project.build.directory}/classes/control&amp;lt;/controlDir&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Looking at the directory contents you can find &lt;strong&gt;control&lt;/strong&gt; file. It is like a pom.xml for Maven, but for debian packages. It specifies package name, description, dependencies upon other packages, etc. Detailed fields description can be found at &lt;a href=&#34;https://www.debian.org/doc/debian-policy/ch-controlfields.html&#34;&gt;debian documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Package: ${build.finalName}
-Version: ${project.version}
-Section: misc
-Priority: optional
-Architecture: all
-Depends: oracle-java8-installer | openjdk-8-jre
-Maintainer: Michael Potter &amp;lt;supermegapotter@gmail.com&amp;gt;
-Description: Spring boot Hello World application
-Distribution: development
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Other control files description could be found at &lt;a href=&#34;https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts&#34;&gt;debian documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The only thing that is left is create a package by executing &lt;code&gt;mvn clean package&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

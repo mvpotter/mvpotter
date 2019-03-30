@@ -6,8 +6,19 @@
     <description>Recent content in Posts on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Feb 2017 22:31:11 +0700</lastBuildDate>
-    <atom:link href="http://mvpotter.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Mar 2019 16:04:11 +0700</lastBuildDate>
+    
+	<atom:link href="http://mvpotter.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Beyond layered architecture</title>
+      <link>http://mvpotter.com/post/2019/03/beyond-layered-architecture/</link>
+      <pubDate>Sat, 30 Mar 2019 16:04:11 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/post/2019/03/beyond-layered-architecture/</guid>
+      <description>I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.</description>
+    </item>
     
     <item>
       <title>Pluggable architecture with Apache Felix</title>
@@ -15,76 +26,7 @@
       <pubDate>Fri, 24 Feb 2017 22:31:11 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2017/02/osgi-felix-tutorial/</guid>
-      <description>
-
-&lt;p&gt;JVM does not support dynamic component model. To solve this issue &lt;a href=&#34;https://www.osgi.org/&#34;&gt;OSGi (Open Services Gateway initiative)&lt;/a&gt; was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;, &lt;a href=&#34;http://www.eclipse.org/equinox/&#34;&gt;Eclipse Equinox&lt;/a&gt;, &lt;a href=&#34;http://www.knopflerfish.org/&#34;&gt;Knophlerfish&lt;/a&gt;, &lt;a href=&#34;http://www.prosyst.com/&#34;&gt;ProSyst&lt;/a&gt; etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;. The source of the whole application can be found on &lt;a href=&#34;https://github.com/mvpotter/osgi-felix-tutorial&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The project could be divided into two parts: extensible host application (&lt;strong&gt;osgi-host&lt;/strong&gt; module) and pluggable bundles (&lt;strong&gt;hello-api&lt;/strong&gt;, &lt;strong&gt;hello-en-bundle&lt;/strong&gt;, &lt;strong&gt;hello-es-bundle&lt;/strong&gt;).&lt;/p&gt;
-
-&lt;h3 id=&#34;host-application&#34;&gt;Host application&lt;/h3&gt;
-
-&lt;p&gt;As was mentioned host application should start OSGi container and provide API for loading / unloading bundles. To achieve this, it is required to add a dependency on Apache Felix Framework:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.felix&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;org.apache.felix.framework&amp;lt;/artifactId&amp;gt;
-&amp;lt;/dependency&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And write a couple lines of code to start OSGi container:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;felix = Felix(configMap)
-felix?.start()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see, Felix constructor accepts configuration map as an argument. The map should define which packages and bundles should be lunched on startup. In our example configuration looks the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;val configMap = StringMap()
-configMap.put(Constants.FRAMEWORK_SYSTEMPACKAGES_EXTRA,
-              &amp;quot;kotlin; version=1.0.6,&amp;quot; +
-              &amp;quot;kotlin.jvm.internal; version=1.0.6,&amp;quot; +
-              &amp;quot;com.mvpotter.osgi.hello; version=1.0.0&amp;quot;)
-
-val list = listOf(activator)
-configMap.put(FelixConstants.SYSTEMBUNDLE_ACTIVATORS_PROP, list)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The first block specifies required packages, they are&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;kotlin&lt;/em&gt; packages, as bundles are written in Kotlin they either should provide the dependency or host defines it itself and free bundles from this obligation.&lt;/li&gt;
-&lt;li&gt;package that contains common API should be specified as OSGi classes are loaded with separate classloader and it is insufficiently for host to just have a dependency on API interfaces, they should be loaded by container appropriately for service instances to be casted without issues.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The last line defines bundle activators that will be launched on startup. It is necessary to launch &lt;strong&gt;HostActivator&lt;/strong&gt; to have an access to &lt;strong&gt;BundleContext&lt;/strong&gt;. It allows to manage bundles: install, start, stop, uninstall, list, find bundle services and so on.
-Complete list of Apache Felix properties can be found in &lt;a href=&#34;http://felix.apache.org/documentation/subprojects/apache-felix-framework/apache-felix-framework-configuration-properties.html&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;bundles&#34;&gt;Bundles&lt;/h3&gt;
-
-&lt;p&gt;Bundles are built using Felix &lt;a href=&#34;http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html&#34;&gt;maven-bundle-plugin&lt;/a&gt;. All you need to do is specify packaging&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;packaging&amp;gt;bundle&amp;lt;/packaging&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and add required attributes to bundle manifest file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.felix&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;maven-bundle-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;instructions&amp;gt;
-            &amp;lt;Export-Package&amp;gt;com.mvpotter.osgi.hello.impl&amp;lt;/Export-Package&amp;gt;
-            &amp;lt;Bundle-Activator&amp;gt;com.mvpotter.osgi.hello.impl.ProviderActivator&amp;lt;/Bundle-Activator&amp;gt;
-        &amp;lt;/instructions&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;hello-api&lt;/strong&gt; bundle defines interfaces that should be implemented by other bundles and further used by the host application. Other bundles contain class with API implementation and activator that registers its service in bundle context.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;main.kt&lt;/em&gt; file shows how to register bundles from provided JAR files by host application and invoke their service methods.
-Apache Felix documentation provides &lt;a href=&#34;http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html&#34;&gt;useful tutorials&lt;/a&gt; on creating and consuming bundle services.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;JVM does not support dynamic component model. To solve this issue &lt;a href=&#34;https://www.osgi.org/&#34;&gt;OSGi (Open Services Gateway initiative)&lt;/a&gt; was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;, &lt;a href=&#34;http://www.eclipse.org/equinox/&#34;&gt;Eclipse Equinox&lt;/a&gt;, &lt;a href=&#34;http://www.knopflerfish.org/&#34;&gt;Knophlerfish&lt;/a&gt;, &lt;a href=&#34;http://www.prosyst.com/&#34;&gt;ProSyst&lt;/a&gt; etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;. The source of the whole application can be found on &lt;a href=&#34;https://github.com/mvpotter/osgi-felix-tutorial&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -93,45 +35,7 @@ Apache Felix documentation provides &lt;a href=&#34;http://felix.apache.org/docu
       <pubDate>Sun, 01 Jan 2017 19:30:40 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2017/01/podam/</guid>
-      <description>&lt;p&gt;Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&amp;rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;PODAM is abbreviation for POjo DAta Mocker and its API for creating beans is pretty simple. All you need to do is create &lt;code&gt;PodamFactory&lt;/code&gt; instance and use its &lt;code&gt;manufacturePojo&lt;/code&gt; method that instantiates object and fills its fields with random values:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;PodamFactory factory = new PodamFactoryImpl();
-Order order = factory.manufacturePojo(Order.class);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sometimes you need to specify rules for field values. For example, ids of entities have &lt;code&gt;String&lt;/code&gt; type and &lt;code&gt;UUID&lt;/code&gt;format. For generated entities to pass validation logic smoothly it is necessary to generate valid ids. &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt; suggests two ways to deal with such issues:&lt;/p&gt;
-
-&lt;p&gt;The first one is to implement &lt;code&gt;AttributeStrategy&lt;/code&gt; class and add &lt;code&gt;@PodamStrategyValue&lt;/code&gt; annotation on required field. However, in my case this approach was undesirable, because I needed to test business entities and it is not a good idea to clutter them with annotation from test dependencies.&lt;/p&gt;
-
-&lt;p&gt;The second approach is to implement custom &lt;code&gt;TypeManufacturer&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class CustomStringManufacturer extends StringTypeManufacturerImpl {
-
-    private static final String FIELD_ID = &amp;quot;id&amp;quot;;
-
-    @Override
-    public String getType(final DataProviderStrategy strategy, final AttributeMetadata attributeMetadata,
-                    	  final Map&amp;lt;String, Type&amp;gt; genericTypesArgumentsMap) {
-        if (FIELD_ID.equals(attributeMetadata.getAttributeName())) {
-            return UUID.randomUUID().toString();
-        }
-        return super.getType(strategy, attributeMetadata, genericTypesArgumentsMap);
-    };
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and register it for using by &lt;code&gt;PodamFactory&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;podamFactory.getStrategy().addOrReplaceTypeManufacturer(String.class, new CustomStringManufacturer());
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I described only a subset of &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt; features. You can always visit their &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;documentation&lt;/a&gt; for further info.&lt;/p&gt;
-
-&lt;p&gt;Another alternative that I found later is &lt;a href=&#34;https://github.com/benas/random-beans/wiki&#34;&gt;random-beans&lt;/a&gt; project. However, I did not have time to test it thoroughly. If you know other tools for generating and populating beans feel free to share your experience in comments.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&amp;rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -140,126 +44,7 @@ Order order = factory.manufacturePojo(Order.class);
       <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/</guid>
-      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.&lt;/p&gt;
-
-&lt;p&gt;All extensibility points are described in &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/#plugins&#34;&gt;Springfox reference&lt;/a&gt;. As the documentation states plugin should:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Implement one of the extention points.&lt;/li&gt;
-&lt;li&gt;Have apprpriate initialization order.&lt;/li&gt;
-&lt;li&gt;Be declared as a Spring bean for plugin registry to pick it up.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;import org.springframework.stereotype.Component;
-import org.springframework.core.annotation.Order;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
-
-@Component
-@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
-public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
-    ...
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In my case the most appropriate extension point is &lt;em&gt;OperationBuilderPlugin&lt;/em&gt; as I need to process each endpoint and add authentication header to private api ones.&lt;/p&gt;
-
-&lt;p&gt;Extension points require two methods to be implemented:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Spring plugin&amp;rsquo;s method &lt;code&gt;boolean supports()&lt;/code&gt; to understand if plugin should be applied. The implementation for Springfox is pretty simple&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
-public boolean supports(final DocumentationType documentationType) {
-    return DocumentationType.SWAGGER_2.equals(documentationType);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Method &lt;code&gt;void apply(context)&lt;/code&gt;, which is being invoked for each api endpoint and provides appropriate context (e.g. &lt;em&gt;OperationContext&lt;/em&gt; for &lt;em&gt;OperationBuilderPlugin&lt;/em&gt;) as an argument.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
-public void apply(final OperationContext context) {
-    // Get endpoint request mapping
-    final String mapping = context.requestMappingPattern();      
-    // Check if private api endpoint    
-    if (!PUBLIC_API_MAPPINGS.contains(mapping)) {                    
-        final List&amp;lt;Parameter&amp;gt; parameters = new LinkedList&amp;lt;&amp;gt;();
-        // Create auth header parameter
-        parameters.add(parameterBuilder
-                               .parameterType(HEADER_PARAMETER_TYPE)
-                               .name(HttpTokenHelper.HEADER_TOKEN)
-                               .modelRef(new ModelRef(STRING_TYPE))
-                               .description(HEADER_DESCRIPTION)
-                               .allowMultiple(false)
-                               .required(true)
-                             .build());
-        // Add parameter to endpoint documentation 
-        context.operationBuilder().parameters(parameters);           
-      }
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;As a result, every endpoint, except &lt;em&gt;/login&lt;/em&gt; has authentication token header in generated documentation.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-1.png&#34; alt=&#34;Image&#34; /&gt;
-&lt;img src=&#34;http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-2.png&#34; alt=&#34;Image&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The whole code of the plugin is the following.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;import com.invitro.registry.security.HttpTokenHelper;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ParameterBuilder;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.Parameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
-
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
-@Component
-@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
-public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
-
-    public static final String API_LOGIN_ENDPOINT = &amp;quot;/api/login&amp;quot;;
-    public static final String HEADER_PARAMETER_TYPE = &amp;quot;header&amp;quot;;
-    public static final String HEADER_DESCRIPTION = &amp;quot;Authentication token (see &amp;quot; + API_LOGIN_ENDPOINT + &amp;quot;)&amp;quot;;
-    public static final String STRING_TYPE = &amp;quot;string&amp;quot;;
-
-    private static final List&amp;lt;String&amp;gt; PUBLIC_API_MAPPINGS = Collections.singletonList(API_LOGIN_ENDPOINT);
-
-    private ParameterBuilder parameterBuilder = new ParameterBuilder();
-
-    @Override
-    public boolean supports(final DocumentationType documentationType) {
-        return DocumentationType.SWAGGER_2.equals(documentationType);
-    }
-
-    @Override
-    public void apply(final OperationContext context) {
-        final String mapping = context.requestMappingPattern();
-        if (!PUBLIC_API_MAPPINGS.contains(mapping)) {
-            final List&amp;lt;Parameter&amp;gt; parameters = new LinkedList&amp;lt;&amp;gt;();
-            parameters.add(parameterBuilder
-                                   .parameterType(HEADER_PARAMETER_TYPE)
-                                   .name(HttpTokenHelper.HEADER_TOKEN)
-                                   .modelRef(new ModelRef(STRING_TYPE))
-                                   .description(HEADER_DESCRIPTION)
-                                   .allowMultiple(false)
-                                   .required(true)
-                                   .build());
-            context.operationBuilder().parameters(parameters);
-        }
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -268,127 +53,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
       <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
       
       <guid>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</guid>
-      <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Among various options I have chosen &lt;a href=&#34;https://github.com/tcurdt/jdeb&#34;&gt;jdeb&lt;/a&gt; Maven plugin. It allows to create debian packages on any platform, pretty mature and well documented.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://spring.io/guides/gs/spring-boot/&#34;&gt;Spring boot introductory tutorial&lt;/a&gt; was taken as a source project. The only thing that modified is spring boot maven plugin configuration. It is necessary to make jar &lt;a href=&#34;ttp://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html&#34;&gt;fully executable&lt;/a&gt; to be able to launch it as a service on Unix systems.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;executable&amp;gt;true&amp;lt;/executable&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;repackage&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Separate module is responsible for creating debian package with executable jar. Firstly, the main artifact is copied using maven dependency plugin&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;maven-dependency-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;2.10&amp;lt;/version&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;id&amp;gt;copy&amp;lt;/id&amp;gt;
-            &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;copy&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-            &amp;lt;configuration&amp;gt;
-                &amp;lt;artifactItems&amp;gt;
-                    &amp;lt;artifactItem&amp;gt;
-                        &amp;lt;groupId&amp;gt;com.springframework&amp;lt;/groupId&amp;gt;
-                        &amp;lt;artifactId&amp;gt;gs-spring-boot&amp;lt;/artifactId&amp;gt;
-                        &amp;lt;version&amp;gt;1.0.0&amp;lt;/version&amp;gt;
-                        &amp;lt;overWrite&amp;gt;true&amp;lt;/overWrite&amp;gt;
-                        &amp;lt;outputDirectory&amp;gt;${project.build.directory}&amp;lt;/outputDirectory&amp;gt;
-                        &amp;lt;destFileName&amp;gt;${build.finalName}.jar&amp;lt;/destFileName&amp;gt;
-                    &amp;lt;/artifactItem&amp;gt;
-                &amp;lt;/artifactItems&amp;gt;
-            &amp;lt;/configuration&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then debian package is created&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;artifactId&amp;gt;jdeb&amp;lt;/artifactId&amp;gt;
-    &amp;lt;groupId&amp;gt;org.vafer&amp;lt;/groupId&amp;gt;
-    &amp;lt;version&amp;gt;1.5&amp;lt;/version&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;controlDir&amp;gt;${project.build.directory}/classes/control&amp;lt;/controlDir&amp;gt;
-        &amp;lt;deb&amp;gt;${project.build.directory}/${build.finalName}.deb&amp;lt;/deb&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;phase&amp;gt;package&amp;lt;/phase&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;jdeb&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-            &amp;lt;configuration&amp;gt;
-                &amp;lt;dataSet&amp;gt;
-                    &amp;lt;data&amp;gt;
-                        &amp;lt;src&amp;gt;${project.build.directory}/${build.finalName}.jar&amp;lt;/src&amp;gt;
-                        &amp;lt;type&amp;gt;file&amp;lt;/type&amp;gt;
-                        &amp;lt;mapper&amp;gt;
-                            &amp;lt;type&amp;gt;perm&amp;lt;/type&amp;gt;
-                            &amp;lt;prefix&amp;gt;/var/${build.finalName}&amp;lt;/prefix&amp;gt;
-                            &amp;lt;filemode&amp;gt;755&amp;lt;/filemode&amp;gt;
-                        &amp;lt;/mapper&amp;gt;
-                    &amp;lt;/data&amp;gt;
-                    &amp;lt;data&amp;gt;
-                        &amp;lt;type&amp;gt;link&amp;lt;/type&amp;gt;
-                        &amp;lt;symlink&amp;gt;true&amp;lt;/symlink&amp;gt;
-                        &amp;lt;linkName&amp;gt;/etc/init.d/${build.finalName}&amp;lt;/linkName&amp;gt;
-                        &amp;lt;linkTarget&amp;gt;/var/${build.finalName}/${build.finalName}.jar&amp;lt;/linkTarget&amp;gt;
-                    &amp;lt;/data&amp;gt;
-                &amp;lt;/dataSet&amp;gt;
-            &amp;lt;/configuration&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Data tags specify two entities for packaging:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;executable jar that will be copied to &lt;em&gt;/var/${build.finalName}&lt;/em&gt; with execute access rights&lt;/li&gt;
-&lt;li&gt;symlink to executable jar that will be located at &lt;em&gt;/etc/init.d/${build.finalName}&lt;/em&gt; for installing init.d service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Another important thing is &lt;em&gt;control&lt;/em&gt; directory, that is specified in plugin configuration:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;controlDir&amp;gt;${project.build.directory}/classes/control&amp;lt;/controlDir&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Looking at the directory contents you can find &lt;strong&gt;control&lt;/strong&gt; file. It is like a pom.xml for Maven, but for debian packages. It specifies package name, description, dependencies upon other packages, etc. Detailed fields description can be found at &lt;a href=&#34;https://www.debian.org/doc/debian-policy/ch-controlfields.html&#34;&gt;debian documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Package: ${build.finalName}
-Version: ${project.version}
-Section: misc
-Priority: optional
-Architecture: all
-Depends: oracle-java8-installer | openjdk-8-jre
-Maintainer: Michael Potter &amp;lt;supermegapotter@gmail.com&amp;gt;
-Description: Spring boot Hello World application
-Distribution: development
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Other control files description could be found at &lt;a href=&#34;https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts&#34;&gt;debian documentation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The only thing that is left is create a package by executing &lt;code&gt;mvn clean package&lt;/code&gt;.&lt;/p&gt;
-</description>
+      <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

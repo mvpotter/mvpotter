@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Michael Potter</title>
+    <link>http://mvpotter.com/tags/</link>
+    <description>Recent content in Tags on Michael Potter</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Mar 2019 16:04:11 +0700</lastBuildDate>
+    
+	<atom:link href="http://mvpotter.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Architecture</title>
+      <link>http://mvpotter.com/tags/architecture/</link>
+      <pubDate>Sat, 30 Mar 2019 16:04:11 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debian</title>
+      <link>http://mvpotter.com/tags/debian/</link>
+      <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maven</title>
+      <link>http://mvpotter.com/tags/maven/</link>
+      <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Osgi</title>
+      <link>http://mvpotter.com/tags/osgi/</link>
+      <pubDate>Fri, 24 Feb 2017 22:31:11 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/osgi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>http://mvpotter.com/tags/spring/</link>
+      <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Boot</title>
+      <link>http://mvpotter.com/tags/spring-boot/</link>
+      <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Springfox</title>
+      <link>http://mvpotter.com/tags/springfox/</link>
+      <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/springfox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swagger</title>
+      <link>http://mvpotter.com/tags/swagger/</link>
+      <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/swagger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>http://mvpotter.com/tags/test/</link>
+      <pubDate>Sun, 01 Jan 2017 19:30:40 +0700</pubDate>
+      
+      <guid>http://mvpotter.com/tags/test/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

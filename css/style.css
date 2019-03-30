@@ -1446,9 +1446,6 @@ ol.toc {
   background-size: cover;
   background-position: center;
 }
-.archive-article .archive-article-thumbnail .thumbnail .thumbnail-none {
-  background-image: url("images/thumb-default-small.png");
-}
 .archive-article-title {
   display: block;
   font-size: 1.6em;
@@ -1843,7 +1840,7 @@ ol.toc {
   }
 }
 #recent-post li {
-  padding: 10px 0 10px 94px;
+  padding: 10px 0 10px 0px;
 }
 #recent-post li:before,
 #recent-post li:after {
@@ -1883,12 +1880,6 @@ ol.toc {
   -moz-background-size: cover;
   background-size: cover;
   background-position: center;
-}
-#recent-post li .item-thumbnail .thumbnail .thumbnail-none {
-  background-image: url("images/thumb-default-small.png");
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  background-size: 100% 100%;
 }
 #recent-post li .item-inner a,
 #recent-post li .item-inner .item-category {

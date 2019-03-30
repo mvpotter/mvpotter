@@ -7,7 +7,7 @@ description = ""
 menu = ""
 banner = ""
 images = []
-draft = true
+draft = false
 +++
 
 I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the [layered architecture](https://en.wikipedia.org/wiki/Multitier_architecture) principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.
@@ -88,4 +88,4 @@ For me it is a classical conflict between clean architecture and the pursuit of 
 In a couple of projects we had a situation when entities were used through all the layers. And as an intermediate step of the refactoring we used both entities and business objects in services contracts. However, outer services interfaces that used in controllers contained only business objects and entities usage were only inside inner interfaces used by other services.
 
 
-Keep your code clean! 
+Keep your code clean!

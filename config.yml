@@ -4,7 +4,7 @@ canonifyurls: true
 title: "Michael Potter"
 theme: "hugo-icarus-theme"
 disqusShortname: "mvpotter"
-googleAnalytics: "UA-10647442-16)"
+googleAnalytics: "UA-10647442-16"
 paginate: 10
 
 params:

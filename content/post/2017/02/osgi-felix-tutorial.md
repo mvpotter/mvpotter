@@ -6,7 +6,7 @@ date = "2017-02-24T22:31:11+07:00"
 tags = ["osgi"]
 description = ""
 menu = ""
-banner = "/post/2017/02/osgi-felix-tutorial.png"
+banner = ""
 images = [
 ]
 
@@ -48,7 +48,7 @@ val list = listOf(activator)
 configMap.put(FelixConstants.SYSTEMBUNDLE_ACTIVATORS_PROP, list)
 ```
 
-The first block specifies required packages, they are 
+The first block specifies required packages, they are
 
 - *kotlin* packages, as bundles are written in Kotlin they either should provide the dependency or host defines it itself and free bundles from this obligation.
 - package that contains common API should be specified as OSGi classes are loaded with separate classloader and it is insufficiently for host to just have a dependency on API interfaces, they should be loaded by container appropriately for service instances to be casted without issues.
@@ -58,7 +58,7 @@ Complete list of Apache Felix properties can be found in [documentation](http://
 
 ### Bundles
 
-Bundles are built using Felix [maven-bundle-plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html). All you need to do is specify packaging 
+Bundles are built using Felix [maven-bundle-plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html). All you need to do is specify packaging
 
 ``` xml
 <packaging>bundle</packaging>
@@ -81,5 +81,5 @@ and add required attributes to bundle manifest file
 
 **hello-api** bundle defines interfaces that should be implemented by other bundles and further used by the host application. Other bundles contain class with API implementation and activator that registers its service in bundle context.
 
-*main.kt* file shows how to register bundles from provided JAR files by host application and invoke their service methods. 
+*main.kt* file shows how to register bundles from provided JAR files by host application and invoke their service methods.
 Apache Felix documentation provides [useful tutorials](http://felix.apache.org/documentation/tutorials-examples-and-presentations/apache-felix-osgi-tutorial.html) on creating and consuming bundle services.

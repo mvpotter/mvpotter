@@ -5,7 +5,7 @@ description = ""
 draft = false
 title = "Springfox plugin for adding auth params"
 tags = ["Springfox", "Swagger", "Spring"]
-banner = "/post/2016/10/springfox-plugin-for-adding-auth-params.png"
+banner = ""
 images = [
 ]
 date = "2016-10-17T21:08:31+07:00"
@@ -13,14 +13,14 @@ menu = ""
 
 +++
 
-Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with [Springfox reference](http://springfox.github.io/springfox/docs/current/) it could be done using *globalOperationParameters*, however in this case parameter will be added to every endpoint. Dilip Krishnan [suggests](http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation) to create multiple dockets to separate public api from private one. But in my case the only method of public api is */login* and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue. 
+Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with [Springfox reference](http://springfox.github.io/springfox/docs/current/) it could be done using *globalOperationParameters*, however in this case parameter will be added to every endpoint. Dilip Krishnan [suggests](http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation) to create multiple dockets to separate public api from private one. But in my case the only method of public api is */login* and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.
 <!--more-->
 All extensibility points are described in [Springfox reference](http://springfox.github.io/springfox/docs/current/#plugins). As the documentation states plugin should:
 
 1. Implement one of the extention points.
 2. Have apprpriate initialization order.
 3. Be declared as a Spring bean for plugin registry to pick it up.
- 
+
 ```java
 import org.springframework.stereotype.Component;
 import org.springframework.core.annotation.Order;
@@ -34,7 +34,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
 }
 ```
 
-In my case the most appropriate extension point is *OperationBuilderPlugin* as I need to process each endpoint and add authentication header to private api ones. 
+In my case the most appropriate extension point is *OperationBuilderPlugin* as I need to process each endpoint and add authentication header to private api ones.
 
 Extension points require two methods to be implemented:
 
@@ -46,7 +46,7 @@ Extension points require two methods to be implemented:
         return DocumentationType.SWAGGER_2.equals(documentationType);
     }
     ```
-2. Method ```void apply(context)```, which is being invoked for each api endpoint and provides appropriate context (e.g. *OperationContext* for *OperationBuilderPlugin*) as an argument. 
+2. Method ```void apply(context)```, which is being invoked for each api endpoint and provides appropriate context (e.g. *OperationContext* for *OperationBuilderPlugin*) as an argument.
 
     ```java
     @Override
@@ -65,12 +65,12 @@ Extension points require two methods to be implemented:
                                    .allowMultiple(false)
                                    .required(true)
                                  .build());
-            // Add parameter to endpoint documentation 
+            // Add parameter to endpoint documentation
             context.operationBuilder().parameters(parameters);           
           }
-    } 
+    }
     ```
-    
+
 As a result, every endpoint, except */login* has authentication token header in generated documentation.
 
 ![Image](/post/2016/10/springfox-plugin-for-adding-auth-params-1.png)

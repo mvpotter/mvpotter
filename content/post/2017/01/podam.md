@@ -2,7 +2,7 @@
 tags = ["test"]
 description = ""
 menu = ""
-banner = "/post/2017/01/podam.png"
+banner = ""
 title = "PODAM (POjo DAta Mocker)"
 images = [
 ]

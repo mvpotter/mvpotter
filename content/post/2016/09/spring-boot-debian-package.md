@@ -1,5 +1,5 @@
 +++
-banner = "/post/2016/09/spring-boot-debian-package.png"
+banner = ""
 date = "2016-09-03T10:42:43+07:00"
 tags = ["spring-boot", "maven", "debian"]
 title = "Spring boot debian package"
@@ -126,6 +126,6 @@ Description: Spring boot Hello World application
 Distribution: development
 ```
 
-Other control files description could be found at [debian documentation](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts). 
+Other control files description could be found at [debian documentation](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html#s-maintscripts).
 
 The only thing that is left is create a package by executing ```mvn clean package```.

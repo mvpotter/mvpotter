@@ -88,4 +88,4 @@ For me it is a classical conflict between clean architecture and the pursuit of 
 In a couple of projects we had a situation when entities were used through all the layers. And as an intermediate step of the refactoring we used both entities and business objects in services contracts. However, outer services interfaces that used in controllers contained only business objects and entities usage were only inside inner interfaces used by other services.
 
 
-Keep your code clean!
+That's it for now. Keep your code clean!

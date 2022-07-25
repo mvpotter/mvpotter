@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
 <head>
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
-    {{ .Hugo.Generator }}
+    <title>{{ if .IsHome }}{{ $.Title }}{{ else }}{{ .Title }} &middot; {{ $.Title }}{{ end }}</title>
+    {{ hugo.Generator }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="yandex-verification" content="7c27b88782f6b39b" />
@@ -12,9 +12,9 @@
     {{ else }}
       <meta name="description" content="{{ .Site.Params.site_description }}">
     {{ end }}
-    {{ if .RSSLink }}
-      <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-      <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ with .OutputFormats.Get "RSS" }}
+      <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Title }}" />
+      <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Title }}" />
     {{ end }}
     <link rel="canonical" href="{{ .Permalink }}"/>
     <link rel="icon" href="{{ .Site.BaseURL }}favicon.ico">

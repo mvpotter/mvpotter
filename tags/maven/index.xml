@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Maven on Michael Potter</title>
-    <link>http://mvpotter.com/tags/maven/</link>
-    <description>Recent content in Maven on Michael Potter</description>
+    <title>maven on Michael Potter</title>
+    <link>https://mvpotter.github.io/mvpotter/tags/maven/</link>
+    <description>Recent content in maven on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Sep 2016 10:42:43 +0700</lastBuildDate>
-    
-	<atom:link href="http://mvpotter.com/tags/maven/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 03 Sep 2016 10:42:43 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/maven/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spring boot debian package</title>
-      <link>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</link>
       <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</guid>
       <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

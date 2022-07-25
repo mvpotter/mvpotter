@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Osgi on Michael Potter</title>
-    <link>http://mvpotter.com/tags/osgi/</link>
-    <description>Recent content in Osgi on Michael Potter</description>
+    <title>osgi on Michael Potter</title>
+    <link>https://mvpotter.github.io/mvpotter/tags/osgi/</link>
+    <description>Recent content in osgi on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Feb 2017 22:31:11 +0700</lastBuildDate>
-    
-	<atom:link href="http://mvpotter.com/tags/osgi/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 24 Feb 2017 22:31:11 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/osgi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pluggable architecture with Apache Felix</title>
-      <link>http://mvpotter.com/post/2017/02/osgi-felix-tutorial/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/</link>
       <pubDate>Fri, 24 Feb 2017 22:31:11 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2017/02/osgi-felix-tutorial/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/</guid>
       <description>&lt;p&gt;JVM does not support dynamic component model. To solve this issue &lt;a href=&#34;https://www.osgi.org/&#34;&gt;OSGi (Open Services Gateway initiative)&lt;/a&gt; was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;, &lt;a href=&#34;http://www.eclipse.org/equinox/&#34;&gt;Eclipse Equinox&lt;/a&gt;, &lt;a href=&#34;http://www.knopflerfish.org/&#34;&gt;Knophlerfish&lt;/a&gt;, &lt;a href=&#34;http://www.prosyst.com/&#34;&gt;ProSyst&lt;/a&gt; etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;. The source of the whole application can be found on &lt;a href=&#34;https://github.com/mvpotter/osgi-felix-tutorial&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

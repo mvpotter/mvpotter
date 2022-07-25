@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Test on Michael Potter</title>
-    <link>http://mvpotter.com/tags/test/</link>
-    <description>Recent content in Test on Michael Potter</description>
+    <title>test on Michael Potter</title>
+    <link>https://mvpotter.github.io/mvpotter/tags/test/</link>
+    <description>Recent content in test on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Jan 2017 19:30:40 +0700</lastBuildDate>
-    
-	<atom:link href="http://mvpotter.com/tags/test/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 01 Jan 2017 19:30:40 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PODAM (POjo DAta Mocker)</title>
-      <link>http://mvpotter.com/post/2017/01/podam/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2017/01/podam/</link>
       <pubDate>Sun, 01 Jan 2017 19:30:40 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2017/01/podam/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2017/01/podam/</guid>
       <description>&lt;p&gt;Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&amp;rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

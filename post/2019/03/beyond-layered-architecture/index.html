@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Beyond layered architecture &middot; Michael Potter</title>
-    <meta name="generator" content="Hugo 0.54.0" />
+    <title>Beyond layered architecture &middot; Beyond layered architecture</title>
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="yandex-verification" content="7c27b88782f6b39b" />
@@ -11,36 +11,29 @@
       <meta name="description" content="">
     
     
-    <link rel="canonical" href="http://mvpotter.com/post/2019/03/beyond-layered-architecture/"/>
-    <link rel="icon" href="http://mvpotter.com/favicon.ico">
-    <link rel="apple-touch-icon" href="http://mvpotter.com/apple-touch-icon.png" />
-    <link rel="stylesheet" href="http://mvpotter.com/css/style.css">
-    <link rel="stylesheet" href="http://mvpotter.com/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://mvpotter.com/css/monokai.css">
-    <link rel="stylesheet" href="http://mvpotter.com/fancybox/jquery.fancybox.css">
+    <link rel="canonical" href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/"/>
+    <link rel="icon" href="https://mvpotter.github.io/mvpotter/favicon.ico">
+    <link rel="apple-touch-icon" href="https://mvpotter.github.io/mvpotter/apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/style.css">
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/monokai.css">
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Beyond layered architecture" />
 <meta property="og:description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://mvpotter.com/post/2019/03/beyond-layered-architecture/" />
-<meta property="article:published_time" content="2019-03-30T16:04:11&#43;07:00"/>
-<meta property="article:modified_time" content="2019-03-30T16:04:11&#43;07:00"/>
+<meta property="og:url" content="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-03-30T16:04:11+07:00" />
+<meta property="article:modified_time" content="2019-03-30T16:04:11+07:00" />
+
 
     
-    
-<meta itemprop="name" content="Beyond layered architecture">
-<meta itemprop="description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.">
-
-
-<meta itemprop="datePublished" content="2019-03-30T16:04:11&#43;07:00" />
-<meta itemprop="dateModified" content="2019-03-30T16:04:11&#43;07:00" />
+    <meta itemprop="name" content="Beyond layered architecture">
+<meta itemprop="description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated."><meta itemprop="datePublished" content="2019-03-30T16:04:11+07:00" />
+<meta itemprop="dateModified" content="2019-03-30T16:04:11+07:00" />
 <meta itemprop="wordCount" content="917">
-
-
-
 <meta itemprop="keywords" content="architecture," />
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Beyond layered architecture"/>
 <meta name="twitter:description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated."/>
@@ -61,16 +54,16 @@
 	<header id="header">
   <div id="header-main" class="header-inner">
     <div class="outer">
-      <a href="http://mvpotter.com/" id="logo">
+      <a href="https://mvpotter.github.io/mvpotter/" id="logo">
           
-          <i class="logo" style="background-image: url('http://mvpotter.com/images/avatar.jpg')"></i>
+          <i class="logo" style="background-image: url('https://mvpotter.github.io/mvpotter/images/avatar.jpg')"></i>
           
           <span class="site-title">Michael Potter</span>
       </a>
       <nav id="main-nav">
           
           
-          <a class="main-nav-link" href="http://mvpotter.com/">Home</a>
+          <a class="main-nav-link" href="https://mvpotter.github.io/">Home</a>
           
           
           
@@ -82,13 +75,13 @@
           
           
           
-          <a class="main-nav-link" href="http://mvpotter.com/cv.pdf">CV</a>
+          <a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a>
           
           
       </nav>
         <nav id="sub-nav">
           <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://mvpotter.com/images/avatar.jpg"><i class="fa fa-caret-down"></i></a>
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg"><i class="fa fa-caret-down"></i></a>
           </div>
         </nav>
         <div id="search-form-wrap">
@@ -96,7 +89,7 @@
               <input type="search" name="q" class="search-form-input" placeholder="Search">
               <button type="submit" class="search-form-submit">
               </button>
-              <input type="hidden" name="sitesearch" value="http://mvpotter.com/" />
+              <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
          </form>
         </div>
     </div>
@@ -107,7 +100,7 @@
           <tr>
           
           
-          <td><a class="main-nav-link" href="http://mvpotter.com/">Home</a></td>
+          <td><a class="main-nav-link" href="https://mvpotter.github.io/">Home</a></td>
           
           
           
@@ -119,13 +112,13 @@
           
           
           
-          <td><a class="main-nav-link" href="http://mvpotter.com/cv.pdf">CV</a></td>
+          <td><a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a></td>
           
           
           <td>
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
           <input type="search" name="q" class="search-form-input" placeholder="Search">
-          <input type="hidden" name="sitesearch" value="http://mvpotter.com/" />
+          <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
           </form>
         </td>
       </tr>
@@ -141,7 +134,7 @@
   <div class="inner profile-inner">
     <div class="base-info profile-block">
       
-      <img id="avatar" src="http://mvpotter.com/images/avatar.jpg">
+      <img id="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg">
       
       <h2 id="name">Michael Potter</h2>
       
@@ -231,7 +224,7 @@
 <td><a href="//twitter.com/dude1366" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
 
 
-          <td><a href="http://mvpotter.com/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+          <td><a href="https://mvpotter.github.io/mvpotter/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
         </tr>
       </table>
     </div>
@@ -247,7 +240,7 @@
         
 
         <header class="article-header">
-    <a href="http://mvpotter.com/post/2019/03/beyond-layered-architecture/">
+    <a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/">
     <h1 class="article-title" itemprop="name">
         Beyond layered architecture
     </h1>
@@ -257,7 +250,7 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;07" itemprop="datePublished">2019-03-30</time>
+            <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;0700" itemprop="datePublished">2019-03-30</time>
             &middot;
             917
             words
@@ -278,7 +271,7 @@
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/architecture">architecture</a>
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/architecture">architecture</a>
                 
                 
             </div>
@@ -288,89 +281,62 @@
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            
-
-<p>I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the <a href="https://en.wikipedia.org/wiki/Multitier_architecture">layered architecture</a> principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.</p>
-
+            <p>I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the <a href="https://en.wikipedia.org/wiki/Multitier_architecture">layered architecture</a> principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.</p>
 <p>I took part in a number of discussions with different teams on how to do it. Of course, details were different each time, however, main approaches were the same. Sometimes, correct decisions were made from the very beginning of the project, sometimes we reached them when faced architectural issues. I want to describe the approaches we used. It does not mean that it is the only good way of building applications, but it reduced cognitive complexity and saved us a lot of time when we worked on enterprise applications.</p>
-
 <h5 id="how-to-create-an-optimal-subset-of-services-that-implement-required-business-logic">How to create an optimal subset of services that implement required business logic?</h5>
-
 <p>One of the popular issues that I found in projects is big service classes (e.g. 1000 lines of code). For example, we are developing an online store and need to implement the scenario of forming an order. It is required to fill in a customer, a set of items to buy, delivery and payment information. Simple tutorials usually explain how to deal with simple entities, e.g. we create a service for each entity: <code>OrderService</code>, <code>ItemService</code>, <code>CustomerService</code>. They can make CRUD operations and allow to search information about specified entities. However, when we need to set an order&rsquo;s customer or add a new item, one of the most obvious ways is to extend <code>OrderService</code> with required methods.</p>
-
-<pre><code class="language-java">public interface ComplexOrderService {
-  Order create();
-  Order find(UUID id);
-  Order save(Order order);
-  void delete(UUID id);
-  Order setCustomer(UUID orderId, UUID customerId);
-  Order addItem(UUID orderId, UUID itemId);
-  Order removeItem(UUID orderId, UUID itemId);
-  ...
-}
-</code></pre>
-
-<p>This approach will lead to the situation when <code>OrderService</code> becomes a God service that makes almost everything. And it will expand when new business requirements need to be implemented. To make service responsibility more separated we can move necessary operations to special services that should manage the relation. To manage items in an order we can create <code>OrderItemService</code>, to manage order customer <code>OrderCustomerService</code> and so on.</p>
-
-<pre><code class="language-java">public interface SimpleOrderService {
-  Order create();
-  Order find(UUID id);
-  Order save(Order order);
-  void delete(UUID id);
-}
-</code></pre>
-
-<pre><code class="language-java">public interface OrderItemService {
-  Order addItem(UUID orderId, UUID itemId);
-  Order removeItem(UUID orderId, UUID itemId);
-}
-</code></pre>
-
-<pre><code class="language-java">public interface OrderCustomerService {
-  Order setCustomer(UUID orderId, UUID customerId);
-}
-</code></pre>
-
-<p>Services become smaller and manageable.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ComplexOrderService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">setCustomer</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID customerId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">addItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">removeItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This approach will lead to the situation when <code>OrderService</code> becomes a God service that makes almost everything. And it will expand when new business requirements need to be implemented. To make service responsibility more separated we can move necessary operations to special services that should manage the relation. To manage items in an order we can create <code>OrderItemService</code>, to manage order customer <code>OrderCustomerService</code> and so on.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">SimpleOrderService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OrderItemService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">addItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">removeItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OrderCustomerService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">setCustomer</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID customerId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Services become smaller and manageable.</p>
 <h5 id="can-service-read-entities-of-another-one-using-its-repository-or-entity-manager">Can service read entities of another one using its repository or entity manager?</h5>
-
 <p>Another quite common idea is to inject any repository in any service to work with required entities. Anyway we have the same database and it is easy to get what you need without writing additional code. Moreover, it does not break layered architecture principle. Some developers even say that repository is redundant abstraction and we can inject entity manager right into the service and do everything we want. Having entity manager injected in <code>OrderItemService</code> we can extract required order <code>em.find(Order.class, orderId)</code> and item <code>em.find(Item.class, itemId)</code>.</p>
-
 <p>I agree that you do not need to think and do much to work with required entities, however, these approaches raise quite complex issues in a long run. In my opinion, the best approach for a service to manage only its entity, interaction with others should be done using appropriate services. Because, only service knows how to create, find and update its entities appropriately. Sometimes, you have to not only get an entity from a database, but also make some optimizations or fill in some properties by invoking external service. Or you can have a need to perform some specific modifications before saving an entity. If you do not incapsulate the way entity is managed, you can mistakenly miss some critical data when trying to update it using repository or entity manager instead of a service.</p>
-
-<pre><code class="language-java">public class BadOrderItemService {
-  private OrderRepository orderRepository;
-  private ItemRepository itemRepository;
-  ...
-}
-</code></pre>
-
-<pre><code class="language-java">public class GoodOrderItemService {
-  private OrderService orderService;
-  private ItemService itemService;
-  ...
-}
-</code></pre>
-
-<h5 id="should-services-return-business-objects-only">Should services return business objects only?</h5>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BadOrderItemService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> OrderRepository orderRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ItemRepository itemRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GoodOrderItemService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> OrderService orderService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ItemService itemService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h5 id="should-services-return-business-objects-only">Should services return business objects only?</h5>
 <p>Layered architecture states that specific type of objects should be transferred between layers. We have entity objects in persistence layer, business objects in service layer and DTO object in presentation layer. The question is, if we make a call from one service to another should only business objects be transferred or entities are allowable too? On the one hand, business object should contain all necessary information, on the other, having an entity we can use JPA features like lazy loading and retrieve data optimally. Moreover, using entity, it is easier to update entities relations.</p>
-
 <p>For me it is a classical conflict between clean architecture and the pursuit of optimization. Services should always return and receive business objects as arguments. It will hide the magic that JPA proxies do and prevents a typical type of errors, when you try to get some lazy field from an entity when session was closed.</p>
-
 <p>In a couple of projects we had a situation when entities were used through all the layers. And as an intermediate step of the refactoring we used both entities and business objects in services contracts. However, outer services interfaces that used in controllers contained only business objects and entities usage were only inside inner interfaces used by other services.</p>
-
 <p>That&rsquo;s it for now. Keep your code clean!</p>
 
         </div>
         <footer class="article-footer">
-    <a data-url="http://mvpotter.com/post/2019/03/beyond-layered-architecture/" data-id="267d4cfeea3126623f26f493a8b2e86f" class="article-share-link">
+    <a data-url="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" data-id="267d4cfeea3126623f26f493a8b2e86f" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="http://mvpotter.com/post/2019/03/beyond-layered-architecture/#disqus_thread" class="article-comment-link">
+    <a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -446,7 +412,7 @@
     
 <nav id="article-nav">
     
-    <a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
@@ -465,7 +431,7 @@
     <div id="disqus_thread">
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -504,9 +470,9 @@
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
                     <p class="item-date">
-                        <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;07" itemprop="datePublished">2019-03-30</time>
+                        <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;0700" itemprop="datePublished">2019-03-30</time>
                     </p>
                 </div>
             </li>
@@ -516,9 +482,9 @@
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
                     <p class="item-date">
-                        <time datetime="2017-02-24 22:31:11 &#43;0700 &#43;07" itemprop="datePublished">2017-02-24</time>
+                        <time datetime="2017-02-24 22:31:11 &#43;0700 &#43;0700" itemprop="datePublished">2017-02-24</time>
                     </p>
                 </div>
             </li>
@@ -528,9 +494,9 @@
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
                     <p class="item-date">
-                        <time datetime="2017-01-01 19:30:40 &#43;0700 &#43;07" itemprop="datePublished">2017-01-01</time>
+                        <time datetime="2017-01-01 19:30:40 &#43;0700 &#43;0700" itemprop="datePublished">2017-01-01</time>
                     </p>
                 </div>
             </li>
@@ -540,9 +506,9 @@
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
                     <p class="item-date">
-                        <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;07" itemprop="datePublished">2016-10-17</time>
+                        <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;0700" itemprop="datePublished">2016-10-17</time>
                     </p>
                 </div>
             </li>
@@ -550,9 +516,9 @@
             <li>
                 <div class="item-inner">
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
                     <p class="item-date">
-                        <time datetime="2016-09-03 10:42:43 &#43;0700 &#43;07" itemprop="datePublished">2016-09-03</time>
+                        <time datetime="2016-09-03 10:42:43 &#43;0700 &#43;0700" itemprop="datePublished">2016-09-03</time>
                     </p>
                 </div>
             </li>
@@ -580,7 +546,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/architecture">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/architecture">
                     architecture
                 </a>
                 <span class="category-list-count">1</span>
@@ -588,7 +554,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/debian">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/debian">
                     debian
                 </a>
                 <span class="category-list-count">1</span>
@@ -596,7 +562,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/maven">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/maven">
                     maven
                 </a>
                 <span class="category-list-count">1</span>
@@ -604,7 +570,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/osgi">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/osgi">
                     osgi
                 </a>
                 <span class="category-list-count">1</span>
@@ -612,7 +578,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/spring">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring">
                     spring
                 </a>
                 <span class="category-list-count">1</span>
@@ -620,7 +586,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/spring-boot">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring-boot">
                     spring-boot
                 </a>
                 <span class="category-list-count">1</span>
@@ -628,7 +594,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/springfox">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/springfox">
                     springfox
                 </a>
                 <span class="category-list-count">1</span>
@@ -636,7 +602,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/swagger">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/swagger">
                     swagger
                 </a>
                 <span class="category-list-count">1</span>
@@ -644,7 +610,7 @@
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/test">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/test">
                     test
                 </a>
                 <span class="category-list-count">1</span>
@@ -667,31 +633,31 @@
     <div class="widget tagcloud">
         
         
-        <a href="http://mvpotter.com/tags/architecture" style="font-size: 12px;">architecture</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/architecture" style="font-size: 12px;">architecture</a>
         
         
-        <a href="http://mvpotter.com/tags/debian" style="font-size: 12px;">debian</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/debian" style="font-size: 12px;">debian</a>
         
         
-        <a href="http://mvpotter.com/tags/maven" style="font-size: 12px;">maven</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/maven" style="font-size: 12px;">maven</a>
         
         
-        <a href="http://mvpotter.com/tags/osgi" style="font-size: 12px;">osgi</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/osgi" style="font-size: 12px;">osgi</a>
         
         
-        <a href="http://mvpotter.com/tags/spring" style="font-size: 12px;">spring</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/spring" style="font-size: 12px;">spring</a>
         
         
-        <a href="http://mvpotter.com/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
         
         
-        <a href="http://mvpotter.com/tags/springfox" style="font-size: 12px;">springfox</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/springfox" style="font-size: 12px;">springfox</a>
         
         
-        <a href="http://mvpotter.com/tags/swagger" style="font-size: 12px;">swagger</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/swagger" style="font-size: 12px;">swagger</a>
         
         
-        <a href="http://mvpotter.com/tags/test" style="font-size: 12px;">test</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/test" style="font-size: 12px;">test</a>
         
     </div>
 </div>
@@ -710,7 +676,7 @@
 <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020
+      &copy; 2022
       Michael Potter.
     </div>
   </div>
@@ -729,9 +695,8 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
-<script src="http://mvpotter.com/fancybox/jquery.fancybox.pack.js"></script>
-<script src="http://mvpotter.com/js/script.js"></script>
+<script src="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://mvpotter.github.io/mvpotter/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 

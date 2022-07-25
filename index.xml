@@ -1,58 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Michael Potter</title>
-    <link>http://mvpotter.com/</link>
+    <link>https://mvpotter.github.io/mvpotter/</link>
     <description>Recent content on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Mar 2019 16:04:11 +0700</lastBuildDate>
-    
-	<atom:link href="http://mvpotter.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 30 Mar 2019 16:04:11 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Beyond layered architecture</title>
-      <link>http://mvpotter.com/post/2019/03/beyond-layered-architecture/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/</link>
       <pubDate>Sat, 30 Mar 2019 16:04:11 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2019/03/beyond-layered-architecture/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/</guid>
       <description>I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.</description>
     </item>
     
     <item>
       <title>Pluggable architecture with Apache Felix</title>
-      <link>http://mvpotter.com/post/2017/02/osgi-felix-tutorial/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/</link>
       <pubDate>Fri, 24 Feb 2017 22:31:11 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2017/02/osgi-felix-tutorial/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/</guid>
       <description>&lt;p&gt;JVM does not support dynamic component model. To solve this issue &lt;a href=&#34;https://www.osgi.org/&#34;&gt;OSGi (Open Services Gateway initiative)&lt;/a&gt; was found. OSGi is a framework that allows to deploy modules and libraries on the fly. To use the framework you need to install and start OSGi container (e.g. &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;, &lt;a href=&#34;http://www.eclipse.org/equinox/&#34;&gt;Eclipse Equinox&lt;/a&gt;, &lt;a href=&#34;http://www.knopflerfish.org/&#34;&gt;Knophlerfish&lt;/a&gt;, &lt;a href=&#34;http://www.prosyst.com/&#34;&gt;ProSyst&lt;/a&gt; etc.) and then you can add and remove bundles (libraries and modules in OSGi terminology) to it dynamically. In the post you will find how to create basic application with pluggable architecture using &lt;a href=&#34;http://felix.apache.org/&#34;&gt;Apache Felix&lt;/a&gt;. The source of the whole application can be found on &lt;a href=&#34;https://github.com/mvpotter/osgi-felix-tutorial&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>PODAM (POjo DAta Mocker)</title>
-      <link>http://mvpotter.com/post/2017/01/podam/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2017/01/podam/</link>
       <pubDate>Sun, 01 Jan 2017 19:30:40 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2017/01/podam/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2017/01/podam/</guid>
       <description>&lt;p&gt;Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&amp;rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called &lt;a href=&#34;https://devopsfolks.github.io/podam/&#34;&gt;PODAM&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Springfox plugin for adding auth params</title>
-      <link>http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/</link>
       <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/</guid>
       <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Spring boot debian package</title>
-      <link>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</link>
+      <link>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</link>
       <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
       
-      <guid>http://mvpotter.com/post/2016/09/spring-boot-debian-package/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</guid>
       <description>&lt;p&gt;Recently got a task to create a debian package with Spring boot application to facilitate deployment process. The target OS is Ubuntu 14.04 and the application build system is Maven. Surfing the web, I found only one relative &lt;a href=&#34;https://www.ccampo.me/java/spring/linux/2016/02/15/boot-service-package.html&#34;&gt;article&lt;/a&gt; described how to achieve the goal, however it uses &lt;a href=&#34;https://github.com/nebula-plugins/gradle-ospackage-plugin&#34;&gt;Gradle ospackage plugin&lt;/a&gt;, which is not compatible with Maven builds. Thus, I started to find out the best way to create debian packages using Maven and how to apply the knowledge to make a package with Spring boot application. Complete source of the project could be found on &lt;a href=&#34;https://github.com/mvpotter/spring-boot-debian-package&#34;&gt;GiHub&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

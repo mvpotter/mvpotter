@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Springfox plugin for adding auth params &middot; Michael Potter</title>
-    <meta name="generator" content="Hugo 0.54.0" />
+    <title>Springfox plugin for adding auth params &middot; Springfox plugin for adding auth params</title>
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="yandex-verification" content="7c27b88782f6b39b" />
@@ -11,36 +11,29 @@
       <meta name="description" content="">
     
     
-    <link rel="canonical" href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/"/>
-    <link rel="icon" href="http://mvpotter.com/favicon.ico">
-    <link rel="apple-touch-icon" href="http://mvpotter.com/apple-touch-icon.png" />
-    <link rel="stylesheet" href="http://mvpotter.com/css/style.css">
-    <link rel="stylesheet" href="http://mvpotter.com/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://mvpotter.com/css/monokai.css">
-    <link rel="stylesheet" href="http://mvpotter.com/fancybox/jquery.fancybox.css">
+    <link rel="canonical" href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/"/>
+    <link rel="icon" href="https://mvpotter.github.io/mvpotter/favicon.ico">
+    <link rel="apple-touch-icon" href="https://mvpotter.github.io/mvpotter/apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/style.css">
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/monokai.css">
+    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Springfox plugin for adding auth params" />
 <meta property="og:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" />
-<meta property="article:published_time" content="2016-10-17T21:08:31&#43;07:00"/>
-<meta property="article:modified_time" content="2016-10-17T21:08:31&#43;07:00"/>
+<meta property="og:url" content="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2016-10-17T21:08:31+07:00" />
+<meta property="article:modified_time" content="2016-10-17T21:08:31+07:00" />
+
 
     
-    
-<meta itemprop="name" content="Springfox plugin for adding auth params">
-<meta itemprop="description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.">
-
-
-<meta itemprop="datePublished" content="2016-10-17T21:08:31&#43;07:00" />
-<meta itemprop="dateModified" content="2016-10-17T21:08:31&#43;07:00" />
+    <meta itemprop="name" content="Springfox plugin for adding auth params">
+<meta itemprop="description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue."><meta itemprop="datePublished" content="2016-10-17T21:08:31+07:00" />
+<meta itemprop="dateModified" content="2016-10-17T21:08:31+07:00" />
 <meta itemprop="wordCount" content="440">
-
-
-
 <meta itemprop="keywords" content="Springfox,Swagger,Spring," />
-
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Springfox plugin for adding auth params"/>
 <meta name="twitter:description" content="Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with Springfox reference it could be done using globalOperationParameters, however in this case parameter will be added to every endpoint. Dilip Krishnan suggests to create multiple dockets to separate public api from private one. But in my case the only method of public api is /login and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue."/>
@@ -61,16 +54,16 @@
 	<header id="header">
   <div id="header-main" class="header-inner">
     <div class="outer">
-      <a href="http://mvpotter.com/" id="logo">
+      <a href="https://mvpotter.github.io/mvpotter/" id="logo">
           
-          <i class="logo" style="background-image: url('http://mvpotter.com/images/avatar.jpg')"></i>
+          <i class="logo" style="background-image: url('https://mvpotter.github.io/mvpotter/images/avatar.jpg')"></i>
           
           <span class="site-title">Michael Potter</span>
       </a>
       <nav id="main-nav">
           
           
-          <a class="main-nav-link" href="http://mvpotter.com/">Home</a>
+          <a class="main-nav-link" href="https://mvpotter.github.io/">Home</a>
           
           
           
@@ -82,13 +75,13 @@
           
           
           
-          <a class="main-nav-link" href="http://mvpotter.com/cv.pdf">CV</a>
+          <a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a>
           
           
       </nav>
         <nav id="sub-nav">
           <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://mvpotter.com/images/avatar.jpg"><i class="fa fa-caret-down"></i></a>
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg"><i class="fa fa-caret-down"></i></a>
           </div>
         </nav>
         <div id="search-form-wrap">
@@ -96,7 +89,7 @@
               <input type="search" name="q" class="search-form-input" placeholder="Search">
               <button type="submit" class="search-form-submit">
               </button>
-              <input type="hidden" name="sitesearch" value="http://mvpotter.com/" />
+              <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
          </form>
         </div>
     </div>
@@ -107,7 +100,7 @@
           <tr>
           
           
-          <td><a class="main-nav-link" href="http://mvpotter.com/">Home</a></td>
+          <td><a class="main-nav-link" href="https://mvpotter.github.io/">Home</a></td>
           
           
           
@@ -119,13 +112,13 @@
           
           
           
-          <td><a class="main-nav-link" href="http://mvpotter.com/cv.pdf">CV</a></td>
+          <td><a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a></td>
           
           
           <td>
           <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
           <input type="search" name="q" class="search-form-input" placeholder="Search">
-          <input type="hidden" name="sitesearch" value="http://mvpotter.com/" />
+          <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
           </form>
         </td>
       </tr>
@@ -141,7 +134,7 @@
   <div class="inner profile-inner">
     <div class="base-info profile-block">
       
-      <img id="avatar" src="http://mvpotter.com/images/avatar.jpg">
+      <img id="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg">
       
       <h2 id="name">Michael Potter</h2>
       
@@ -231,7 +224,7 @@
 <td><a href="//twitter.com/dude1366" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
 
 
-          <td><a href="http://mvpotter.com/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+          <td><a href="https://mvpotter.github.io/mvpotter/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
         </tr>
       </table>
     </div>
@@ -247,7 +240,7 @@
         
 
         <header class="article-header">
-    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/">
+    <a href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/">
     <h1 class="article-title" itemprop="name">
         Springfox plugin for adding auth params
     </h1>
@@ -257,7 +250,7 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;07" itemprop="datePublished">2016-10-17</time>
+            <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;0700" itemprop="datePublished">2016-10-17</time>
             &middot;
             440
             words
@@ -278,15 +271,15 @@
                 <i class="fa fa-tags"></i>
                 
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/springfox">Springfox</a>
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/springfox">Springfox</a>
                 &middot;
                 
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/swagger">Swagger</a>
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/swagger">Swagger</a>
                 &middot;
                 
                 
-                <a class="article-category-link" href="http://mvpotter.com/tags/spring">Spring</a>
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/spring">Spring</a>
                 
                 
             </div>
@@ -297,132 +290,120 @@
 
         <div class="article-entry" itemprop="articleBody">
             <p>Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with <a href="http://springfox.github.io/springfox/docs/current/">Springfox reference</a> it could be done using <em>globalOperationParameters</em>, however in this case parameter will be added to every endpoint. Dilip Krishnan <a href="http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation">suggests</a> to create multiple dockets to separate public api from private one. But in my case the only method of public api is <em>/login</em> and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.</p>
-
 <p>All extensibility points are described in <a href="http://springfox.github.io/springfox/docs/current/#plugins">Springfox reference</a>. As the documentation states plugin should:</p>
-
 <ol>
 <li>Implement one of the extention points.</li>
 <li>Have apprpriate initialization order.</li>
 <li>Be declared as a Spring bean for plugin registry to pick it up.</li>
 </ol>
-
-<pre><code class="language-java">import org.springframework.stereotype.Component;
-import org.springframework.core.annotation.Order;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
-
-@Component
-@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
-public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
-    ...
-}
-</code></pre>
-
-<p>In my case the most appropriate extension point is <em>OperationBuilderPlugin</em> as I need to process each endpoint and add authentication header to private api ones.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.core.annotation.Order<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.spi.service.OperationBuilderPlugin<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.swagger.common.SwaggerPluginSupport<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Order</span><span style="color:#f92672">(</span>SwaggerPluginSupport<span style="color:#f92672">.</span><span style="color:#a6e22e">SWAGGER_PLUGIN_ORDER</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthenticationTokenHeaderBuilder</span> <span style="color:#66d9ef">implements</span> OperationBuilderPlugin <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>In my case the most appropriate extension point is <em>OperationBuilderPlugin</em> as I need to process each endpoint and add authentication header to private api ones.</p>
 <p>Extension points require two methods to be implemented:</p>
-
 <ol>
-<li><p>Spring plugin&rsquo;s method <code>boolean supports()</code> to understand if plugin should be applied. The implementation for Springfox is pretty simple</p>
-
-<pre><code class="language-java">@Override
-public boolean supports(final DocumentationType documentationType) {
-    return DocumentationType.SWAGGER_2.equals(documentationType);
-}
-</code></pre></li>
-
-<li><p>Method <code>void apply(context)</code>, which is being invoked for each api endpoint and provides appropriate context (e.g. <em>OperationContext</em> for <em>OperationBuilderPlugin</em>) as an argument.</p>
-
-<pre><code class="language-java">@Override
-public void apply(final OperationContext context) {
-    // Get endpoint request mapping
-    final String mapping = context.requestMappingPattern();      
-    // Check if private api endpoint    
-    if (!PUBLIC_API_MAPPINGS.contains(mapping)) {                    
-        final List&lt;Parameter&gt; parameters = new LinkedList&lt;&gt;();
-        // Create auth header parameter
-        parameters.add(parameterBuilder
-                               .parameterType(HEADER_PARAMETER_TYPE)
-                               .name(HttpTokenHelper.HEADER_TOKEN)
-                               .modelRef(new ModelRef(STRING_TYPE))
-                               .description(HEADER_DESCRIPTION)
-                               .allowMultiple(false)
-                               .required(true)
-                             .build());
-        // Add parameter to endpoint documentation
-        context.operationBuilder().parameters(parameters);           
-      }
-}
-</code></pre></li>
+<li>
+<p>Spring plugin&rsquo;s method <code>boolean supports()</code> to understand if plugin should be applied. The implementation for Springfox is pretty simple</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> DocumentationType documentationType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> DocumentationType<span style="color:#f92672">.</span><span style="color:#a6e22e">SWAGGER_2</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>documentationType<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Method <code>void apply(context)</code>, which is being invoked for each api endpoint and provides appropriate context (e.g. <em>OperationContext</em> for <em>OperationBuilderPlugin</em>) as an argument.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">apply</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> OperationContext context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Get endpoint request mapping
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">final</span> String mapping <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">requestMappingPattern</span><span style="color:#f92672">();</span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if private api endpoint    
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>PUBLIC_API_MAPPINGS<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>mapping<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>                    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>Parameter<span style="color:#f92672">&gt;</span> parameters <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Create auth header parameter
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        parameters<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>parameterBuilder
+</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">.</span><span style="color:#a6e22e">parameterType</span><span style="color:#f92672">(</span>HEADER_PARAMETER_TYPE<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>HttpTokenHelper<span style="color:#f92672">.</span><span style="color:#a6e22e">HEADER_TOKEN</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">.</span><span style="color:#a6e22e">modelRef</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ModelRef<span style="color:#f92672">(</span>STRING_TYPE<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">.</span><span style="color:#a6e22e">description</span><span style="color:#f92672">(</span>HEADER_DESCRIPTION<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">.</span><span style="color:#a6e22e">allowMultiple</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">.</span><span style="color:#a6e22e">required</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Add parameter to endpoint documentation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        context<span style="color:#f92672">.</span><span style="color:#a6e22e">operationBuilder</span><span style="color:#f92672">().</span><span style="color:#a6e22e">parameters</span><span style="color:#f92672">(</span>parameters<span style="color:#f92672">);</span>           
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
 </ol>
-
 <p>As a result, every endpoint, except <em>/login</em> has authentication token header in generated documentation.</p>
-
-<p><img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-1.png" alt="Image" />
-<img src="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params-2.png" alt="Image" /></p>
-
+<p><img src="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params-1.png" alt="Image">
+<img src="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params-2.png" alt="Image"></p>
 <p>The whole code of the plugin is the following.</p>
-
-<pre><code class="language-java">import com.invitro.registry.security.HttpTokenHelper;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-import springfox.documentation.builders.ParameterBuilder;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.Parameter;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.OperationBuilderPlugin;
-import springfox.documentation.spi.service.contexts.OperationContext;
-import springfox.documentation.swagger.common.SwaggerPluginSupport;
-
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
-@Component
-@Order(SwaggerPluginSupport.SWAGGER_PLUGIN_ORDER)
-public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin {
-
-    public static final String API_LOGIN_ENDPOINT = &quot;/api/login&quot;;
-    public static final String HEADER_PARAMETER_TYPE = &quot;header&quot;;
-    public static final String HEADER_DESCRIPTION = &quot;Authentication token (see &quot; + API_LOGIN_ENDPOINT + &quot;)&quot;;
-    public static final String STRING_TYPE = &quot;string&quot;;
-
-    private static final List&lt;String&gt; PUBLIC_API_MAPPINGS = Collections.singletonList(API_LOGIN_ENDPOINT);
-
-    private ParameterBuilder parameterBuilder = new ParameterBuilder();
-
-    @Override
-    public boolean supports(final DocumentationType documentationType) {
-        return DocumentationType.SWAGGER_2.equals(documentationType);
-    }
-
-    @Override
-    public void apply(final OperationContext context) {
-        final String mapping = context.requestMappingPattern();
-        if (!PUBLIC_API_MAPPINGS.contains(mapping)) {
-            final List&lt;Parameter&gt; parameters = new LinkedList&lt;&gt;();
-            parameters.add(parameterBuilder
-                                   .parameterType(HEADER_PARAMETER_TYPE)
-                                   .name(HttpTokenHelper.HEADER_TOKEN)
-                                   .modelRef(new ModelRef(STRING_TYPE))
-                                   .description(HEADER_DESCRIPTION)
-                                   .allowMultiple(false)
-                                   .required(true)
-                                   .build());
-            context.operationBuilder().parameters(parameters);
-        }
-    }
-
-}
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.invitro.registry.security.HttpTokenHelper<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.core.annotation.Order<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.stereotype.Component<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.builders.ParameterBuilder<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.schema.ModelRef<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.service.Parameter<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.spi.DocumentationType<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.spi.service.OperationBuilderPlugin<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.spi.service.contexts.OperationContext<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> springfox.documentation.swagger.common.SwaggerPluginSupport<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Collections<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.LinkedList<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Order</span><span style="color:#f92672">(</span>SwaggerPluginSupport<span style="color:#f92672">.</span><span style="color:#a6e22e">SWAGGER_PLUGIN_ORDER</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthenticationTokenHeaderBuilder</span> <span style="color:#66d9ef">implements</span> OperationBuilderPlugin <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String API_LOGIN_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/api/login&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String HEADER_PARAMETER_TYPE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;header&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String HEADER_DESCRIPTION <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Authentication token (see &#34;</span> <span style="color:#f92672">+</span> API_LOGIN_ENDPOINT <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;)&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String STRING_TYPE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> PUBLIC_API_MAPPINGS <span style="color:#f92672">=</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">singletonList</span><span style="color:#f92672">(</span>API_LOGIN_ENDPOINT<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> ParameterBuilder parameterBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ParameterBuilder<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">supports</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> DocumentationType documentationType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> DocumentationType<span style="color:#f92672">.</span><span style="color:#a6e22e">SWAGGER_2</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>documentationType<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">apply</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> OperationContext context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> String mapping <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">requestMappingPattern</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>PUBLIC_API_MAPPINGS<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>mapping<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>Parameter<span style="color:#f92672">&gt;</span> parameters <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>            parameters<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>parameterBuilder
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">parameterType</span><span style="color:#f92672">(</span>HEADER_PARAMETER_TYPE<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>HttpTokenHelper<span style="color:#f92672">.</span><span style="color:#a6e22e">HEADER_TOKEN</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">modelRef</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ModelRef<span style="color:#f92672">(</span>STRING_TYPE<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">description</span><span style="color:#f92672">(</span>HEADER_DESCRIPTION<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">allowMultiple</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">required</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>            context<span style="color:#f92672">.</span><span style="color:#a6e22e">operationBuilder</span><span style="color:#f92672">().</span><span style="color:#a6e22e">parameters</span><span style="color:#f92672">(</span>parameters<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
         </div>
         <footer class="article-footer">
-    <a data-url="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" data-id="eae1a01b321829abb260a41a393e92cd" class="article-share-link">
+    <a data-url="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/" data-id="eae1a01b321829abb260a41a393e92cd" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/#disqus_thread" class="article-comment-link">
+    <a href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -498,7 +479,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
     
 <nav id="article-nav">
     
-    <a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
@@ -507,7 +488,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
     
 
     
-    <a href="http://mvpotter.com/post/2017/01/podam/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="https://mvpotter.github.io/mvpotter/post/2017/01/podam/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Newer
       </strong>
@@ -524,7 +505,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
     <div id="disqus_thread">
         <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -563,9 +544,9 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
                     <p class="item-date">
-                        <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;07" itemprop="datePublished">2019-03-30</time>
+                        <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;0700" itemprop="datePublished">2019-03-30</time>
                     </p>
                 </div>
             </li>
@@ -575,9 +556,9 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
                     <p class="item-date">
-                        <time datetime="2017-02-24 22:31:11 &#43;0700 &#43;07" itemprop="datePublished">2017-02-24</time>
+                        <time datetime="2017-02-24 22:31:11 &#43;0700 &#43;0700" itemprop="datePublished">2017-02-24</time>
                     </p>
                 </div>
             </li>
@@ -587,9 +568,9 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
                     <p class="item-date">
-                        <time datetime="2017-01-01 19:30:40 &#43;0700 &#43;07" itemprop="datePublished">2017-01-01</time>
+                        <time datetime="2017-01-01 19:30:40 &#43;0700 &#43;0700" itemprop="datePublished">2017-01-01</time>
                     </p>
                 </div>
             </li>
@@ -599,9 +580,9 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
                     
                     
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
                     <p class="item-date">
-                        <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;07" itemprop="datePublished">2016-10-17</time>
+                        <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;0700" itemprop="datePublished">2016-10-17</time>
                     </p>
                 </div>
             </li>
@@ -609,9 +590,9 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             <li>
                 <div class="item-inner">
                     
-                    <p class="item-title"><a href="http://mvpotter.com/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
                     <p class="item-date">
-                        <time datetime="2016-09-03 10:42:43 &#43;0700 &#43;07" itemprop="datePublished">2016-09-03</time>
+                        <time datetime="2016-09-03 10:42:43 &#43;0700 &#43;0700" itemprop="datePublished">2016-09-03</time>
                     </p>
                 </div>
             </li>
@@ -639,7 +620,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/architecture">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/architecture">
                     architecture
                 </a>
                 <span class="category-list-count">1</span>
@@ -647,7 +628,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/debian">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/debian">
                     debian
                 </a>
                 <span class="category-list-count">1</span>
@@ -655,7 +636,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/maven">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/maven">
                     maven
                 </a>
                 <span class="category-list-count">1</span>
@@ -663,7 +644,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/osgi">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/osgi">
                     osgi
                 </a>
                 <span class="category-list-count">1</span>
@@ -671,7 +652,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/spring">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring">
                     spring
                 </a>
                 <span class="category-list-count">1</span>
@@ -679,7 +660,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/spring-boot">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring-boot">
                     spring-boot
                 </a>
                 <span class="category-list-count">1</span>
@@ -687,7 +668,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/springfox">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/springfox">
                     springfox
                 </a>
                 <span class="category-list-count">1</span>
@@ -695,7 +676,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/swagger">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/swagger">
                     swagger
                 </a>
                 <span class="category-list-count">1</span>
@@ -703,7 +684,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
             
             <li class="category-list-item">
                 
-                <a class="category-list-link" href="http://mvpotter.com/tags/test">
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/test">
                     test
                 </a>
                 <span class="category-list-count">1</span>
@@ -726,31 +707,31 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
     <div class="widget tagcloud">
         
         
-        <a href="http://mvpotter.com/tags/architecture" style="font-size: 12px;">architecture</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/architecture" style="font-size: 12px;">architecture</a>
         
         
-        <a href="http://mvpotter.com/tags/debian" style="font-size: 12px;">debian</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/debian" style="font-size: 12px;">debian</a>
         
         
-        <a href="http://mvpotter.com/tags/maven" style="font-size: 12px;">maven</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/maven" style="font-size: 12px;">maven</a>
         
         
-        <a href="http://mvpotter.com/tags/osgi" style="font-size: 12px;">osgi</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/osgi" style="font-size: 12px;">osgi</a>
         
         
-        <a href="http://mvpotter.com/tags/spring" style="font-size: 12px;">spring</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/spring" style="font-size: 12px;">spring</a>
         
         
-        <a href="http://mvpotter.com/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
         
         
-        <a href="http://mvpotter.com/tags/springfox" style="font-size: 12px;">springfox</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/springfox" style="font-size: 12px;">springfox</a>
         
         
-        <a href="http://mvpotter.com/tags/swagger" style="font-size: 12px;">swagger</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/swagger" style="font-size: 12px;">swagger</a>
         
         
-        <a href="http://mvpotter.com/tags/test" style="font-size: 12px;">test</a>
+        <a href="https://mvpotter.github.io/mvpotter/tags/test" style="font-size: 12px;">test</a>
         
     </div>
 </div>
@@ -769,7 +750,7 @@ public class AuthenticationTokenHeaderBuilder implements OperationBuilderPlugin 
 <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020
+      &copy; 2022
       Michael Potter.
     </div>
   </div>
@@ -788,9 +769,8 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
-<script src="http://mvpotter.com/fancybox/jquery.fancybox.pack.js"></script>
-<script src="http://mvpotter.com/js/script.js"></script>
+<script src="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://mvpotter.github.io/mvpotter/js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 

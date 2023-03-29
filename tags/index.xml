@@ -6,7 +6,52 @@
     <description>Recent content in Tags on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Mar 2019 16:04:11 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 18:03:14 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CI</title>
+      <link>https://mvpotter.github.io/mvpotter/tags/ci/</link>
+      <pubDate>Fri, 24 Mar 2023 18:03:14 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Feature Flags</title>
+      <link>https://mvpotter.github.io/mvpotter/tags/feature-flags/</link>
+      <pubDate>Fri, 24 Mar 2023 18:03:14 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/tags/feature-flags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitLab</title>
+      <link>https://mvpotter.github.io/mvpotter/tags/gitlab/</link>
+      <pubDate>Fri, 24 Mar 2023 18:03:14 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>https://mvpotter.github.io/mvpotter/tags/maven/</link>
+      <pubDate>Sun, 12 Mar 2023 14:10:03 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monorepo</title>
+      <link>https://mvpotter.github.io/mvpotter/tags/monorepo/</link>
+      <pubDate>Sun, 12 Mar 2023 14:10:03 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/tags/monorepo/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>architecture</title>
       <link>https://mvpotter.github.io/mvpotter/tags/architecture/</link>
@@ -67,15 +112,6 @@
       <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
       
       <guid>https://mvpotter.github.io/mvpotter/tags/debian/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>maven</title>
-      <link>https://mvpotter.github.io/mvpotter/tags/maven/</link>
-      <pubDate>Sat, 03 Sep 2016 10:42:43 +0700</pubDate>
-      
-      <guid>https://mvpotter.github.io/mvpotter/tags/maven/</guid>
       <description></description>
     </item>
     

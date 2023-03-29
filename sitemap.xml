@@ -2,19 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/ci/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/feature-flags/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/gitlab/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/post/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/</loc>
+    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</loc>
+    <lastmod>2023-03-12T14:10:03+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/maven/</loc>
+    <lastmod>2023-03-12T14:10:03+07:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/monorepo/</loc>
+    <lastmod>2023-03-12T14:10:03+07:00</lastmod>
+  </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/architecture/</loc>
     <lastmod>2019-03-30T16:04:11+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/</loc>
-    <lastmod>2019-03-30T16:04:11+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/</loc>
-    <lastmod>2019-03-30T16:04:11+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/</loc>
-    <lastmod>2019-03-30T16:04:11+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/tags/</loc>
     <lastmod>2019-03-30T16:04:11+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/osgi/</loc>
@@ -42,9 +63,6 @@
     <lastmod>2016-10-17T21:08:31+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/debian/</loc>
-    <lastmod>2016-09-03T10:42:43+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/tags/maven/</loc>
     <lastmod>2016-09-03T10:42:43+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</loc>

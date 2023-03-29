@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>test &middot; test</title>
+    <title>GitLab CI for mono repo built by Maven &middot; GitLab CI for mono repo built by Maven</title>
     <meta name="generator" content="Hugo 0.101.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,10 +11,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://mvpotter.github.io/mvpotter/tags/test/index.xml" rel="alternate" type="application/rss+xml" title="test" />
-      <link href="https://mvpotter.github.io/mvpotter/tags/test/index.xml" rel="feed" type="application/rss+xml" title="test" />
-    
-    <link rel="canonical" href="https://mvpotter.github.io/mvpotter/tags/test/"/>
+    <link rel="canonical" href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/"/>
     <link rel="icon" href="https://mvpotter.github.io/mvpotter/favicon.ico">
     <link rel="apple-touch-icon" href="https://mvpotter.github.io/mvpotter/apple-touch-icon.png" />
     <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/style.css">
@@ -23,18 +20,23 @@
     <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="test" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://mvpotter.github.io/mvpotter/tags/test/" />
+    <meta property="og:title" content="GitLab CI for mono repo built by Maven" />
+<meta property="og:description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-12T14:10:03+07:00" />
+<meta property="article:modified_time" content="2023-03-12T14:10:03+07:00" />
 
 
     
-    <meta itemprop="name" content="test">
-<meta itemprop="description" content="">
+    <meta itemprop="name" content="GitLab CI for mono repo built by Maven">
+<meta itemprop="description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented."><meta itemprop="datePublished" content="2023-03-12T14:10:03+07:00" />
+<meta itemprop="dateModified" content="2023-03-12T14:10:03+07:00" />
+<meta itemprop="wordCount" content="955">
+<meta itemprop="keywords" content="GitLab,CI,Maven,Monorepo," />
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="test"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="GitLab CI for mono repo built by Maven"/>
+<meta name="twitter:description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented."/>
 <meta name="twitter:site" content="@dude1366"/>
 
     
@@ -233,38 +235,292 @@
 
     <section id="main">
     
-    
-    
-    
-    <section class="archives-wrap">
-        <div class="archive-category-wrap">
-            <span class="archive-category">test</span>
-        </div>
-        <div class="archives">
-            
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://mvpotter.github.io/mvpotter/post/2017/01/podam/">PODAM (POjo DAta Mocker)</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2017-01-01 19:30:40 &#43;0700 &#43;0700" itemprop="datePublished">2017-01-01</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-        </div>
-    </section>
-    <nav id="page-nav">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
 
+        <header class="article-header">
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/">
+    <h1 class="article-title" itemprop="name">
+        GitLab CI for mono repo built by Maven
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2023-03-12 14:10:03 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-12</time>
+            &middot;
+            955
+            words
+            &middot;
+            5
+            minute read
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">GitLab</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/ci">CI</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/maven">Maven</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/monorepo">Monorepo</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented. Some services started to require more time to be built and the question was raised how to reduce the build time to get faster feedback from CI?</p>
+<p>At first we thought about moving each service to a dedicated repository, however we did not wanted to loose advantages of monorepo. Thus, we started to investigate GitLab CI features to figure out what can help us. Fortunately, GitLab CI allows to launch pipelines only for dedicated modules, allowing to build service only if changes were made to its sources. With the help of GitLab CI <a href="https://docs.gitlab.com/ee/ci/yaml/#include">include</a>, <a href="https://docs.gitlab.com/ee/ci/yaml/#rules">rules</a> and <a href="https://docs.gitlab.com/ee/ci/variables/">variables</a> we managed to improve out pipelines. And I wanted to share the configuration we came to.</p>
+<p>There is a <a href="https://gitlab.com/mvpotter/gitlab-ci-maven-monorepo">sample project</a> with everything I am going to mention in the article. So you can check the code right away.</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/1*cQ9Bt8cru89vADvF2D_ySg.png" alt="GitLab CI Pipeline"></p>
+<p>Let’s start with some basic rules for building a microservice (<em>/gitlab/actions/.gitlab-ci-basic-rules.yml</em>):</p>
+<pre tabindex="0"><code>.basic-rules:  
+  rules:  
+    - if: $CI_PIPELINE_SOURCE != &#34;push&#34;  
+      when: never  
+    - if: $CI_COMMIT_BRANCH  
+      changes:  
+        - $MODULE/**/*.{$EXTENSIONS_TO_CHECK}  
+        - &#34;pom.xml&#34;  
+      when: always  
+    - when: manual  
+      allow_failure: true
+</code></pre><p>We launch jobs on every push to the repository. Thus, if <a href="https://docs.gitlab.com/ee/ci/jobs/job_control.html#common-if-clauses-for-rules"><em>$CI_PIPELINE_SOURCE</em></a> has different value, we just skip the job.</p>
+<p>The next condition is <em>$CI_COMMIT_BRANCH</em> check. If variable is set, means the push was made to a branch. It is possible to add condition for specific branch, e.g. <em>$CI_COMMIT_BRANCH == “develop”</em>. Or to define custom behaviour on a tag creation with <em>$CI_COMMIT_TAG</em>.</p>
+<p>Moreover, we define that we want to launch the job only in case one of the following changed:</p>
+<ul>
+<li>Files in path <em>$MODULE/**/*.{$EXTENSIONS_TO_CHECK}</em>. <em>$MODULE</em> is a variable with service module name and <em>EXTENSIONS_TO_CHECK</em> is a list of files extensions that should be considered. E.g. most probably there is no need to rebuild a module if README.md only was changed</li>
+<li>Parent <em>pom.xml</em>. We have common libraries declarations parent pom. Thus, if something changes there, it is necessary to rebuild all the services. But, it is project specific thing. Service modules might be completely independent from each other and ignore changes in the parent pom.</li>
+</ul>
+<p>The last condition states that if a job is not launched automatically, it would still be displayed on the pipeline and could be lunched manually if necessary. <em>allow_failure: true</em> used not to block dependent job execution. E.g. it there were no changes in services files, but we still want to be able to deploy them from the pipeline without launching build manually.</p>
+<p>Then we can define build action (<em>/gitlab/actions/.gitlab-ci-build.yml</em>):</p>
+<pre tabindex="0"><code>include:  
+  - local: /gitlab/actions/.gitlab-ci-basic-rules.yml  
+  
+.build-action:  
+  extends: .basic-rules  
+  stage: build  
+  image: maven:3.9.0-eclipse-temurin-17-alpine  
+  script:  
+    - mvn $MAVEN_OPTS -T 1C -f $MODULE clean install
+</code></pre><p>We reuse basic rules by extending appropriate block. And as a script we just run <em>mvn clean inslall -f</em> option launches specific maven module and all its submodules.</p>
+<p>For each service we create own configuration w required actions, e.g. for service <strong>service-one</strong> we have the following config (<em>/gitlab/modules/.gitlab-ci-service-one.yml</em>):</p>
+<pre tabindex="0"><code>include:  
+  - local: /gitlab/actions/.gitlab-ci-build.yml  
+  
+.service-one-module:  
+  variables:  
+    MODULE: &#34;service-one&#34;  
+  
+build-service-one:  
+  extends:  
+    - .build-action  
+    - .service-one-module
+</code></pre><p>Here we define <em>MODULE</em> variable used in the build action script and extend both blocks for <em>build-service-one</em> job. So we have a job that would build our module automatically in case any file of appropriate extension was changed there would be an option to launch i manually otherwise.</p>
+<p>We have deployment script that updates only services that were changed from the last deployment. Thus, we configure jobs that allows to deploy solution to the target platform. A simple example of such job can be found in <em>/gitlab/environments/.gitlab-ci-dev-env.yml</em>:</p>
+<pre tabindex="0"><code>include:  
+  - local: /gitlab/actions/.gitlab-ci-deploy.yml  
+  
+.dev-env:  
+  before_script:  
+    - export PROJECT_TAG=$(grep -m 1 &#39;&lt;version&gt;&#39; pom.xml | awk -F &#39;&gt;&#39; &#39;{ print $2 }&#39; | awk -F &#39;&lt;&#39; &#39;{ print $1 }&#39;)  
+    - export DOCKER_TAG=$(echo &#34;$CI_COMMIT_REF_NAME&#34;|tr &#34;/&#34; &#34;_&#34;)-$PROJECT_TAG  
+  variables:  
+    PROFILE: &#34;dev&#34;  
+  environment:  
+    name: dev  
+    url: https://dev.mvpotter.com  
+  
+deploy-dev:  
+  extends:  
+    - .deploy-action  
+    - .dev-env  
+  only:  
+    - develop  
+  when: manual
+</code></pre><p>Deploy script is dummy for the sake of simplicity. Here, we extract project version from a <em>pom.xml</em> to calculate appropriate docker image tag. And define <em>deploy-dev</em> job that is available for <em>develop</em> branch only.</p>
+<p>And the root <em>.gitlab-ci.yml</em> script looks the following way:</p>
+<pre tabindex="0"><code>image: ruby:alpine3.17  
+  
+variables:  
+  EXTENSIONS_TO_CHECK: xml,java,yml,sql,js,json,html,png,css,scss  
+  MAVEN_OPTS: &#34;-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository&#34;  
+  
+cache:  
+  paths:  
+    - .m2/repository/  
+  
+stages:  
+  - build  
+  - deploy  
+  
+include:  
+  - local: /gitlab/modules/.gitlab-ci-service-one.yml  
+  - local: /gitlab/modules/.gitlab-ci-service-two.yml  
+  - local: /gitlab/environments/.gitlab-ci-dev-env.yml  
+  - local: /gitlab/environments/.gitlab-ci-prod-env.yml
+</code></pre><p>Here we just define <em>EXTENSIONS_TO_CHECK</em> variable. It can be overriden for each service if necessary. And include all our models and environments configurations.</p>
+<p>It is great that GitLab CI has so flexible configuration. However, there are a number of limitations for the moment.</p>
+<ol>
+<li>Every service is rebuilt if you create a new branch. It is possible to define <a href="https://docs.gitlab.com/ee/ci/jobs/job_control.html#skip-job-if-the-branch-is-empty"><em>compare_to</em></a> property. Unfortunately, it does not support variables for the moment. In our project we have a number of base branches that can be used for features, so we cannot define just a single one there.</li>
+<li>No transparent integration with GitLab pages. For example, we had a page where test coverage report was deployed. It worked when we built the whole project. However, now if only subset of services is rebuilt you cannot longer see results for the other ones that were build earlier as they are rewritten.</li>
+</ol>
+<p>Hope that the article helped you. If you have ideas how to improve the configuration or how to deal with current limitations please feel free to share them in comments.</p>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" data-id="4e24560d97f34700a62699188061e06d" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">Beyond layered architecture</div>
+    </a>
+    
+
+    
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">Feature flags in GitLab</div>
+    </a>
+    
 </nav>
 
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
     
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mvpotter" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
 
     </section>
 

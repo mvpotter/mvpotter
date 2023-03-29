@@ -6,7 +6,16 @@
     <description>Recent content in maven on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Sep 2016 10:42:43 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Mar 2023 14:10:03 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitLab CI for mono repo built by Maven</title>
+      <link>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</link>
+      <pubDate>Sun, 12 Mar 2023 14:10:03 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</guid>
+      <description>A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented.</description>
+    </item>
+    
     <item>
       <title>Spring boot debian package</title>
       <link>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</link>

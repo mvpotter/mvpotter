@@ -6,7 +6,26 @@
     <description>Recent content in Posts on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Mar 2019 16:04:11 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 18:03:14 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feature flags in GitLab</title>
+      <link>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</link>
+      <pubDate>Fri, 24 Mar 2023 18:03:14 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</guid>
+      <description>Feature flag is a concept that allows to enable and disable features without the need to redeploy application. They provide much flexible way to manage features’ lifecycle. With feature flags you would have the following advantages:
+Features can be released for a subset of users to minimise risk of bugs and errors that affect a lot of users or apply A/B testing Allow to continuously integrate and deploy features without affecting user experience (you can get rid of long lived feature branches) Changes can be rolled back easily without application redeployment However, along with advantages you usually get a set of trade offs:</description>
+    </item>
+    
+    <item>
+      <title>GitLab CI for mono repo built by Maven</title>
+      <link>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</link>
+      <pubDate>Sun, 12 Mar 2023 14:10:03 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</guid>
+      <description>A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented.</description>
+    </item>
+    
     <item>
       <title>Beyond layered architecture</title>
       <link>https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/</link>

@@ -145,12 +145,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        5
+        7
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          9
+          13
         
         <span>
             Tags
@@ -234,6 +234,299 @@
     <section id="main">
     
     
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/">
+    <h1 class="article-title" itemprop="name">
+        Feature flags in GitLab
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2023-03-24 18:03:14 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-24</time>
+            &middot;
+            614
+            words
+            &middot;
+            3
+            minute read
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">GitLab</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/ci">CI</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/feature-flags">Feature Flags</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>
+                Feature flag is a concept that allows to enable and disable features without the need to redeploy application. They provide much flexible way to manage features’ lifecycle. With feature flags you would have the following advantages:
+Features can be released for a subset of users to minimise risk of bugs and errors that affect a lot of users or apply A/B testing Allow to continuously integrate and deploy features without affecting user experience (you can get rid of long lived feature branches) Changes can be rolled back easily without application redeployment However, along with advantages you usually get a set of trade offs:
+            </p>
+            <p class="article-more-link">
+                <a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/">
+                    Read more
+                </a>
+            </p>
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/" data-id="b5ca790d18d24036447a3f9fbb119103" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/">
+    <h1 class="article-title" itemprop="name">
+        GitLab CI for mono repo built by Maven
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2023-03-12 14:10:03 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-12</time>
+            &middot;
+            955
+            words
+            &middot;
+            5
+            minute read
+        </div>
+        
+        
+            
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">GitLab</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/ci">CI</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/maven">Maven</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/monorepo">Monorepo</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>
+                A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented.
+            </p>
+            <p class="article-more-link">
+                <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/">
+                    Read more
+                </a>
+            </p>
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" data-id="4e24560d97f34700a62699188061e06d" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
 
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -952,6 +1245,30 @@
                     
                     
                     
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/" class="title">Feature flags in GitLab</a></p>
+                    <p class="item-date">
+                        <time datetime="2023-03-24 18:03:14 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-24</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" class="title">GitLab CI for mono repo built by Maven</a></p>
+                    <p class="item-date">
+                        <time datetime="2023-03-12 14:10:03 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-12</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-inner">
+                    
+                    
+                    
                     <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
                     <p class="item-date">
                         <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;0700" itemprop="datePublished">2019-03-30</time>
@@ -979,28 +1296,6 @@
                     <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/01/podam/" class="title">PODAM (POjo DAta Mocker)</a></p>
                     <p class="item-date">
                         <time datetime="2017-01-01 19:30:40 &#43;0700 &#43;0700" itemprop="datePublished">2017-01-01</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/" class="title">Springfox plugin for adding auth params</a></p>
-                    <p class="item-date">
-                        <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;0700" itemprop="datePublished">2016-10-17</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/" class="title">Spring boot debian package</a></p>
-                    <p class="item-date">
-                        <time datetime="2016-09-03 10:42:43 &#43;0700 &#43;0700" itemprop="datePublished">2016-09-03</time>
                     </p>
                 </div>
             </li>
@@ -1036,6 +1331,14 @@
             
             <li class="category-list-item">
                 
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/ci">
+                    ci
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/debian">
                     debian
                 </a>
@@ -1044,8 +1347,32 @@
             
             <li class="category-list-item">
                 
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/feature-flags">
+                    feature-flags
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">
+                    gitlab
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/maven">
                     maven
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/monorepo">
+                    monorepo
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -1118,10 +1445,22 @@
         <a href="https://mvpotter.github.io/mvpotter/tags/architecture" style="font-size: 12px;">architecture</a>
         
         
+        <a href="https://mvpotter.github.io/mvpotter/tags/ci" style="font-size: 12px;">ci</a>
+        
+        
         <a href="https://mvpotter.github.io/mvpotter/tags/debian" style="font-size: 12px;">debian</a>
         
         
+        <a href="https://mvpotter.github.io/mvpotter/tags/feature-flags" style="font-size: 12px;">feature-flags</a>
+        
+        
+        <a href="https://mvpotter.github.io/mvpotter/tags/gitlab" style="font-size: 12px;">gitlab</a>
+        
+        
         <a href="https://mvpotter.github.io/mvpotter/tags/maven" style="font-size: 12px;">maven</a>
+        
+        
+        <a href="https://mvpotter.github.io/mvpotter/tags/monorepo" style="font-size: 12px;">monorepo</a>
         
         
         <a href="https://mvpotter.github.io/mvpotter/tags/osgi" style="font-size: 12px;">osgi</a>
@@ -1158,7 +1497,7 @@
 <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 - 2022
+      &copy; 2016 - 2023
       Michael Potter.
     </div>
   </div>

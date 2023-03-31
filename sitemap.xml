@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/datasource/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/post/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/post/2023/03/route-spring-transactions-to-master-and-slave/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/spring/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
+    <loc>https://mvpotter.github.io/mvpotter/tags/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/ci/</loc>
     <lastmod>2023-03-24T18:03:14+07:00</lastmod>
   </url><url>
@@ -12,15 +30,6 @@
     <lastmod>2023-03-24T18:03:14+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/gitlab/</loc>
-    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/</loc>
-    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/</loc>
-    <lastmod>2023-03-24T18:03:14+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/tags/</loc>
     <lastmod>2023-03-24T18:03:14+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</loc>
@@ -49,9 +58,6 @@
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/test/</loc>
     <lastmod>2017-01-01T19:30:40+07:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/tags/spring/</loc>
-    <lastmod>2016-10-17T21:08:31+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/springfox/</loc>
     <lastmod>2016-10-17T21:08:31+07:00</lastmod>

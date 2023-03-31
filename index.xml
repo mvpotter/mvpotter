@@ -6,7 +6,18 @@
     <description>Recent content on Michael Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 18:03:14 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2023 11:13:18 +0400</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Route Spring transactions to master and slave</title>
+      <link>https://mvpotter.github.io/mvpotter/post/2023/03/route-spring-transactions-to-master-and-slave/</link>
+      <pubDate>Fri, 31 Mar 2023 11:13:18 +0400</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/post/2023/03/route-spring-transactions-to-master-and-slave/</guid>
+      <description>With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with @Transactional annotation a bit of configuration.
+Firstly, let&amp;rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.
+public enum DatabaseNodeType { MASTER, SLAVE } Then it is necessary to define a context holder to be aware which transaction is used in the specified thread.</description>
+    </item>
+    
     <item>
       <title>Feature flags in GitLab</title>
       <link>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</link>

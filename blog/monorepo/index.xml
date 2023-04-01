@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monorepo on Mikhail Potter</title>
+    <link>https://mvpotter.github.io/mvpotter/blog/monorepo/</link>
+    <description>Recent content in Monorepo on Mikhail Potter</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Sun, 12 Mar 2023 14:10:03 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/blog/monorepo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitLab CI for mono repo built by Maven</title>
+      <link>https://mvpotter.github.io/mvpotter/gitlab-ci-for-mono-repo-built-by-maven/</link>
+      <pubDate>Sun, 12 Mar 2023 14:10:03 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/gitlab-ci-for-mono-repo-built-by-maven/</guid>
+      <description>A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented.</description>
+    </item>
+    
+  </channel>
+</rss>

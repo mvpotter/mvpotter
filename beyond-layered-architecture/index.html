@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Beyond layered architecture | Mikhail Potter</title>
+<meta name="title" content="Beyond layered architecture" />
+<meta name="description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated." />
+<meta name="keywords" content="architecture," />
+
+
+<meta property="og:title" content="Beyond layered architecture" />
+<meta property="og:description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mvpotter.github.io/mvpotter/beyond-layered-architecture/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-03-30T16:04:11+07:00" />
+<meta property="article:modified_time" content="2019-03-30T16:04:11+07:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Beyond layered architecture"/>
+<meta name="twitter:description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated."/>
+<meta name="twitter:site" content="@dude1366"/>
+
+
+
+<meta itemprop="name" content="Beyond layered architecture">
+<meta itemprop="description" content="I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the layered architecture principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated."><meta itemprop="datePublished" content="2019-03-30T16:04:11+07:00" />
+<meta itemprop="dateModified" content="2019-03-30T16:04:11+07:00" />
+<meta itemprop="wordCount" content="917">
+<meta itemprop="keywords" content="architecture," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="https://mvpotter.github.io/mvpotter/" class="title">
+  <h2>Mikhail Potter</h2>
+</a>
+<nav>
+<a href="https://mvpotter.github.io/mvpotter/blog">Blog</a>
+
+<a href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a>
+
+<a href="https://mvpotter.github.io/mvpotter/blog/">Blogs</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Beyond layered architecture</h1>
+<p>
+  <i>
+    <time datetime='2019-03-30' pubdate>
+      30 Mar, 2019
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>I have taken part in development of tens enterprise project during my career. Usually, the main approach of building them is quite similar: layered architecture with Spring framework and JPA. It is quite easy to understand the <a href="https://en.wikipedia.org/wiki/Multitier_architecture">layered architecture</a> principles and get a vision how to separate layers vertically. However, developers usually have issues when they need to make a decision concerning horizontal separation of concerns and how exactly business logic should be separated.</p>
+<p>I took part in a number of discussions with different teams on how to do it. Of course, details were different each time, however, main approaches were the same. Sometimes, correct decisions were made from the very beginning of the project, sometimes we reached them when faced architectural issues. I want to describe the approaches we used. It does not mean that it is the only good way of building applications, but it reduced cognitive complexity and saved us a lot of time when we worked on enterprise applications.</p>
+<h5 id="how-to-create-an-optimal-subset-of-services-that-implement-required-business-logic">How to create an optimal subset of services that implement required business logic?</h5>
+<p>One of the popular issues that I found in projects is big service classes (e.g. 1000 lines of code). For example, we are developing an online store and need to implement the scenario of forming an order. It is required to fill in a customer, a set of items to buy, delivery and payment information. Simple tutorials usually explain how to deal with simple entities, e.g. we create a service for each entity: <code>OrderService</code>, <code>ItemService</code>, <code>CustomerService</code>. They can make CRUD operations and allow to search information about specified entities. However, when we need to set an order&rsquo;s customer or add a new item, one of the most obvious ways is to extend <code>OrderService</code> with required methods.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ComplexOrderService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">setCustomer</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID customerId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">addItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">removeItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This approach will lead to the situation when <code>OrderService</code> becomes a God service that makes almost everything. And it will expand when new business requirements need to be implemented. To make service responsibility more separated we can move necessary operations to special services that should manage the relation. To manage items in an order we can create <code>OrderItemService</code>, to manage order customer <code>OrderCustomerService</code> and so on.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">SimpleOrderService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">create</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">find</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Order order<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>UUID id<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OrderItemService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">addItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">removeItem</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID itemId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">OrderCustomerService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Order <span style="color:#a6e22e">setCustomer</span><span style="color:#f92672">(</span>UUID orderId<span style="color:#f92672">,</span> UUID customerId<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Services become smaller and manageable.</p>
+<h5 id="can-service-read-entities-of-another-one-using-its-repository-or-entity-manager">Can service read entities of another one using its repository or entity manager?</h5>
+<p>Another quite common idea is to inject any repository in any service to work with required entities. Anyway we have the same database and it is easy to get what you need without writing additional code. Moreover, it does not break layered architecture principle. Some developers even say that repository is redundant abstraction and we can inject entity manager right into the service and do everything we want. Having entity manager injected in <code>OrderItemService</code> we can extract required order <code>em.find(Order.class, orderId)</code> and item <code>em.find(Item.class, itemId)</code>.</p>
+<p>I agree that you do not need to think and do much to work with required entities, however, these approaches raise quite complex issues in a long run. In my opinion, the best approach for a service to manage only its entity, interaction with others should be done using appropriate services. Because, only service knows how to create, find and update its entities appropriately. Sometimes, you have to not only get an entity from a database, but also make some optimizations or fill in some properties by invoking external service. Or you can have a need to perform some specific modifications before saving an entity. If you do not incapsulate the way entity is managed, you can mistakenly miss some critical data when trying to update it using repository or entity manager instead of a service.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BadOrderItemService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> OrderRepository orderRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ItemRepository itemRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GoodOrderItemService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> OrderService orderService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> ItemService itemService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h5 id="should-services-return-business-objects-only">Should services return business objects only?</h5>
+<p>Layered architecture states that specific type of objects should be transferred between layers. We have entity objects in persistence layer, business objects in service layer and DTO object in presentation layer. The question is, if we make a call from one service to another should only business objects be transferred or entities are allowable too? On the one hand, business object should contain all necessary information, on the other, having an entity we can use JPA features like lazy loading and retrieve data optimally. Moreover, using entity, it is easier to update entities relations.</p>
+<p>For me it is a classical conflict between clean architecture and the pursuit of optimization. Services should always return and receive business objects as arguments. It will hide the magic that JPA proxies do and prevents a typical type of errors, when you try to get some lazy field from an entity when session was closed.</p>
+<p>In a couple of projects we had a situation when entities were used through all the layers. And as an intermediate step of the refactoring we used both entities and business objects in services contracts. However, outer services interfaces that used in controllers contained only business objects and entities usage were only inside inner interfaces used by other services.</p>
+<p>That&rsquo;s it for now. Keep your code clean!</p>
+
+</content>
+<p>
+  
+  <a href="https://mvpotter.github.io/mvpotter/blog/architecture/">#architecture</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

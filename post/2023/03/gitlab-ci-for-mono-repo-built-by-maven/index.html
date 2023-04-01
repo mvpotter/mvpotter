@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
+
 <head>
-    <title>GitLab CI for mono repo built by Maven &middot; GitLab CI for mono repo built by Maven</title>
-    <meta name="generator" content="Hugo 0.101.0" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="yandex-verification" content="7c27b88782f6b39b" />
-    <meta name="author" content="Michael Potter">
-    
-      <meta name="description" content="">
-    
-    
-    <link rel="canonical" href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/"/>
-    <link rel="icon" href="https://mvpotter.github.io/mvpotter/favicon.ico">
-    <link rel="apple-touch-icon" href="https://mvpotter.github.io/mvpotter/apple-touch-icon.png" />
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/style.css">
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/monokai.css">
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="GitLab CI for mono repo built by Maven" />
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GitLab CI for mono repo built by Maven | Mikhail Potter</title>
+<meta name="title" content="GitLab CI for mono repo built by Maven" />
+<meta name="description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented." />
+<meta name="keywords" content="GitLab,CI,Maven,Monorepo," />
+
+
+<meta property="og:title" content="GitLab CI for mono repo built by Maven" />
 <meta property="og:description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" /><meta property="article:section" content="post" />
@@ -28,288 +19,233 @@
 <meta property="article:modified_time" content="2023-03-12T14:10:03+07:00" />
 
 
-    
-    <meta itemprop="name" content="GitLab CI for mono repo built by Maven">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GitLab CI for mono repo built by Maven"/>
+<meta name="twitter:description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented."/>
+
+
+
+<meta itemprop="name" content="GitLab CI for mono repo built by Maven">
 <meta itemprop="description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented."><meta itemprop="datePublished" content="2023-03-12T14:10:03+07:00" />
 <meta itemprop="dateModified" content="2023-03-12T14:10:03+07:00" />
 <meta itemprop="wordCount" content="955">
 <meta itemprop="keywords" content="GitLab,CI,Maven,Monorepo," />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GitLab CI for mono repo built by Maven"/>
-<meta name="twitter:description" content="A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented."/>
-<meta name="twitter:site" content="@dude1366"/>
+<meta name="referrer" content="no-referrer-when-downgrade" />
 
-    
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
 
-    
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
 </head>
+
 <body>
-<div class="container">
+  <header><a href="/mvpotter/" class="title">
+  <h2>Mikhail Potter</h2>
+</a>
+<nav>
+<a href="/mvpotter/">Blog</a>
 
+<a href="/mvpotter/cv.pdf">CV</a>
 
-<div id="container">
-	<header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="https://mvpotter.github.io/mvpotter/" id="logo">
-          
-          <i class="logo" style="background-image: url('https://mvpotter.github.io/mvpotter/images/avatar.jpg')"></i>
-          
-          <span class="site-title">Michael Potter</span>
-      </a>
-      <nav id="main-nav">
-          
-          
-          <a class="main-nav-link" href="https://mvpotter.github.io/">Home</a>
-          
-          
-          
-          
+<a href="https://www.linkedin.com/in/supermegapotter">Linkedin</a>
 
-          
+<a href="https://github.com/mvpotter">GitHub</a>
 
-          
-          
-          
-          
-          <a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a>
-          
-          
-      </nav>
-        <nav id="sub-nav">
-          <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg"><i class="fa fa-caret-down"></i></a>
-          </div>
-        </nav>
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-              <input type="search" name="q" class="search-form-input" placeholder="Search">
-              <button type="submit" class="search-form-submit">
-              </button>
-              <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
-         </form>
-        </div>
-    </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tbody>
-          <tr>
-          
-          
-          <td><a class="main-nav-link" href="https://mvpotter.github.io/">Home</a></td>
-          
-          
-          
-          
+<a href="https://medium.com/@supermegapotter">Medium</a>
 
-          
-
-          
-          
-          
-          
-          <td><a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a></td>
-          
-          
-          <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-          <input type="search" name="q" class="search-form-input" placeholder="Search">
-          <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
-          </form>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+</nav>
 </header>
+  <main>
 
-   	
-   	<div class="outer">
-   	
-    	<aside id="profile">
-  <div class="inner profile-inner">
-    <div class="base-info profile-block">
-      
-      <img id="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg">
-      
-      <h2 id="name">Michael Potter</h2>
-      
-      <span id="location"><i class="fa fa-map-marker"></i>Novosibirsk, Russia</span>
-      
-          <a id="follow" href="https://github.com/mvpotter">
-              Follow
-          </a>
-      
-    </div>
-    <div class="article-info profile-block">
-      <div class="article-info-block">
-        8
-        <span>Posts</span>
-      </div>
-      <div class="article-info-block">
-        
-          14
-        
-        <span>
-            Tags
-        </span>
-      </div>
-    </div>
-    <div class="profile-block social-links">
-      <table>
-        <tr>
-          
-<td><a href="//github.com/mvpotter" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
-
-
-
-
-
-<td><a href="//bitbucket.com/mvpotter" target="_blank" title="Bitbucket"><i class="fa fa-bitbucket"></i></a></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<td><a href="//linkedin.com/in/supermegapotter" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
-
-
-
-
-
-<td><a href="//stackoverflow.com/users/1309406" target="_blank" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a></td>
-
-
-
-
-
-
-
-
-
-
-
-<td><a href="//twitter.com/dude1366" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
-
-
-          <td><a href="https://mvpotter.github.io/mvpotter/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</aside>
-
-    
-
-    <section id="main">
-    
-    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-
-        <header class="article-header">
-    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/">
-    <h1 class="article-title" itemprop="name">
-        GitLab CI for mono repo built by Maven
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2023-03-12 14:10:03 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-12</time>
-            &middot;
-            955
-            words
-            &middot;
-            5
-            minute read
-        </div>
-        
-        
-            
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">GitLab</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/ci">CI</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/maven">Maven</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://mvpotter.github.io/mvpotter/tags/monorepo">Monorepo</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented. Some services started to require more time to be built and the question was raised how to reduce the build time to get faster feedback from CI?</p>
+<content>
+  <p>A couple of years ago we have decomposed one of our projects to a number of Microservices. For the sake of simplicity we continued to keep sources in a single repository. On every commit appropriate maven goal was launched for parent project and it delegated the task to its children. At the very beginning services were quite small and did not required much time to compile and execute tests. However, through the time more logic and tests were implemented. Some services started to require more time to be built and the question was raised how to reduce the build time to get faster feedback from CI?</p>
 <p>At first we thought about moving each service to a dedicated repository, however we did not wanted to loose advantages of monorepo. Thus, we started to investigate GitLab CI features to figure out what can help us. Fortunately, GitLab CI allows to launch pipelines only for dedicated modules, allowing to build service only if changes were made to its sources. With the help of GitLab CI <a href="https://docs.gitlab.com/ee/ci/yaml/#include">include</a>, <a href="https://docs.gitlab.com/ee/ci/yaml/#rules">rules</a> and <a href="https://docs.gitlab.com/ee/ci/variables/">variables</a> we managed to improve out pipelines. And I wanted to share the configuration we came to.</p>
 <p>There is a <a href="https://gitlab.com/mvpotter/gitlab-ci-maven-monorepo">sample project</a> with everything I am going to mention in the article. So you can check the code right away.</p>
 <p><img src="https://miro.medium.com/v2/resize:fit:1400/1*cQ9Bt8cru89vADvF2D_ySg.png" alt="GitLab CI Pipeline"></p>
 <p>Let’s start with some basic rules for building a microservice (<em>/gitlab/actions/.gitlab-ci-basic-rules.yml</em>):</p>
-<pre tabindex="0"><code>.basic-rules:  
-  rules:  
-    - if: $CI_PIPELINE_SOURCE != &#34;push&#34;  
-      when: never  
-    - if: $CI_COMMIT_BRANCH  
-      changes:  
-        - $MODULE/**/*.{$EXTENSIONS_TO_CHECK}  
-        - &#34;pom.xml&#34;  
-      when: always  
-    - when: manual  
-      allow_failure: true
-</code></pre><p>We launch jobs on every push to the repository. Thus, if <a href="https://docs.gitlab.com/ee/ci/jobs/job_control.html#common-if-clauses-for-rules"><em>$CI_PIPELINE_SOURCE</em></a> has different value, we just skip the job.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">.basic-rules</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">if</span>: <span style="color:#ae81ff">$CI_PIPELINE_SOURCE != &#34;push&#34;  </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">when</span>: <span style="color:#ae81ff">never  </span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">if</span>: <span style="color:#ae81ff">$CI_COMMIT_BRANCH  </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">changes</span>:  
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">$MODULE/**/*.{$EXTENSIONS_TO_CHECK}  </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#e6db74">&#34;pom.xml&#34;</span>  
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">when</span>: <span style="color:#ae81ff">always  </span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">when</span>: <span style="color:#ae81ff">manual  </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">allow_failure</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>We launch jobs on every push to the repository. Thus, if <a href="https://docs.gitlab.com/ee/ci/jobs/job_control.html#common-if-clauses-for-rules"><em>$CI_PIPELINE_SOURCE</em></a> has different value, we just skip the job.</p>
 <p>The next condition is <em>$CI_COMMIT_BRANCH</em> check. If variable is set, means the push was made to a branch. It is possible to add condition for specific branch, e.g. <em>$CI_COMMIT_BRANCH == “develop”</em>. Or to define custom behaviour on a tag creation with <em>$CI_COMMIT_TAG</em>.</p>
 <p>Moreover, we define that we want to launch the job only in case one of the following changed:</p>
 <ul>
@@ -318,72 +254,72 @@
 </ul>
 <p>The last condition states that if a job is not launched automatically, it would still be displayed on the pipeline and could be lunched manually if necessary. <em>allow_failure: true</em> used not to block dependent job execution. E.g. it there were no changes in services files, but we still want to be able to deploy them from the pipeline without launching build manually.</p>
 <p>Then we can define build action (<em>/gitlab/actions/.gitlab-ci-build.yml</em>):</p>
-<pre tabindex="0"><code>include:  
-  - local: /gitlab/actions/.gitlab-ci-basic-rules.yml  
-  
-.build-action:  
-  extends: .basic-rules  
-  stage: build  
-  image: maven:3.9.0-eclipse-temurin-17-alpine  
-  script:  
-    - mvn $MAVEN_OPTS -T 1C -f $MODULE clean install
-</code></pre><p>We reuse basic rules by extending appropriate block. And as a script we just run <em>mvn clean inslall -f</em> option launches specific maven module and all its submodules.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">include</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/actions/.gitlab-ci-basic-rules.yml  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">.build-action</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">extends</span>: <span style="color:#ae81ff">.basic-rules  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">build  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">maven:3.9.0-eclipse-temurin-17-alpine  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">script</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">mvn $MAVEN_OPTS -T 1C -f $MODULE clean install</span>
+</span></span></code></pre></div><p>We reuse basic rules by extending appropriate block. And as a script we just run <em>mvn clean inslall -f</em> option launches specific maven module and all its submodules.</p>
 <p>For each service we create own configuration w required actions, e.g. for service <strong>service-one</strong> we have the following config (<em>/gitlab/modules/.gitlab-ci-service-one.yml</em>):</p>
-<pre tabindex="0"><code>include:  
-  - local: /gitlab/actions/.gitlab-ci-build.yml  
-  
-.service-one-module:  
-  variables:  
-    MODULE: &#34;service-one&#34;  
-  
-build-service-one:  
-  extends:  
-    - .build-action  
-    - .service-one-module
-</code></pre><p>Here we define <em>MODULE</em> variable used in the build action script and extend both blocks for <em>build-service-one</em> job. So we have a job that would build our module automatically in case any file of appropriate extension was changed there would be an option to launch i manually otherwise.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">include</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/actions/.gitlab-ci-build.yml  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">.service-one-module</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">variables</span>:  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">MODULE</span>: <span style="color:#e6db74">&#34;service-one&#34;</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">build-service-one</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">extends</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">.build-action  </span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">.service-one-module</span>
+</span></span></code></pre></div><p>Here we define <em>MODULE</em> variable used in the build action script and extend both blocks for <em>build-service-one</em> job. So we have a job that would build our module automatically in case any file of appropriate extension was changed there would be an option to launch i manually otherwise.</p>
 <p>We have deployment script that updates only services that were changed from the last deployment. Thus, we configure jobs that allows to deploy solution to the target platform. A simple example of such job can be found in <em>/gitlab/environments/.gitlab-ci-dev-env.yml</em>:</p>
-<pre tabindex="0"><code>include:  
-  - local: /gitlab/actions/.gitlab-ci-deploy.yml  
-  
-.dev-env:  
-  before_script:  
-    - export PROJECT_TAG=$(grep -m 1 &#39;&lt;version&gt;&#39; pom.xml | awk -F &#39;&gt;&#39; &#39;{ print $2 }&#39; | awk -F &#39;&lt;&#39; &#39;{ print $1 }&#39;)  
-    - export DOCKER_TAG=$(echo &#34;$CI_COMMIT_REF_NAME&#34;|tr &#34;/&#34; &#34;_&#34;)-$PROJECT_TAG  
-  variables:  
-    PROFILE: &#34;dev&#34;  
-  environment:  
-    name: dev  
-    url: https://dev.mvpotter.com  
-  
-deploy-dev:  
-  extends:  
-    - .deploy-action  
-    - .dev-env  
-  only:  
-    - develop  
-  when: manual
-</code></pre><p>Deploy script is dummy for the sake of simplicity. Here, we extract project version from a <em>pom.xml</em> to calculate appropriate docker image tag. And define <em>deploy-dev</em> job that is available for <em>develop</em> branch only.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">include</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/actions/.gitlab-ci-deploy.yml  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">.dev-env</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">before_script</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">export PROJECT_TAG=$(grep -m 1 &#39;&lt;version&gt;&#39; pom.xml | awk -F &#39;&gt;&#39; &#39;{ print $2 }&#39; | awk -F &#39;&lt;&#39; &#39;{ print $1 }&#39;)  </span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">export DOCKER_TAG=$(echo &#34;$CI_COMMIT_REF_NAME&#34;|tr &#34;/&#34; &#34;_&#34;)-$PROJECT_TAG  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">variables</span>:  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">PROFILE</span>: <span style="color:#e6db74">&#34;dev&#34;</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">environment</span>:  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dev  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://dev.mvpotter.com  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">deploy-dev</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">extends</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">.deploy-action  </span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">.dev-env  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">only</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">develop  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">when</span>: <span style="color:#ae81ff">manual</span>
+</span></span></code></pre></div><p>Deploy script is dummy for the sake of simplicity. Here, we extract project version from a <em>pom.xml</em> to calculate appropriate docker image tag. And define <em>deploy-dev</em> job that is available for <em>develop</em> branch only.</p>
 <p>And the root <em>.gitlab-ci.yml</em> script looks the following way:</p>
-<pre tabindex="0"><code>image: ruby:alpine3.17  
-  
-variables:  
-  EXTENSIONS_TO_CHECK: xml,java,yml,sql,js,json,html,png,css,scss  
-  MAVEN_OPTS: &#34;-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository&#34;  
-  
-cache:  
-  paths:  
-    - .m2/repository/  
-  
-stages:  
-  - build  
-  - deploy  
-  
-include:  
-  - local: /gitlab/modules/.gitlab-ci-service-one.yml  
-  - local: /gitlab/modules/.gitlab-ci-service-two.yml  
-  - local: /gitlab/environments/.gitlab-ci-dev-env.yml  
-  - local: /gitlab/environments/.gitlab-ci-prod-env.yml
-</code></pre><p>Here we just define <em>EXTENSIONS_TO_CHECK</em> variable. It can be overriden for each service if necessary. And include all our models and environments configurations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">image</span>: <span style="color:#ae81ff">ruby:alpine3.17  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">variables</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">EXTENSIONS_TO_CHECK</span>: <span style="color:#ae81ff">xml,java,yml,sql,js,json,html,png,css,scss  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">MAVEN_OPTS</span>: <span style="color:#e6db74">&#34;-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository&#34;</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cache</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">paths</span>:  
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">.m2/repository/  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">build  </span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">deploy  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">include</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/modules/.gitlab-ci-service-one.yml  </span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/modules/.gitlab-ci-service-two.yml  </span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/environments/.gitlab-ci-dev-env.yml  </span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#ae81ff">/gitlab/environments/.gitlab-ci-prod-env.yml</span>
+</span></span></code></pre></div><p>Here we just define <em>EXTENSIONS_TO_CHECK</em> variable. It can be overriden for each service if necessary. And include all our models and environments configurations.</p>
 <p>It is great that GitLab CI has so flexible configuration. However, there are a number of limitations for the moment.</p>
 <ol>
 <li>Every service is rebuilt if you create a new branch. It is possible to define <a href="https://docs.gitlab.com/ee/ci/jobs/job_control.html#skip-job-if-the-branch-is-empty"><em>compare_to</em></a> property. Unfortunately, it does not support variables for the moment. In our project we have a number of base branches that can be used for features, so we cannot define just a single one there.</li>
@@ -391,493 +327,24 @@ include:
 </ol>
 <p>Hope that the article helped you. If you have ideas how to improve the configuration or how to deal with current limitations please feel free to share them in comments.</p>
 
-        </div>
-        <footer class="article-footer">
-    <a data-url="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" data-id="4e24560d97f34700a62699188061e06d" class="article-share-link">
-        <i class="fa fa-share"></i>
-        Share
-    </a>
-    
-    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
-    
+</content>
+<p>
+  
+  <a href="https://mvpotter.github.io/mvpotter/tags/gitlab/">#GitLab</a>
+  
+  <a href="https://mvpotter.github.io/mvpotter/tags/ci/">#CI</a>
+  
+  <a href="https://mvpotter.github.io/mvpotter/tags/maven/">#maven</a>
+  
+  <a href="https://mvpotter.github.io/mvpotter/tags/monorepo/">#Monorepo</a>
+  
+</p>
 
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
+  </main>
+  <footer>
 </footer>
 
-    </div>
-
     
-<nav id="article-nav">
-    
-    <a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Older
-      </strong>
-      <div class="article-nav-title">Beyond layered architecture</div>
-    </a>
-    
-
-    
-    <a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Newer
-      </strong>
-      <div class="article-nav-title">Feature flags in GitLab</div>
-    </a>
-    
-</nav>
-
-
-</article>
-
-
-<section id="comments">
-    <div id="disqus_thread">
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "mvpotter" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
-</section>
-
-
-    </section>
-
-   	
-    	<aside id="sidebar">
-    
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        Recent
-    </h3>
-    <div class="widget">
-        <ul id="recent-post">
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/route-spring-transactions-to-master-and-slave/" class="title">Route Spring transactions to master and slave</a></p>
-                    <p class="item-date">
-                        <time datetime="2023-03-31 11:13:18 &#43;0400 &#43;04" itemprop="datePublished">2023-03-31</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/" class="title">Feature flags in GitLab</a></p>
-                    <p class="item-date">
-                        <time datetime="2023-03-24 18:03:14 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-24</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" class="title">GitLab CI for mono repo built by Maven</a></p>
-                    <p class="item-date">
-                        <time datetime="2023-03-12 14:10:03 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-12</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;0700" itemprop="datePublished">2019-03-30</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
-                    <p class="item-date">
-                        <time datetime="2017-02-24 22:31:11 &#43;0700 &#43;0700" itemprop="datePublished">2017-02-24</time>
-                    </p>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-    
-
-
-
-
-
-    
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        Tags
-    </h3>
-    <div class="widget">
-        <ul class="category-list">
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/architecture">
-                    architecture
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/ci">
-                    ci
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/datasource">
-                    datasource
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/debian">
-                    debian
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/feature-flags">
-                    feature-flags
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">
-                    gitlab
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/maven">
-                    maven
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/monorepo">
-                    monorepo
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/osgi">
-                    osgi
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring">
-                    spring
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring-boot">
-                    spring-boot
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/springfox">
-                    springfox
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/swagger">
-                    swagger
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/test">
-                    test
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-
-
-    
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        Tag cloud
-    </h3>
-    <div class="widget tagcloud">
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/architecture" style="font-size: 12px;">architecture</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/ci" style="font-size: 12px;">ci</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/datasource" style="font-size: 12px;">datasource</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/debian" style="font-size: 12px;">debian</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/feature-flags" style="font-size: 12px;">feature-flags</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/gitlab" style="font-size: 12px;">gitlab</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/maven" style="font-size: 12px;">maven</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/monorepo" style="font-size: 12px;">monorepo</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/osgi" style="font-size: 12px;">osgi</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/spring" style="font-size: 12px;">spring</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/springfox" style="font-size: 12px;">springfox</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/swagger" style="font-size: 12px;">swagger</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/test" style="font-size: 12px;">test</a>
-        
-    </div>
-</div>
-
-
-
-
-
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
-
-    
-	</div>
-</div>
-
-<footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 - 2023
-      Michael Potter.
-    </div>
-  </div>
-</footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-10647442-16', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script src="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.pack.js"></script>
-<script src="https://mvpotter.github.io/mvpotter/js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<!-- MathJax -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']]}
-  });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter39399375 = new Ya.Metrika({
-                    id:39399375,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/39399375" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-10647442-16', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
-
-
 </body>
+
 </html>

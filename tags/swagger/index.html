@@ -1,627 +1,258 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
-    <title>Swagger &middot; Swagger</title>
-    <meta name="generator" content="Hugo 0.101.0" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="yandex-verification" content="7c27b88782f6b39b" />
-    <meta name="author" content="Michael Potter">
-    
-      <meta name="description" content="">
-    
-    
-      <link href="https://mvpotter.github.io/mvpotter/tags/swagger/index.xml" rel="alternate" type="application/rss+xml" title="Swagger" />
-      <link href="https://mvpotter.github.io/mvpotter/tags/swagger/index.xml" rel="feed" type="application/rss+xml" title="Swagger" />
-    
-    <link rel="canonical" href="https://mvpotter.github.io/mvpotter/tags/swagger/"/>
-    <link rel="icon" href="https://mvpotter.github.io/mvpotter/favicon.ico">
-    <link rel="apple-touch-icon" href="https://mvpotter.github.io/mvpotter/apple-touch-icon.png" />
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/style.css">
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/css/monokai.css">
-    <link rel="stylesheet" href="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Swagger" />
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swagger | Mikhail Potter</title>
+<meta name="title" content="Swagger" />
+<meta name="description" content="" />
+<meta name="keywords" content="architecture,ci,datasource,debian,feature-flags,gitlab,maven,monorepo,osgi,spring,spring-boot,springfox,swagger,test," />
+
+
+<meta property="og:title" content="Swagger" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mvpotter.github.io/mvpotter/tags/swagger/" />
 
 
-    
-    <meta itemprop="name" content="Swagger">
-<meta itemprop="description" content="">
-    <meta name="twitter:card" content="summary"/>
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Swagger"/>
 <meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@dude1366"/>
 
-    
 
-    
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<meta itemprop="name" content="Swagger">
+<meta itemprop="description" content="">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <link rel="alternate" type="application/rss+xml" href="https://mvpotter.github.io/mvpotter/tags/swagger/index.xml" title="Mikhail Potter" />
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
 </head>
+
 <body>
-<div class="container">
+  <header><a href="/mvpotter/" class="title">
+  <h2>Mikhail Potter</h2>
+</a>
+<nav>
+<a href="/mvpotter/">Blog</a>
 
+<a href="/mvpotter/cv.pdf">CV</a>
 
-<div id="container">
-	<header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="https://mvpotter.github.io/mvpotter/" id="logo">
-          
-          <i class="logo" style="background-image: url('https://mvpotter.github.io/mvpotter/images/avatar.jpg')"></i>
-          
-          <span class="site-title">Michael Potter</span>
-      </a>
-      <nav id="main-nav">
-          
-          
-          <a class="main-nav-link" href="https://mvpotter.github.io/">Home</a>
-          
-          
-          
-          
+<a href="https://www.linkedin.com/in/supermegapotter">Linkedin</a>
 
-          
+<a href="https://github.com/mvpotter">GitHub</a>
 
-          
-          
-          
-          
-          <a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a>
-          
-          
-      </nav>
-        <nav id="sub-nav">
-          <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg"><i class="fa fa-caret-down"></i></a>
-          </div>
-        </nav>
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-              <input type="search" name="q" class="search-form-input" placeholder="Search">
-              <button type="submit" class="search-form-submit">
-              </button>
-              <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
-         </form>
-        </div>
-    </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tbody>
-          <tr>
-          
-          
-          <td><a class="main-nav-link" href="https://mvpotter.github.io/">Home</a></td>
-          
-          
-          
-          
-
-          
-
-          
-          
-          
-          
-          <td><a class="main-nav-link" href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a></td>
-          
-          
-          <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
-          <input type="search" name="q" class="search-form-input" placeholder="Search">
-          <input type="hidden" name="sitesearch" value="https://mvpotter.github.io/mvpotter/" />
-          </form>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</header>
-
-   	
-   	<div class="outer">
-   	
-    	<aside id="profile">
-  <div class="inner profile-inner">
-    <div class="base-info profile-block">
-      
-      <img id="avatar" src="https://mvpotter.github.io/mvpotter/images/avatar.jpg">
-      
-      <h2 id="name">Michael Potter</h2>
-      
-      <span id="location"><i class="fa fa-map-marker"></i>Novosibirsk, Russia</span>
-      
-          <a id="follow" href="https://github.com/mvpotter">
-              Follow
-          </a>
-      
-    </div>
-    <div class="article-info profile-block">
-      <div class="article-info-block">
-        8
-        <span>Posts</span>
-      </div>
-      <div class="article-info-block">
-        
-          14
-        
-        <span>
-            Tags
-        </span>
-      </div>
-    </div>
-    <div class="profile-block social-links">
-      <table>
-        <tr>
-          
-<td><a href="//github.com/mvpotter" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
-
-
-
-
-
-<td><a href="//bitbucket.com/mvpotter" target="_blank" title="Bitbucket"><i class="fa fa-bitbucket"></i></a></td>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<td><a href="//linkedin.com/in/supermegapotter" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></td>
-
-
-
-
-
-<td><a href="//stackoverflow.com/users/1309406" target="_blank" title="Stack Overflow"><i class="fa fa-stack-overflow"></i></a></td>
-
-
-
-
-
-
-
-
-
-
-
-<td><a href="//twitter.com/dude1366" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
-
-
-          <td><a href="https://mvpotter.github.io/mvpotter/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</aside>
-
-    
-
-    <section id="main">
-    
-    
-    
-    
-    <section class="archives-wrap">
-        <div class="archive-category-wrap">
-            <span class="archive-category">Swagger</span>
-        </div>
-        <div class="archives">
-            
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/">Springfox plugin for adding auth params</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2016-10-17 21:08:31 &#43;0700 &#43;0700" itemprop="datePublished">2016-10-17</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-        </div>
-    </section>
-    <nav id="page-nav">
+<a href="https://medium.com/@supermegapotter">Medium</a>
 
 </nav>
-
+</header>
+  <main>
+<content>
+  
+  <h3 style="margin-bottom:0">Filtering for "Swagger"</h3>
+  <small>
+    <a href="/mvpotter/blog">Remove filter</a>
+  </small>
+  
+  <ul class="blog-posts">
     
-
-    </section>
-
-   	
-    	<aside id="sidebar">
+    <li>
+      <span>
+        <i>
+          <time datetime='2016-10-17' pubdate>
+            17 Oct, 2016
+          </time>
+        </i>
+      </span>
+      <a href="https://mvpotter.github.io/mvpotter/blog/2016/10/springfox-plugin-for-adding-auth-params/">Springfox plugin for adding auth params</a>
+    </li>
     
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        Recent
-    </h3>
-    <div class="widget">
-        <ul id="recent-post">
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/route-spring-transactions-to-master-and-slave/" class="title">Route Spring transactions to master and slave</a></p>
-                    <p class="item-date">
-                        <time datetime="2023-03-31 11:13:18 &#43;0400 &#43;04" itemprop="datePublished">2023-03-31</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/" class="title">Feature flags in GitLab</a></p>
-                    <p class="item-date">
-                        <time datetime="2023-03-24 18:03:14 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-24</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/" class="title">GitLab CI for mono repo built by Maven</a></p>
-                    <p class="item-date">
-                        <time datetime="2023-03-12 14:10:03 &#43;0700 &#43;0700" itemprop="datePublished">2023-03-12</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/" class="title">Beyond layered architecture</a></p>
-                    <p class="item-date">
-                        <time datetime="2019-03-30 16:04:11 &#43;0700 &#43;0700" itemprop="datePublished">2019-03-30</time>
-                    </p>
-                </div>
-            </li>
-            
-            <li>
-                <div class="item-inner">
-                    
-                    
-                    
-                    <p class="item-title"><a href="https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/" class="title">Pluggable architecture with Apache Felix</a></p>
-                    <p class="item-date">
-                        <time datetime="2017-02-24 22:31:11 &#43;0700 &#43;0700" itemprop="datePublished">2017-02-24</time>
-                    </p>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
-</div>
+  </ul>
+  
+  
+</content>
 
-
-    
-
-
-
-
-
-    
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        Tags
-    </h3>
-    <div class="widget">
-        <ul class="category-list">
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/architecture">
-                    architecture
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/ci">
-                    ci
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/datasource">
-                    datasource
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/debian">
-                    debian
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/feature-flags">
-                    feature-flags
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/gitlab">
-                    gitlab
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/maven">
-                    maven
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/monorepo">
-                    monorepo
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/osgi">
-                    osgi
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring">
-                    spring
-                </a>
-                <span class="category-list-count">2</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/spring-boot">
-                    spring-boot
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/springfox">
-                    springfox
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/swagger">
-                    swagger
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-            <li class="category-list-item">
-                
-                <a class="category-list-link" href="https://mvpotter.github.io/mvpotter/tags/test">
-                    test
-                </a>
-                <span class="category-list-count">1</span>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-
-
-    
-
-
-<div class="widget-wrap">
-    <h3 class="widget-title">
-        Tag cloud
-    </h3>
-    <div class="widget tagcloud">
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/architecture" style="font-size: 12px;">architecture</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/ci" style="font-size: 12px;">ci</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/datasource" style="font-size: 12px;">datasource</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/debian" style="font-size: 12px;">debian</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/feature-flags" style="font-size: 12px;">feature-flags</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/gitlab" style="font-size: 12px;">gitlab</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/maven" style="font-size: 12px;">maven</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/monorepo" style="font-size: 12px;">monorepo</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/osgi" style="font-size: 12px;">osgi</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/spring" style="font-size: 12px;">spring</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/spring-boot" style="font-size: 12px;">spring-boot</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/springfox" style="font-size: 12px;">springfox</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/swagger" style="font-size: 12px;">swagger</a>
-        
-        
-        <a href="https://mvpotter.github.io/mvpotter/tags/test" style="font-size: 12px;">test</a>
-        
-    </div>
-</div>
-
-
-
-
-
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
-
-    
-	</div>
-</div>
-
-<footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 - 2023
-      Michael Potter.
-    </div>
-  </div>
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
 </footer>
 
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-10647442-16', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script src="https://mvpotter.github.io/mvpotter/fancybox/jquery.fancybox.pack.js"></script>
-<script src="https://mvpotter.github.io/mvpotter/js/script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<!-- MathJax -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']]}
-  });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
-<script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter39399375 = new Ya.Metrika({
-                    id:39399375,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/39399375" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-10647442-16', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
-
-
+    
 </body>
+
 </html>

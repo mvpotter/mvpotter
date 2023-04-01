@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Route Spring transactions to master and slave | Mikhail Potter</title>
+<meta name="title" content="Route Spring transactions to master and slave" />
+<meta name="description" content="With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with @Transactional annotation a bit of configuration.
+Firstly, let&rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.
+public enum DatabaseNodeType { MASTER, SLAVE } Then it is necessary to define a context holder to be aware which transaction is used in the specified thread." />
+<meta name="keywords" content="Spring,DataSource," />
+
+
+<meta property="og:title" content="Route Spring transactions to master and slave" />
+<meta property="og:description" content="With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with @Transactional annotation a bit of configuration.
+Firstly, let&rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.
+public enum DatabaseNodeType { MASTER, SLAVE } Then it is necessary to define a context holder to be aware which transaction is used in the specified thread." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mvpotter.github.io/mvpotter/route-spring-transactions-to-master-and-slave/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-03-31T11:13:18+04:00" />
+<meta property="article:modified_time" content="2023-03-31T11:13:18+04:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Route Spring transactions to master and slave"/>
+<meta name="twitter:description" content="With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with @Transactional annotation a bit of configuration.
+Firstly, let&rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.
+public enum DatabaseNodeType { MASTER, SLAVE } Then it is necessary to define a context holder to be aware which transaction is used in the specified thread."/>
+<meta name="twitter:site" content="@dude1366"/>
+
+
+
+<meta itemprop="name" content="Route Spring transactions to master and slave">
+<meta itemprop="description" content="With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with @Transactional annotation a bit of configuration.
+Firstly, let&rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.
+public enum DatabaseNodeType { MASTER, SLAVE } Then it is necessary to define a context holder to be aware which transaction is used in the specified thread."><meta itemprop="datePublished" content="2023-03-31T11:13:18+04:00" />
+<meta itemprop="dateModified" content="2023-03-31T11:13:18+04:00" />
+<meta itemprop="wordCount" content="549">
+<meta itemprop="keywords" content="Spring,DataSource," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="https://mvpotter.github.io/mvpotter/" class="title">
+  <h2>Mikhail Potter</h2>
+</a>
+<nav>
+<a href="https://mvpotter.github.io/mvpotter/blog">Blog</a>
+
+<a href="https://mvpotter.github.io/mvpotter/cv.pdf">CV</a>
+
+<a href="https://mvpotter.github.io/mvpotter/blog/">Blogs</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Route Spring transactions to master and slave</h1>
+<p>
+  <i>
+    <time datetime='2023-03-31' pubdate>
+      31 Mar, 2023
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with <code>@Transactional</code> annotation a bit of configuration.</p>
+<p>Firstly, let&rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> DatabaseNodeType <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>    MASTER<span style="color:#f92672">,</span>  
+</span></span><span style="display:flex;"><span>    SLAVE
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Then it is necessary to define a context holder to be aware which transaction is used in the specified thread. A bit later we would configure interceptor that checks arguments of <code>Transactional</code> annotation and sets appropriate node type.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseContextHolder</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ThreadLocal<span style="color:#f92672">&lt;</span>DatabaseNodeType<span style="color:#f92672">&gt;</span> CONTEXT <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadLocal<span style="color:#f92672">&lt;&gt;();</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">DatabaseContextHolder</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UnsupportedOperationException<span style="color:#f92672">(</span>DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getSimpleName</span><span style="color:#f92672">()</span>  
+</span></span><span style="display:flex;"><span>                                                <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; cannot be instantiated&#34;</span><span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType DatabaseNodeType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        CONTEXT<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> DatabaseNodeType <span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> CONTEXT<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">reset</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        CONTEXT<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">MASTER_FAST</span><span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>AbstractRoutingDataSource</code> makes almost all the magic in the current approach. We need to override <code>determineCurrentLookupKey</code> method and return a value from context holder. It would help to decide which datasource should be used when transaction is being created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MasterSlaveRoutingDataSource</span> <span style="color:#66d9ef">extends</span> AbstractRoutingDataSource <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> Object <span style="color:#a6e22e">determineCurrentLookupKey</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Then it is necessary to define datasource beans and define <code>MasterSlaveRoutingDataSource</code> as primary datasource that would use appropriate datasource node type.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JpaRepositoryConfiguration</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String MASTER_DATA_SOURCE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MASTER_DATA_SOURCE&#34;</span><span style="color:#f92672">;</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String SLAVE_DATA_SOURCE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SLAVE_DATA_SOURCE&#34;</span><span style="color:#f92672">;</span>  
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Primary</span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">dataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        MasterSlaveRoutingDataSource masterSlaveRoutingDataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MasterSlaveRoutingDataSource<span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>        Map<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> targetDataSources <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>  
+</span></span><span style="display:flex;"><span>        targetDataSources<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">MASTER</span><span style="color:#f92672">,</span> masterFastDataSource<span style="color:#f92672">());</span>  
+</span></span><span style="display:flex;"><span>        targetDataSources<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">SLAVE</span><span style="color:#f92672">,</span> slaveSlowDataSource<span style="color:#f92672">());</span>  
+</span></span><span style="display:flex;"><span>        masterSlaveRoutingDataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setTargetDataSources</span><span style="color:#f92672">(</span>targetDataSources<span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>        masterSlaveRoutingDataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setDefaultTargetDataSource</span><span style="color:#f92672">(</span>masterFastDataSource<span style="color:#f92672">());</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> masterSlaveRoutingDataSource<span style="color:#f92672">;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span>MASTER_DATA_SOURCE<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;datasource.master&#34;</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">masterDataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> DataSourceBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span>SLAVE_DATA_SOURCE<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ConfigurationProperties</span><span style="color:#f92672">(</span>prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;datasource.slave&#34;</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DataSource <span style="color:#a6e22e">slaveDataSource</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> DataSourceBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>And all that is left is putting appropriate key to context holder when transaction starts. There are at least 2 approaches how to do it.</p>
+<h3 id="using-aop">Using AOP</h3>
+<p>The following aspect intersects invocations that marked as <code>@Transactional</code> and either located in <strong>com.mvpotter</strong> package or sub packages or annotated with <code>@Repository</code>. It is necessary to reset the context after method invocation. Otherwise, the thread might be reused later and it might try to write using read only transaction or do other unexpected things.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Aspect</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Order</span><span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TransactionAspect</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Around</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;(within(com.mvpotter.*) || @annotation(org.springframework.stereotype.Repository)) &amp;&amp; @annotation(transactional)&#34;</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">proceed</span><span style="color:#f92672">(</span>ProceedingJoinPoint proceedingJoinPoint<span style="color:#f92672">,</span> Transactional transactional<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>transactional<span style="color:#f92672">.</span><span style="color:#a6e22e">readOnly</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>                DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">SLAVE</span><span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span> 
+</span></span><span style="display:flex;"><span>                DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">MASTER</span><span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> proceedingJoinPoint<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="creating-a-wrapper-for-platformtransactionmanager">Creating a wrapper for <code>PlatformTransactionManager</code></h3>
+<p>We need to wrap <code>PlatformTransactionManager</code> and update context holder value when transaction is being fethed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReplicaAwareTransactionManager</span> <span style="color:#66d9ef">implements</span> PlatformTransactionManager <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> PlatformTransactionManager wrapped<span style="color:#f92672">;</span>  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ReplicaAwareTransactionManager</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> PlatformTransactionManager wrapped<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">wrapped</span> <span style="color:#f92672">=</span> wrapped<span style="color:#f92672">;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> TransactionStatus <span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">(</span>TransactionDefinition definition<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>definition <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> definition<span style="color:#f92672">.</span><span style="color:#a6e22e">isReadOnly</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">SLAVE</span><span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>DatabaseNodeType<span style="color:#f92672">.</span><span style="color:#a6e22e">MASTER</span><span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> wrapped<span style="color:#f92672">.</span><span style="color:#a6e22e">getTransaction</span><span style="color:#f92672">(</span>definition<span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            DatabaseContextHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">reset</span><span style="color:#f92672">();</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">commit</span><span style="color:#f92672">(</span>TransactionStatus status<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> TransactionException <span style="color:#f92672">{</span> 
+</span></span><span style="display:flex;"><span>        wrapped<span style="color:#f92672">.</span><span style="color:#a6e22e">commit</span><span style="color:#f92672">(</span>status<span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">rollback</span><span style="color:#f92672">(</span>TransactionStatus status<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> TransactionException <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        wrapped<span style="color:#f92672">.</span><span style="color:#a6e22e">rollback</span><span style="color:#f92672">(</span>status<span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>And then define beans to wrap transaction manager and make the wrapper primary manager.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Primary</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">transactionManager</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Qualifier</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dataSourceTransactionManager&#34;</span><span style="color:#f92672">)</span> PlatformTransactionManager transactionManager<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ReplicaAwareTransactionManager<span style="color:#f92672">(</span>transactionManager<span style="color:#f92672">);</span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dataSourceTransactionManager&#34;</span><span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> PlatformTransactionManager <span style="color:#a6e22e">platformTransactionManager</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> DataSourceTransactionManager<span style="color:#f92672">(</span>dataSource<span style="color:#f92672">());</span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="https://mvpotter.github.io/mvpotter/blog/spring/">#Spring</a>
+  
+  <a href="https://mvpotter.github.io/mvpotter/blog/datasource/">#DataSource</a>
+  
+</p>
+
+  </main>
+  <footer>
+</footer>
+
+    
+</body>
+
+</html>

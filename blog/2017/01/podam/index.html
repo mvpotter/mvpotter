@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PODAM (POjo DAta Mocker) | Mikhail Potter</title>
+<meta name="title" content="PODAM (POjo DAta Mocker)" />
+<meta name="description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM." />
+<meta name="keywords" content="test," />
+
+
+<meta property="og:title" content="PODAM (POjo DAta Mocker)" />
+<meta property="og:description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mvpotter.github.io/mvpotter/blog/2017/01/podam/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-01-01T19:30:40+07:00" />
+<meta property="article:modified_time" content="2017-01-01T19:30:40+07:00" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PODAM (POjo DAta Mocker)"/>
+<meta name="twitter:description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM."/>
+
+
+
+<meta itemprop="name" content="PODAM (POjo DAta Mocker)">
+<meta itemprop="description" content="Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called PODAM."><meta itemprop="datePublished" content="2017-01-01T19:30:40+07:00" />
+<meta itemprop="dateModified" content="2017-01-01T19:30:40+07:00" />
+<meta itemprop="wordCount" content="335">
+<meta itemprop="keywords" content="test," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/mvpotter/" class="title">
+  <h2>Mikhail Potter</h2>
+</a>
+<nav>
+<a href="/mvpotter/">Blog</a>
+
+<a href="/mvpotter/cv.pdf">CV</a>
+
+<a href="https://www.linkedin.com/in/supermegapotter">Linkedin</a>
+
+<a href="https://github.com/mvpotter">GitHub</a>
+
+<a href="https://medium.com/@supermegapotter">Medium</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>PODAM (POjo DAta Mocker)</h1>
+<p>
+  <i>
+    <time datetime='2017-01-01' pubdate>
+      01 Jan, 2017
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>Writing unit tests, especially for data converters, requires creating a lot of POJOs and populate them to see that fields&rsquo; values are mapped correctly. In my previous experience, projects had simple POJOs and it was not a big deal to fill them with data manually, however, one of the last projects has complex model and creating test objects with all the relations became an issue. I started to finding for a solution that can create and populate objects for me and found a great tool called <a href="https://devopsfolks.github.io/podam/">PODAM</a>.</p>
+<p>PODAM is abbreviation for POjo DAta Mocker and its API for creating beans is pretty simple. All you need to do is create <code>PodamFactory</code> instance and use its <code>manufacturePojo</code> method that instantiates object and fills its fields with random values:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>PodamFactory factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PodamFactoryImpl<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>Order order <span style="color:#f92672">=</span> factory<span style="color:#f92672">.</span><span style="color:#a6e22e">manufacturePojo</span><span style="color:#f92672">(</span>Order<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>Sometimes you need to specify rules for field values. For example, ids of entities have <code>String</code> type and <code>UUID</code>format. For generated entities to pass validation logic smoothly it is necessary to generate valid ids. <a href="https://devopsfolks.github.io/podam/">PODAM</a> suggests two ways to deal with such issues:</p>
+<p>The first one is to implement <code>AttributeStrategy</code> class and add <code>@PodamStrategyValue</code> annotation on required field. However, in my case this approach was undesirable, because I needed to test business entities and it is not a good idea to clutter them with annotation from test dependencies.</p>
+<p>The second approach is to implement custom <code>TypeManufacturer</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomStringManufacturer</span> <span style="color:#66d9ef">extends</span> StringTypeManufacturerImpl <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String FIELD_ID <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getType</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> DataProviderStrategy strategy<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> AttributeMetadata attributeMetadata<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                    	  <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Type<span style="color:#f92672">&gt;</span> genericTypesArgumentsMap<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>FIELD_ID<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>attributeMetadata<span style="color:#f92672">.</span><span style="color:#a6e22e">getAttributeName</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">(</span>strategy<span style="color:#f92672">,</span> attributeMetadata<span style="color:#f92672">,</span> genericTypesArgumentsMap<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>and register it for using by <code>PodamFactory</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>podamFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getStrategy</span><span style="color:#f92672">().</span><span style="color:#a6e22e">addOrReplaceTypeManufacturer</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> CustomStringManufacturer<span style="color:#f92672">());</span>
+</span></span></code></pre></div><p>I described only a subset of <a href="https://devopsfolks.github.io/podam/">PODAM</a> features. You can always visit their <a href="https://devopsfolks.github.io/podam/">documentation</a> for further info.</p>
+<p>Another alternative that I found later is <a href="https://github.com/benas/random-beans/wiki">random-beans</a> project. However, I did not have time to test it thoroughly. If you know other tools for generating and populating beans feel free to share your experience in comments.</p>
+</content>
+<p>
+  
+  <a href="https://mvpotter.github.io/mvpotter/tags/test/">#test</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on Mikhail Potter</title>
+    <link>https://mvpotter.github.io/mvpotter/blog/spring/</link>
+    <description>Recent content in Spring on Mikhail Potter</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Fri, 31 Mar 2023 11:13:18 +0400</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/blog/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Route Spring transactions to master and slave</title>
+      <link>https://mvpotter.github.io/mvpotter/route-spring-transactions-to-master-and-slave/</link>
+      <pubDate>Fri, 31 Mar 2023 11:13:18 +0400</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/route-spring-transactions-to-master-and-slave/</guid>
+      <description>With the grow of a project there might be a need to forward read requests to slave node. Fortunately, it could be easily achieved in Spring with @Transactional annotation a bit of configuration.
+Firstly, let&amp;rsquo;s define a node type. Here, we have values for master and slave only. However, the set might be extended, for example if you need separate connection pools for fast and long queries.
+public enum DatabaseNodeType { MASTER, SLAVE } Then it is necessary to define a context holder to be aware which transaction is used in the specified thread.</description>
+    </item>
+    
+    <item>
+      <title>Springfox plugin for adding auth params</title>
+      <link>https://mvpotter.github.io/mvpotter/springfox-plugin-for-adding-auth-params/</link>
+      <pubDate>Mon, 17 Oct 2016 21:08:31 +0700</pubDate>
+      
+      <guid>https://mvpotter.github.io/mvpotter/springfox-plugin-for-adding-auth-params/</guid>
+      <description>&lt;p&gt;Generating REST API documentation using Springfox for one of the recent projects I found out that adding authentication header to private api methods is not an obvious task. In accordance with &lt;a href=&#34;http://springfox.github.io/springfox/docs/current/&#34;&gt;Springfox reference&lt;/a&gt; it could be done using &lt;em&gt;globalOperationParameters&lt;/em&gt;, however in this case parameter will be added to every endpoint. Dilip Krishnan &lt;a href=&#34;http://stackoverflow.com/questions/36475452/reuse-complex-spring-fox-swagger-annotation&#34;&gt;suggests&lt;/a&gt; to create multiple dockets to separate public api from private one. But in my case the only method of public api is &lt;em&gt;/login&lt;/em&gt; and it is not reasonable to create docket for a single endpoint. Thus, I wrote a plugin to solve the issue.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

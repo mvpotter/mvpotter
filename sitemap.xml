@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mvpotter.github.io/mvpotter/blog/</loc>
+    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
+  </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/datasource/</loc>
     <lastmod>2023-03-31T11:13:18+04:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/</loc>
     <lastmod>2023-03-31T11:13:18+04:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/</loc>
-    <lastmod>2023-03-31T11:13:18+04:00</lastmod>
-  </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2023/03/route-spring-transactions-to-master-and-slave/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2023/03/route-spring-transactions-to-master-and-slave/</loc>
     <lastmod>2023-03-31T11:13:18+04:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/spring/</loc>
@@ -26,13 +26,13 @@
     <loc>https://mvpotter.github.io/mvpotter/tags/feature-flags/</loc>
     <lastmod>2023-03-24T18:03:14+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2023/03/feature-flags-in-gitlab/</loc>
     <lastmod>2023-03-24T18:03:14+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/gitlab/</loc>
     <lastmod>2023-03-24T18:03:14+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2023/03/gitlab-ci-for-mono-repo-built-by-maven/</loc>
     <lastmod>2023-03-12T14:10:03+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/maven/</loc>
@@ -44,16 +44,16 @@
     <loc>https://mvpotter.github.io/mvpotter/tags/architecture/</loc>
     <lastmod>2019-03-30T16:04:11+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2019/03/beyond-layered-architecture/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2019/03/beyond-layered-architecture/</loc>
     <lastmod>2019-03-30T16:04:11+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/osgi/</loc>
     <lastmod>2017-02-24T22:31:11+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2017/02/osgi-felix-tutorial/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2017/02/osgi-felix-tutorial/</loc>
     <lastmod>2017-02-24T22:31:11+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2017/01/podam/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2017/01/podam/</loc>
     <lastmod>2017-01-01T19:30:40+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/test/</loc>
@@ -62,7 +62,7 @@
     <loc>https://mvpotter.github.io/mvpotter/tags/springfox/</loc>
     <lastmod>2016-10-17T21:08:31+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2016/10/springfox-plugin-for-adding-auth-params/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2016/10/springfox-plugin-for-adding-auth-params/</loc>
     <lastmod>2016-10-17T21:08:31+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/swagger/</loc>
@@ -71,7 +71,7 @@
     <loc>https://mvpotter.github.io/mvpotter/tags/debian/</loc>
     <lastmod>2016-09-03T10:42:43+07:00</lastmod>
   </url><url>
-    <loc>https://mvpotter.github.io/mvpotter/post/2016/09/spring-boot-debian-package/</loc>
+    <loc>https://mvpotter.github.io/mvpotter/blog/2016/09/spring-boot-debian-package/</loc>
     <lastmod>2016-09-03T10:42:43+07:00</lastmod>
   </url><url>
     <loc>https://mvpotter.github.io/mvpotter/tags/spring-boot/</loc>

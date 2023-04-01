@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Feature Flags on Michael Potter</title>
+    <title>Feature Flags on Mikhail Potter</title>
     <link>https://mvpotter.github.io/mvpotter/tags/feature-flags/</link>
-    <description>Recent content in Feature Flags on Michael Potter</description>
+    <description>Recent content in Feature Flags on Mikhail Potter</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Mar 2023 18:03:14 +0700</lastBuildDate><atom:link href="https://mvpotter.github.io/mvpotter/tags/feature-flags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Feature flags in GitLab</title>
-      <link>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</link>
+      <link>https://mvpotter.github.io/mvpotter/blog/2023/03/feature-flags-in-gitlab/</link>
       <pubDate>Fri, 24 Mar 2023 18:03:14 +0700</pubDate>
       
-      <guid>https://mvpotter.github.io/mvpotter/post/2023/03/feature-flags-in-gitlab/</guid>
+      <guid>https://mvpotter.github.io/mvpotter/blog/2023/03/feature-flags-in-gitlab/</guid>
       <description>Feature flag is a concept that allows to enable and disable features without the need to redeploy application. They provide much flexible way to manage features’ lifecycle. With feature flags you would have the following advantages:
 Features can be released for a subset of users to minimise risk of bugs and errors that affect a lot of users or apply A/B testing Allow to continuously integrate and deploy features without affecting user experience (you can get rid of long lived feature branches) Changes can be rolled back easily without application redeployment However, along with advantages you usually get a set of trade offs:</description>
     </item>

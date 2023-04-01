@@ -20,7 +20,7 @@ There is a [sample project](https://gitlab.com/mvpotter/gitlab-ci-maven-monorep
 
 Let’s start with some basic rules for building a microservice (*/gitlab/actions/.gitlab-ci-basic-rules.yml*):
 
-```
+```yaml
 .basic-rules:  
   rules:  
     - if: $CI_PIPELINE_SOURCE != "push"  
@@ -47,7 +47,7 @@ The last condition states that if a job is not launched automatically, it would 
 
 Then we can define build action (*/gitlab/actions/.gitlab-ci-build.yml*):
 
-```
+```yaml
 include:  
   - local: /gitlab/actions/.gitlab-ci-basic-rules.yml  
   
@@ -63,7 +63,7 @@ We reuse basic rules by extending appropriate block. And as a script we just run
 
 For each service we create own configuration w required actions, e.g. for service **service-one** we have the following config (*/gitlab/modules/.gitlab-ci-service-one.yml*):
 
-```
+```yaml
 include:  
   - local: /gitlab/actions/.gitlab-ci-build.yml  
   
@@ -81,7 +81,7 @@ Here we define *MODULE* variable used in the build action script and extend bo
 
 We have deployment script that updates only services that were changed from the last deployment. Thus, we configure jobs that allows to deploy solution to the target platform. A simple example of such job can be found in */gitlab/environments/.gitlab-ci-dev-env.yml*:
 
-```
+```yaml
 include:  
   - local: /gitlab/actions/.gitlab-ci-deploy.yml  
   
@@ -108,7 +108,7 @@ Deploy script is dummy for the sake of simplicity. Here, we extract project vers
 
 And the root *.gitlab-ci.yml* script looks the following way:
 
-```
+```yaml
 image: ruby:alpine3.17  
   
 variables:  

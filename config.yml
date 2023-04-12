@@ -5,6 +5,7 @@ author: "Mikhail Potter"
 languageCode: "en-us"
 disqusShortname: "mvpotter"
 enableRobotsTXT: true
+canonifyurls: true
 
 params:
   hideMadeWithLine: false

@@ -73,8 +73,8 @@ Extension points require two methods to be implemented:
 
 As a result, every endpoint, except */login* has authentication token header in generated documentation.
 
-![Image](/post/2016/10/springfox-plugin-for-adding-auth-params-1.png)
-![Image](/post/2016/10/springfox-plugin-for-adding-auth-params-2.png)
+![Image](/2016/10/springfox-plugin-for-adding-auth-params-1.png)
+![Image](/2016/10/springfox-plugin-for-adding-auth-params-2.png)
 
 The whole code of the plugin is the following.
 
